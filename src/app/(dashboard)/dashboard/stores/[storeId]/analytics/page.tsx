@@ -5,8 +5,8 @@ import { orders, stores } from "@/db/schema"
 import { env } from "@/env.mjs"
 import { and, desc, eq, gte, lte, sql } from "drizzle-orm"
 
-import { formatNumber, formatPrice } from "@/lib/utils"
-import { searchParamsSchema } from "@/lib/validations/params"
+import { formatNumber, formatPrice } from "@/lib/client/utils"
+import { searchParamsSchema } from "@/lib/server/params.validations"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import {
   Card,

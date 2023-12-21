@@ -1,9 +1,9 @@
 import Link from "next/link"
 
-import { siteConfig } from "@/config/site"
-import { cn } from "@/lib/utils"
+import { siteConfig } from "@/app/menu-config"
+import { cn } from "@/lib/client/utils"
 import { buttonVariants } from "@/components/ui/button"
-import { JoinNewsletterForm } from "@/components/forms/join-newsletter-form"
+import { JoinNewsletterForm } from "@/features/email-preferences/client/components/join-newsletter-form"
 import { Icons } from "@/components/icons"
 import { ModeToggle } from "@/components/layouts/mode-toggle"
 import { Shell } from "@/components/shells/shell"

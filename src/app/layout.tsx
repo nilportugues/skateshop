@@ -4,9 +4,9 @@ import { ClerkProvider } from "@clerk/nextjs"
 
 import "@/styles/globals.css"
 
-import { siteConfig } from "@/config/site"
-import { fontHeading, fontMono, fontSans } from "@/lib/fonts"
-import { cn } from "@/lib/utils"
+import { siteConfig } from "@/app/menu-config"
+import { fontHeading, fontMono, fontSans } from "@/lib/client/fonts"
+import { cn } from "@/lib/client/utils"
 import { Toaster } from "@/components/ui/toaster"
 import { Analytics } from "@/components/analytics"
 import { ThemeProvider } from "@/components/providers"

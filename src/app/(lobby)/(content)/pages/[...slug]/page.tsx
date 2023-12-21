@@ -5,8 +5,8 @@ import "@/styles/mdx.css"
 
 import { type Metadata } from "next"
 
-import { siteConfig } from "@/config/site"
-import { absoluteUrl } from "@/lib/utils"
+import { siteConfig } from "@/app/menu-config"
+import { absoluteUrl } from "@/lib/client/utils"
 import { Separator } from "@/components/ui/separator"
 import { Mdx } from "@/components/mdx/mdx-components"
 import {

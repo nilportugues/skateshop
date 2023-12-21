@@ -5,11 +5,11 @@ import { products, stores } from "@/db/schema"
 import { env } from "@/env.mjs"
 import { eq } from "drizzle-orm"
 
-import { getProducts } from "@/lib/fetchers/product"
-import { getStores } from "@/lib/fetchers/store"
+import { getProducts } from "@/features/product/server/product"
+import { getStores } from "@/features/stores/store"
 import { Separator } from "@/components/ui/separator"
 import { Breadcrumbs } from "@/components/pagers/breadcrumbs"
-import { Products } from "@/components/products"
+import { Products } from "@/features/product/client/components/dashboard/products"
 import { Shell } from "@/components/shells/shell"
 
 interface StorePageProps {

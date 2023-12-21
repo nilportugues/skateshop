@@ -6,8 +6,8 @@ import { useSelectedLayoutSegment } from "next/navigation"
 import type { MainNavItem, SidebarNavItem } from "@/types"
 import { ViewVerticalIcon } from "@radix-ui/react-icons"
 
-import { siteConfig } from "@/config/site"
-import { cn } from "@/lib/utils"
+import { siteConfig } from "@/app/menu-config"
+import { cn } from "@/lib/client/utils"
 import {
   Accordion,
   AccordionContent,

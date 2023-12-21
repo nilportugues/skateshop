@@ -4,8 +4,8 @@ import * as React from "react"
 import Link from "next/link"
 import type { MainNavItem } from "@/types"
 
-import { siteConfig } from "@/config/site"
-import { cn } from "@/lib/utils"
+import { siteConfig } from "@/app/menu-config"
+import { cn } from "@/lib/client/utils"
 import {
   NavigationMenu,
   NavigationMenuContent,

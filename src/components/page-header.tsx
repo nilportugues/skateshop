@@ -3,7 +3,7 @@
 import { cva, type VariantProps } from "class-variance-authority"
 import { Balancer } from "react-wrap-balancer"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/client/utils"
 import { Separator } from "@/components/ui/separator"
 
 interface PageHeaderProps extends React.HTMLAttributes<HTMLDivElement> {

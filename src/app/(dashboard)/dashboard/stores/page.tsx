@@ -9,19 +9,19 @@ import { currentUser } from "@clerk/nextjs"
 import { RocketIcon } from "@radix-ui/react-icons"
 import { desc, eq, sql } from "drizzle-orm"
 
-import { getSubscriptionPlan } from "@/lib/fetchers/stripe"
-import { getDashboardRedirectPath, getPlanFeatures } from "@/lib/subscription"
-import { cn } from "@/lib/utils"
+import { getSubscriptionPlan } from "@/features/stripe/server/stripe.services"
+import { getDashboardRedirectPath, getPlanFeatures } from "@/features/stripe/client/subscription"
+import { cn } from "@/lib/client/utils"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { buttonVariants } from "@/components/ui/button"
-import { StoreCard } from "@/components/cards/store-card"
+import { StoreCard } from "@/features/stores/client/components/store-card"
 import {
   PageHeader,
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header"
 import { Shell } from "@/components/shells/shell"
-import { StoreCardSkeleton } from "@/components/skeletons/store-card-skeleton"
+import { StoreCardSkeleton } from "@/features/stores/client/components/store-card-skeleton"
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),

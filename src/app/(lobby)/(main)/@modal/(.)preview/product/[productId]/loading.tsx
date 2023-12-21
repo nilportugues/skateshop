@@ -1,4 +1,4 @@
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/client/utils"
 import { Skeleton } from "@/components/ui/skeleton"
 import { PlaceholderImage } from "@/components/placeholder-image"
 import { DialogShell } from "@/components/shells/dialog-shell"

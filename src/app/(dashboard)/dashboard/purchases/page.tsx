@@ -7,15 +7,15 @@ import { env } from "@/env.mjs"
 import { currentUser } from "@clerk/nextjs"
 import { and, asc, desc, eq, inArray, like, sql } from "drizzle-orm"
 
-import { getUserEmail } from "@/lib/utils"
-import { purchasesSearchParamsSchema } from "@/lib/validations/params"
+import { getUserEmail } from "@/lib/client/utils"
+import { purchasesSearchParamsSchema } from "@/lib/server/params.validations"
 import { DataTableSkeleton } from "@/components/data-table/data-table-skeleton"
 import {
   PageHeader,
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header"
-import { PurchasesTableShell } from "@/components/shells/purchases-table-shell"
+import { PurchasesTableShell } from "@/features/stripe/client/components/dashboard.purchases-table-shell"
 import { Shell } from "@/components/shells/shell"
 
 export const metadata: Metadata = {

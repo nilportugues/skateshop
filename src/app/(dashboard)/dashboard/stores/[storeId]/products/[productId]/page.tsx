@@ -12,8 +12,8 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { UpdateProductForm } from "@/components/forms/update-product-form"
-import { ProductPager } from "@/components/pagers/product-pager"
+import { UpdateProductForm } from "@/features/product/client/components/dashboard/update-product-form"
+import { ProductPager } from "@/features/product/client/components/product-pager"
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),

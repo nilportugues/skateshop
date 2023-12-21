@@ -7,19 +7,19 @@ import { ArrowRightIcon } from "@radix-ui/react-icons"
 import { desc, eq, sql } from "drizzle-orm"
 import { Balancer } from "react-wrap-balancer"
 
-import { productCategories } from "@/config/products"
-import { siteConfig } from "@/config/site"
-import { cn } from "@/lib/utils"
+import { productCategories } from "@/features/product/config/products"
+import { siteConfig } from "@/app/menu-config"
+import { cn } from "@/lib/client/utils"
 import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
-import { CategoryCard } from "@/components/cards/category-card"
-import { ProductCard } from "@/components/cards/product-card"
-import { StoreCard } from "@/components/cards/store-card"
+import { CategoryCard } from "@/features/product/server/components/category-card"
+import { ProductCard } from "@/features/stores/client/components/product-card"
+import { StoreCard } from "@/features/stores/client/components/store-card"
 import { Icons } from "@/components/icons"
 import { Shell } from "@/components/shells/shell"
-import { ProductCardSkeleton } from "@/components/skeletons/product-card-skeleton"
-import { StoreCardSkeleton } from "@/components/skeletons/store-card-skeleton"
+import { ProductCardSkeleton } from "@/features/stores/client/components/product-card-skeleton"
+import { StoreCardSkeleton } from "@/features/stores/client/components/store-card-skeleton"
 
 export default async function IndexPage() {
   // See the unstable_cache API docs: https://nextjs.org/docs/app/api-reference/functions/unstable_cache
@@ -160,6 +160,7 @@ export default async function IndexPage() {
           <CategoryCard key={category.title} category={category} />
         ))}
       </section>
+      
       <section
         id="featured-products"
         aria-labelledby="featured-products-heading"
@@ -215,6 +216,7 @@ export default async function IndexPage() {
           </Link>
         </div>
       </section>
+
       <section
         id="featured-stores"
         aria-labelledby="featured-stores-heading"

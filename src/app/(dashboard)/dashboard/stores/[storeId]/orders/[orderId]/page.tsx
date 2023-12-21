@@ -6,8 +6,8 @@ import { orders, products } from "@/db/schema"
 import { env } from "@/env.mjs"
 import { and, eq } from "drizzle-orm"
 
-import { getOrderLineItems } from "@/lib/fetchers/order"
-import { formatId, formatPrice } from "@/lib/utils"
+import { getOrderLineItems } from "@/features/stripe/server/order.services"
+import { formatId, formatPrice } from "@/lib/client/utils"
 import {
   Card,
   CardContent,

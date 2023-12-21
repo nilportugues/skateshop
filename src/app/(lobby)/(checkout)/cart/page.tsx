@@ -2,10 +2,10 @@ import type { Metadata } from "next"
 import Link from "next/link"
 import { env } from "@/env.mjs"
 
-import { getUniqueStoreIds } from "@/lib/fetchers/cart"
-import { cn } from "@/lib/utils"
+import { getUniqueStoreIds } from "@/features/cart/server/cart"
+import { cn } from "@/lib/client/utils"
 import { buttonVariants } from "@/components/ui/button"
-import { CheckoutCard } from "@/components/checkout/checkout-card"
+import { CheckoutCard } from "@/features/stripe/client/components/checkout-card"
 import { Icons } from "@/components/icons"
 import {
   PageHeader,

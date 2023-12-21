@@ -4,15 +4,15 @@ import { stores } from "@/db/schema"
 import { currentUser } from "@clerk/nextjs"
 import { eq } from "drizzle-orm"
 
-import { getSubscriptionPlan } from "@/lib/fetchers/stripe"
-import { getDashboardRedirectPath } from "@/lib/subscription"
+import { getSubscriptionPlan } from "@/features/stripe/server/stripe.services"
+import { getDashboardRedirectPath } from "@/features/stripe/client/subscription"
 import {
   PageHeader,
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header"
 import { StoreSwitcher } from "@/components/pagers/store-switcher"
-import { StoreTabs } from "@/components/pagers/store-tabs"
+import { StoreTabs } from "@/features/stores/client/components/dashboard/store-tabs"
 import { Shell } from "@/components/shells/shell"
 
 interface StoreLayoutProps extends React.PropsWithChildren {

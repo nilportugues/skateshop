@@ -4,8 +4,8 @@ import * as React from "react"
 import { HeartIcon } from "@radix-ui/react-icons"
 import { toast } from "sonner"
 
-import { updateProductRating } from "@/lib/actions/product"
-import { catchError, cn } from "@/lib/utils"
+import { updateProductRating } from "@/features/product/server/product.server-actions"
+import { catchError, cn } from "@/lib/client/utils"
 import { Button, type ButtonProps } from "@/components/ui/button"
 import { Icons } from "@/components/icons"
 

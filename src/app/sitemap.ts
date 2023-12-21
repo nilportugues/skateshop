@@ -4,8 +4,8 @@ import { allPages, allPosts } from "contentlayer/generated"
 import { desc, eq, sql } from "drizzle-orm"
 import { products, stores } from "drizzle/schema"
 
-import { productCategories } from "@/config/products"
-import { absoluteUrl } from "@/lib/utils"
+import { productCategories } from "@/features/product/config/products"
+import { absoluteUrl } from "@/lib/client/utils"
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const allStores = await db

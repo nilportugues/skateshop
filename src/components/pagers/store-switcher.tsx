@@ -10,7 +10,7 @@ import {
   PlusCircledIcon,
 } from "@radix-ui/react-icons"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/client/utils"
 import { Button } from "@/components/ui/button"
 import {
   Command,

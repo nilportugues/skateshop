@@ -1,9 +1,6 @@
 import type { Metadata } from "next"
 import { notFound } from "next/navigation"
-import { db } from "@/db"
-import { emailPreferences } from "@/db/schema"
 import { env } from "@/env.mjs"
-import { eq } from "drizzle-orm"
 
 import {
   Card,
@@ -12,9 +9,10 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { UpdateEmailPreferencesForm } from "@/components/forms/update-email-preferences-form"
+import { UpdateEmailPreferencesForm } from "@/features/email-preferences/client/components/dashboard/update-email-preferences-form"
 import { PageHeader } from "@/components/page-header"
 import { Shell } from "@/components/shells/shell"
+import { getEmailPreferencesByToken } from "@/features/email-preferences/server/db"
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -33,9 +31,7 @@ export default async function EmailPreferencesPage({
 }: EmailPreferencesPageProps) {
   const token = typeof searchParams.token === "string" ? searchParams.token : ""
 
-  const emailPreference = await db.query.emailPreferences.findFirst({
-    where: eq(emailPreferences.token, token),
-  })
+  const emailPreference = await getEmailPreferencesByToken({token})
 
   if (!emailPreference) {
     notFound()
@@ -56,3 +52,4 @@ export default async function EmailPreferencesPage({
     </Shell>
   )
 }
+

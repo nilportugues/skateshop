@@ -3,7 +3,7 @@
 import * as React from "react"
 import { useFormStatus } from "react-dom"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/client/utils"
 import { useMounted } from "@/hooks/use-mounted"
 import {
   Button,

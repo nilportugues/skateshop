@@ -7,11 +7,11 @@ import { products, stores, type Product } from "@/db/schema"
 import { env } from "@/env.mjs"
 import { and, asc, desc, eq, gte, inArray, like, lte, sql } from "drizzle-orm"
 
-import { dashboardProductsSearchParamsSchema } from "@/lib/validations/params"
+import { dashboardProductsSearchParamsSchema } from "@/lib/server/params.validations"
 import { DataTableSkeleton } from "@/components/data-table/data-table-skeleton"
 import { DateRangePicker } from "@/components/date-range-picker"
-import { SeedProducts } from "@/components/seed-products-button"
-import { ProductsTableShell } from "@/components/shells/products-table-shell"
+import { SeedProducts } from "@/features/product/client/components/dashboard/seed-products-button"
+import { ProductsTableShell } from "@/features/product/client/components/dashboard/products-table-shell"
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),

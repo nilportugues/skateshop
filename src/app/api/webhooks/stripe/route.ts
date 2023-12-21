@@ -8,8 +8,8 @@ import { eq } from "drizzle-orm"
 import type Stripe from "stripe"
 import { z } from "zod"
 
-import { stripe } from "@/lib/stripe"
-import { checkoutItemSchema } from "@/lib/validations/cart"
+import { stripe } from "@/features/stripe/server/libs/stripe"
+import { checkoutItemSchema } from "@/features/cart/cart.validation"
 
 export async function POST(req: Request) {
   const body = await req.text()

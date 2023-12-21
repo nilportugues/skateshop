@@ -7,7 +7,7 @@ import { EnterFullScreenIcon } from "@radix-ui/react-icons"
 import { eq, sql } from "drizzle-orm"
 import { products } from "drizzle/schema"
 
-import { cn, formatPrice } from "@/lib/utils"
+import { cn, formatPrice } from "@/lib/client/utils"
 import { AlertDialogAction } from "@/components/ui/alert-dialog"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { buttonVariants } from "@/components/ui/button"

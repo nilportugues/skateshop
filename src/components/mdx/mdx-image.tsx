@@ -2,7 +2,7 @@
 
 import Image from "next/image"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/client/utils"
 
 interface MdxImageProps extends React.ComponentProps<typeof Image> {}
 

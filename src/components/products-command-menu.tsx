@@ -5,9 +5,9 @@ import { useRouter } from "next/navigation"
 import { type Product } from "@/db/schema"
 import { CircleIcon, MagnifyingGlassIcon } from "@radix-ui/react-icons"
 
-import { productCategories } from "@/config/products"
-import { filterProducts } from "@/lib/actions/product"
-import { catchError, cn, isMacOs } from "@/lib/utils"
+import { productCategories } from "@/features/product/config/products"
+import { filterProducts } from "@/features/product/server/product.server-actions"
+import { catchError, cn, isMacOs } from "@/lib/client/utils"
 import { useDebounce } from "@/hooks/use-debounce"
 import { Button } from "@/components/ui/button"
 import {

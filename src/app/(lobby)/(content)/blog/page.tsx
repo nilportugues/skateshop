@@ -11,8 +11,8 @@ import {
 } from "@/components/page-header"
 import { Shell } from "@/components/shells/shell"
 
-import { PostCard } from "./_components/post-card"
-import { PostCardSkeleton } from "./_components/post-card-skeleton"
+import { PostCard } from "@/features/blog/client/components/post-card"
+import { PostCardSkeleton } from "@/features/blog/client/components/post-card-skeleton"
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),

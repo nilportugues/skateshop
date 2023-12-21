@@ -27,7 +27,7 @@ import {
   UploadIcon,
 } from "@radix-ui/react-icons"
 
-import { cn, formatBytes } from "@/lib/utils"
+import { cn, formatBytes } from "@/lib/client/utils"
 import { Button } from "@/components/ui/button"
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog"
 

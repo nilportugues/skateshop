@@ -2,7 +2,7 @@ import * as React from "react"
 import { PaperPlaneIcon } from "@radix-ui/react-icons"
 import { type UseChatHelpers } from "ai/react"
 
-import { catchError } from "@/lib/utils"
+import { catchError } from "@/lib/client/utils"
 import { useEnterSubmit } from "@/hooks/use-enter-submit"
 import { Button } from "@/components/ui/button"
 import {

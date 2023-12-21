@@ -7,9 +7,9 @@ import type { CartItem } from "@/types"
 import { ChevronDownIcon } from "@radix-ui/react-icons"
 import { toast } from "sonner"
 
-import { sortOptions } from "@/config/products"
-import { addToCart, deleteCartItem } from "@/lib/actions/cart"
-import { catchError, cn } from "@/lib/utils"
+import { sortOptions } from "@/features/product/config/products"
+import { addToCart, deleteCartItem } from "@/features/cart/server/cart.server-actions"
+import { catchError, cn } from "@/lib/client/utils"
 import { useDebounce } from "@/hooks/use-debounce"
 import { Button } from "@/components/ui/button"
 import { Card, CardDescription } from "@/components/ui/card"
@@ -34,7 +34,7 @@ import {
 } from "@/components/ui/sheet"
 import { Slider } from "@/components/ui/slider"
 import { Switch } from "@/components/ui/switch"
-import { ProductCard } from "@/components/cards/product-card"
+import { ProductCard } from "@/features/stores/client/components/product-card"
 import { PaginationButton } from "@/components/pagers/pagination-button"
 
 interface BoardBuilderProps {

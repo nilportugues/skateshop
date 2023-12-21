@@ -10,7 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { AddStoreForm } from "@/components/forms/add-store-form"
+import { AddStoreForm } from "@/features/stores/client/components/dashboard/add-store-form"
 import {
   PageHeader,
   PageHeaderDescription,
@@ -33,6 +33,7 @@ export default async function NewStorePage() {
 
   return (
     <Shell variant="sidebar">
+      
       <PageHeader
         id="new-store-page-header"
         aria-labelledby="new-store-page-header-heading"
@@ -42,6 +43,7 @@ export default async function NewStorePage() {
           Add a new store to your account
         </PageHeaderDescription>
       </PageHeader>
+
       <Card
         as="section"
         id="new-store-page-form-container"

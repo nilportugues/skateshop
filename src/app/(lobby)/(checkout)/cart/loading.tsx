@@ -13,18 +13,23 @@ import { Shell } from "@/components/shells/shell"
 export default function CartLoading() {
   return (
     <Shell>
+      
       <PageHeader>
         <PageHeaderHeading size="sm">Checkout</PageHeaderHeading>
         <PageHeaderDescription size="sm">
           Checkout with your cart items
         </PageHeaderDescription>
       </PageHeader>
+
       <Card as="section">
+
         <CardHeader className="flex flex-row items-center justify-between space-x-4 py-4">
           <Skeleton className="h-6 w-20" />
           <Skeleton className="h-8 w-20" />
         </CardHeader>
+
         <Separator className="mb-4" />
+
         <CardContent>
           <ScrollArea className="h-full">
             <div className="flex max-h-[280px] flex-col gap-5">
@@ -61,11 +66,14 @@ export default function CartLoading() {
             </div>
           </ScrollArea>
         </CardContent>
+
         <Separator className="mb-4" />
+
         <CardFooter className="justify-between space-x-4">
           <Skeleton className="h-6 w-16" />
           <Skeleton className="h-6 w-20" />
         </CardFooter>
+
       </Card>
     </Shell>
   )

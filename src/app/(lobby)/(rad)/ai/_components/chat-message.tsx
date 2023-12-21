@@ -3,7 +3,7 @@ import { type Message } from "ai"
 import remarkGfm from "remark-gfm"
 import remarkMath from "remark-math"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/client/utils"
 import { Icons } from "@/components/icons"
 
 import { MemoizedReactMarkdown } from "./markdown"

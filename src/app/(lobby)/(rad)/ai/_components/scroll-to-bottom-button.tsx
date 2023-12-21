@@ -2,7 +2,7 @@
 
 import { ArrowDownIcon } from "@radix-ui/react-icons"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/client/utils"
 import { useAtBottom } from "@/hooks/use-at-bottom"
 import { Button, type ButtonProps } from "@/components/ui/button"
 

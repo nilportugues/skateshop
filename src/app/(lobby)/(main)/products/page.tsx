@@ -3,15 +3,15 @@ import { unstable_noStore as noStore } from "next/cache"
 import { products } from "@/db/schema"
 import { env } from "@/env.mjs"
 
-import { getProducts } from "@/lib/fetchers/product"
-import { getStores } from "@/lib/fetchers/store"
-import { productsSearchParamsSchema } from "@/lib/validations/params"
+import { getProducts } from "@/features/product/server/product"
+import { getStores } from "@/features/stores/store"
+import { productsSearchParamsSchema } from "@/lib/server/params.validations"
 import {
   PageHeader,
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header"
-import { Products } from "@/components/products"
+import { Products } from "@/features/product/client/components/dashboard/products"
 import { Shell } from "@/components/shells/shell"
 
 export const metadata: Metadata = {

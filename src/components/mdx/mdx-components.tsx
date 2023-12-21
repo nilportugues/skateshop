@@ -1,6 +1,6 @@
 import { useMDXComponent } from "next-contentlayer/hooks"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/client/utils"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { Callout } from "@/components/mdx/callout"

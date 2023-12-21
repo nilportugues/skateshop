@@ -11,7 +11,7 @@ import Link from "next/link"
 import { env } from "@/env.mjs"
 import { ChevronLeftIcon } from "@radix-ui/react-icons"
 
-import { absoluteUrl, cn, formatDate } from "@/lib/utils"
+import { absoluteUrl, cn, formatDate } from "@/lib/client/utils"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { buttonVariants } from "@/components/ui/button"
 import { Separator } from "@/components/ui/separator"

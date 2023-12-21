@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { ResetPasswordStep2Form } from "@/components/forms/reset-password-form-step2"
+import { ResetPasswordStep2Form } from "@/features/auth/client/components/forms/reset-password-form-step2"
 import { Shell } from "@/components/shells/shell"
 
 export const metadata: Metadata = {

@@ -3,12 +3,12 @@ import { type FileWithPath } from "react-dropzone"
 import type Stripe from "stripe"
 import { type z } from "zod"
 
-import { type userPrivateMetadataSchema } from "@/lib/validations/auth"
+import { type userPrivateMetadataSchema } from "@/features/auth/auth.validation"
 import type {
   cartItemSchema,
   cartLineItemSchema,
   checkoutItemSchema,
-} from "@/lib/validations/cart"
+} from "@/features/cart/cart.validation"
 import type { Icons } from "@/components/icons"
 
 export interface NavItem {

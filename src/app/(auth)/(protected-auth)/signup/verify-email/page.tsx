@@ -8,7 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { VerifyEmailForm } from "@/components/forms/verify-email-form"
+import { VerifyEmailForm } from "@/features/auth/client/components/forms/verify-email-form"
 import { Shell } from "@/components/shells/shell"
 
 export const metadata: Metadata = {

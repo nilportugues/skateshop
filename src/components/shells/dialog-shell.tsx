@@ -4,7 +4,7 @@ import * as React from "react"
 import { useRouter } from "next/navigation"
 import { Cross2Icon } from "@radix-ui/react-icons"
 
-import { cn } from "@/lib/utils"
+import { cn } from "@/lib/client/utils"
 import { useClickOutside } from "@/hooks/use-click-outside"
 import { Button } from "@/components/ui/button"
 

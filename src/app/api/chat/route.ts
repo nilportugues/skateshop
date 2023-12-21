@@ -3,7 +3,7 @@
 
 import { OpenAIStream, StreamingTextResponse } from "ai"
 
-import { functions, openai, runFunction } from "@/lib/openai"
+import { functions, openai, runFunction } from "@/lib/server/openai"
 
 export const runtime = "edge"
 

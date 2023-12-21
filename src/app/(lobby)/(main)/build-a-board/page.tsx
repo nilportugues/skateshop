@@ -4,11 +4,11 @@ import Link from "next/link"
 import { env } from "@/env.mjs"
 import { CheckIcon, CircleIcon } from "@radix-ui/react-icons"
 
-import { productCategories } from "@/config/products"
-import { getCartItems } from "@/lib/fetchers/cart"
-import { getProducts } from "@/lib/fetchers/product"
-import { cn } from "@/lib/utils"
-import { productsSearchParamsSchema } from "@/lib/validations/params"
+import { productCategories } from "@/features/product/config/products"
+import { getCartItems } from "@/features/cart/server/cart"
+import { getProducts } from "@/features/product/server/product"
+import { cn } from "@/lib/client/utils"
+import { productsSearchParamsSchema } from "@/lib/server/params.validations"
 import { BoardBuilder } from "@/components/board-builder"
 import {
   PageHeader,

@@ -1,15 +1,15 @@
 import { type Metadata } from "next"
 import { env } from "@/env.mjs"
 
-import { getStores } from "@/lib/fetchers/store"
-import { storesSearchParamsSchema } from "@/lib/validations/params"
+import { getStores } from "@/features/stores/store"
+import { storesSearchParamsSchema } from "@/lib/server/params.validations"
 import {
   PageHeader,
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header"
 import { Shell } from "@/components/shells/shell"
-import { Stores } from "@/components/stores"
+import { Stores } from "@/features/stores/client/stores"
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),

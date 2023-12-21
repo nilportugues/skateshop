@@ -2,9 +2,9 @@ import Link from "next/link"
 import type { User } from "@clerk/nextjs/server"
 import { DashboardIcon, ExitIcon, GearIcon } from "@radix-ui/react-icons"
 
-import { dashboardConfig } from "@/config/dashboard"
-import { siteConfig } from "@/config/site"
-import { getUserEmail } from "@/lib/utils"
+import { dashboardConfig } from "@/features/dashboard/config/dashboard"
+import { siteConfig } from "@/app/menu-config"
+import { getUserEmail } from "@/lib/client/utils"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"
 import { Button, buttonVariants } from "@/components/ui/button"
 import {
@@ -17,7 +17,7 @@ import {
   DropdownMenuShortcut,
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
-import { CartSheet } from "@/components/checkout/cart-sheet"
+import { CartSheet } from "@/features/cart/server/components/cart-sheet"
 import { Icons } from "@/components/icons"
 import { MainNav } from "@/components/layouts/main-nav"
 import { MobileNav } from "@/components/layouts/mobile-nav"

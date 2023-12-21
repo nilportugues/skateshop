@@ -7,16 +7,19 @@ export default function CheckoutLoading() {
   return (
     <section className="relative flex h-full min-h-[100dvh] flex-col items-start justify-center lg:h-[100dvh] lg:flex-row lg:overflow-hidden">
       <div className="w-full space-y-12 pt-8 lg:pt-16">
+
         <div className="fixed top-0 z-40 h-16 w-full bg-[#09090b] py-4 lg:static lg:top-auto lg:z-0 lg:h-0 lg:py-0">
           <div className="container flex max-w-xl items-center justify-between space-x-2 lg:ml-auto lg:mr-0 lg:pr-[4.5rem]">
             <Skeleton className="h-6 w-28" />
             <Skeleton className="h-7 w-16" />
           </div>
         </div>
+
         <div className="container flex max-w-xl flex-col items-center space-y-1.5 lg:ml-auto lg:mr-0 lg:items-start lg:pr-[4.5rem]">
           <Skeleton className="h-6 w-28" />
           <Skeleton className="h-8 w-36" />
         </div>
+
         <ScrollArea className="h-full">
           <div className="container hidden w-full max-w-xl flex-col gap-5 lg:ml-auto lg:mr-0 lg:flex lg:max-h-[580px] lg:pr-[4.5rem]">
             {Array.from({ length: 3 }).map((_, i) => (
@@ -47,6 +50,7 @@ export default function CheckoutLoading() {
             ))}
           </div>
         </ScrollArea>
+        
       </div>
       <div className="h-full w-full flex-1 bg-white pb-12 pt-10 lg:flex-initial lg:pl-12 lg:pt-16">
         <ScrollArea className="h-full">

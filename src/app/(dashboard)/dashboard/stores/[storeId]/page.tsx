@@ -6,9 +6,9 @@ import { stores } from "@/db/schema"
 import { env } from "@/env.mjs"
 import { eq } from "drizzle-orm"
 
-import { deleteStore, updateStore } from "@/lib/actions/store"
-import { getStripeAccount } from "@/lib/fetchers/stripe"
-import { cn, formatDate } from "@/lib/utils"
+import { deleteStore, updateStore } from "@/features/stores/server/store.server-action"
+import { getStripeAccount } from "@/features/stripe/server/stripe.services"
+import { cn, formatDate } from "@/lib/client/utils"
 import { buttonVariants } from "@/components/ui/button"
 import {
   Card,
@@ -21,7 +21,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { ConnectStoreToStripeButton } from "@/components/connect-store-to-stripe-button"
+import { ConnectStoreToStripeButton } from "@/features/stripe/client/components/connect-store-to-stripe-button"
 import { LoadingButton } from "@/components/loading-button"
 
 export const metadata: Metadata = {

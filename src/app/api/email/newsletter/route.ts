@@ -5,9 +5,9 @@ import { currentUser } from "@clerk/nextjs"
 import { eq } from "drizzle-orm"
 import { z } from "zod"
 
-import { resend } from "@/lib/resend"
-import { joinNewsletterSchema } from "@/lib/validations/email"
-import NewsletterWelcomeEmail from "@/components/emails/newsletter-welcome-email"
+import { resend } from "@/lib/server/resend"
+import { joinNewsletterSchema } from "@/features/email-preferences/email.validation"
+import NewsletterWelcomeEmail from "@/emails/newsletter-welcome-email"
 
 export async function POST(req: Request) {
   const input = joinNewsletterSchema.parse(await req.json())

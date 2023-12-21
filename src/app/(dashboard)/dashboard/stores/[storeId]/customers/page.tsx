@@ -6,10 +6,10 @@ import { orders, stores } from "@/db/schema"
 import { env } from "@/env.mjs"
 import { and, asc, desc, eq, gte, like, lte, sql } from "drizzle-orm"
 
-import { customersSearchParamsSchema } from "@/lib/validations/params"
+import { customersSearchParamsSchema } from "@/lib/server/params.validations"
 import { DataTableSkeleton } from "@/components/data-table/data-table-skeleton"
 import { DateRangePicker } from "@/components/date-range-picker"
-import { CustomersTableShell } from "@/components/shells/customers-table-shell"
+import { CustomersTableShell } from "@/features/stripe/client/components/dashboard.customers-table-shell"
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
