@@ -1,5 +1,5 @@
 
-import { dashboardConfig } from "@/features/dashboard/config/dashboard"
+import { dashboardConfig } from "@/config/dashboard.config"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { SidebarNav } from "@/components/layouts/sidebar-nav"
 import { SiteFooter } from "@/components/layouts/site-footer"

@@ -2,7 +2,7 @@ import Link from "next/link"
 import type { User } from "@clerk/nextjs/server"
 import { DashboardIcon, ExitIcon, GearIcon } from "@radix-ui/react-icons"
 
-import { dashboardConfig } from "@/features/dashboard/config/dashboard"
+import { dashboardConfig } from "@/config/dashboard.config"
 import { siteConfig } from "@/app/menu-config"
 import { getUserEmail } from "@/lib/client/utils"
 import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar"

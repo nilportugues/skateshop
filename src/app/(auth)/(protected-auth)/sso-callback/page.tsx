@@ -1,6 +1,6 @@
 import { type HandleOAuthCallbackParams } from "@clerk/types"
 
-import { SSOCallback } from "@/features/auth/client/components/clerk-integration/sso-callback"
+import { SSOCallback } from "@/features/auth/client/components/spinner.sso-callback"
 import { Shell } from "@/components/shells/shell"
 
 export interface SSOCallbackPageProps {

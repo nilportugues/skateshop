@@ -1,7 +1,7 @@
 import type { Metadata } from "next"
 import { env } from "@/env.mjs"
 
-import { LogOutButtons } from "@/features/auth/client/components/buttons/logout-buttons"
+import { LogOutButtons } from "@/features/auth/client/components/button.logout"
 import {
   PageHeader,
   PageHeaderDescription,
