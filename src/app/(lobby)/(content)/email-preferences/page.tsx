@@ -9,7 +9,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { UpdateEmailPreferencesForm } from "@/features/email-preferences/client/components/dashboard.update-email-preferences-form"
+import { UpdateEmailPreferencesForm } from "@/features/email-preferences/client/components/dashboard.form.update-email-preferences"
 import { PageHeader } from "@/components/page-header"
 import { Shell } from "@/components/shells/shell"
 import { getEmailPreferencesByToken } from "@/features/email-preferences/server/db"

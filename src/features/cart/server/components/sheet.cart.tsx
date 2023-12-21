@@ -13,7 +13,7 @@ import {
   SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
-import { CartLineItems } from "@/features/cart/client/components/cart-line-items"
+import { CartLineItems } from "@/features/cart/client/components/list.cart-line-items"
 import { Icons } from "@/components/icons"
 
 export async function CartSheet() {

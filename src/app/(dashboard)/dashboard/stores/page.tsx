@@ -14,14 +14,14 @@ import { getDashboardRedirectPath, getPlanFeatures } from "@/features/stripe/cli
 import { cn } from "@/lib/client/utils"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { buttonVariants } from "@/components/ui/button"
-import { StoreCard } from "@/features/stores/client/components/store-card"
+import { StoreCard } from "@/features/stores/client/components/card.store"
 import {
   PageHeader,
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header"
 import { Shell } from "@/components/shells/shell"
-import { StoreCardSkeleton } from "@/features/stores/client/components/store-card-skeleton"
+import { StoreCardSkeleton } from "@/features/stores/client/components/card.store-skeleton"
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),

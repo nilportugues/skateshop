@@ -12,13 +12,13 @@ import {
 } from "@/components/ui/accordion"
 
 import { Separator } from "@/components/ui/separator"
-import { AddToCartForm } from "@/features/cart/client/components/forms/add-to-cart-form"
+import { AddToCartForm } from "@/features/cart/client/components/form.add-to-cart"
 import { Breadcrumbs } from "@/components/pagers/breadcrumbs"
-import { ProductImageCarousel } from "@/features/product/client/components/product-image-carousel"
+import { ProductImageCarousel } from "@/features/product/client/components/carousel.product-image"
 import { Rating } from "@/components/rating"
 import { Shell } from "@/components/shells/shell"
 import { UpdateProductRatingButton } from "@/components/update-product-rating-button"
-import { RelatedProducts } from "@/features/product/client/components/related-products"
+import { RelatedProducts } from "@/features/product/client/components/list.related-products"
 import { findProductById, findRelatedProductsByProductId } from "@/features/product/server/db"
 import { findStoryById } from "@/features/stores/server/db"
 

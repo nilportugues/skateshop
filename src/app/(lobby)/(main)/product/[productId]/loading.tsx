@@ -4,7 +4,7 @@ import { Separator } from "@/components/ui/separator"
 import { Skeleton } from "@/components/ui/skeleton"
 import { Icons } from "@/components/icons"
 import { Shell } from "@/components/shells/shell"
-import { ProductCardSkeleton } from "@/features/stores/client/components/product-card-skeleton"
+import { ProductCardSkeleton } from "@/features/stores/client/components/card.product-skeleton"
 
 export default function ProductLoading() {
   return (

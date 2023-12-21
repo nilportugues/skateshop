@@ -10,7 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { AddProductForm } from "@/features/product/client/components/dashboard/add-product-form"
+import { AddProductForm } from "@/features/product/client/components/dashboard.form.add-product"
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),

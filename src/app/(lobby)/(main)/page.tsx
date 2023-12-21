@@ -14,12 +14,12 @@ import { Badge } from "@/components/ui/badge"
 import { buttonVariants } from "@/components/ui/button"
 import { Skeleton } from "@/components/ui/skeleton"
 import { CategoryCard } from "@/features/product/server/components/category-card"
-import { ProductCard } from "@/features/stores/client/components/product-card"
-import { StoreCard } from "@/features/stores/client/components/store-card"
+import { ProductCard } from "@/features/stores/client/components/card.product"
+import { StoreCard } from "@/features/stores/client/components/card.store"
 import { Icons } from "@/components/icons"
 import { Shell } from "@/components/shells/shell"
-import { ProductCardSkeleton } from "@/features/stores/client/components/product-card-skeleton"
-import { StoreCardSkeleton } from "@/features/stores/client/components/store-card-skeleton"
+import { ProductCardSkeleton } from "@/features/stores/client/components/card.product-skeleton"
+import { StoreCardSkeleton } from "@/features/stores/client/components/card.store-skeleton"
 
 export default async function IndexPage() {
   // See the unstable_cache API docs: https://nextjs.org/docs/app/api-reference/functions/unstable_cache

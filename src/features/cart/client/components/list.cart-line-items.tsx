@@ -5,7 +5,7 @@ import { Slot } from "@radix-ui/react-slot"
 import { cn, formatPrice } from "@/lib/client/utils"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
-import { UpdateCart } from "@/features/cart/client/components/buttons/update-cart"
+import { UpdateCart } from "@/features/cart/client/components/button.update-cart"
 import { Icons } from "@/components/icons"
 
 interface CartLineItemsProps extends React.HTMLAttributes<HTMLDivElement> {

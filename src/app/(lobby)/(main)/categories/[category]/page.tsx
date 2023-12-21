@@ -11,7 +11,7 @@ import {
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header"
-import { Products } from "@/features/product/client/components/dashboard/products"
+import { Products } from "@/features/product/client/components/dashboard.products"
 import { Shell } from "@/components/shells/shell"
 
 interface CategoryPageProps {

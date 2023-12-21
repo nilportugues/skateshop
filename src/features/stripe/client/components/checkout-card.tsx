@@ -11,7 +11,7 @@ import {
   CardTitle,
 } from "@/components/ui/card"
 import { Separator } from "@/components/ui/separator"
-import { CartLineItems } from "@/features/cart/client/components/cart-line-items"
+import { CartLineItems } from "@/features/cart/client/components/list.cart-line-items"
 
 interface CheckoutCardProps {
   storeId: number

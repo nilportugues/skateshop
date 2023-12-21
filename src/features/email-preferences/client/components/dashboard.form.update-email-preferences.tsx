@@ -133,6 +133,7 @@ export function UpdateEmailPreferencesForm({
             </FormItem>
           )}
         />
+
         <Button className="w-full" disabled={isPending}>
           {isPending && (
             <Icons.spinner
@@ -143,6 +144,7 @@ export function UpdateEmailPreferencesForm({
           Save preferences
           <span className="sr-only">Save preferences</span>
         </Button>
+        
       </form>
     </Form>
   )

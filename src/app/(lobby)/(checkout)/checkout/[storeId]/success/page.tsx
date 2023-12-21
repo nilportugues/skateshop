@@ -9,7 +9,7 @@ import { getOrderLineItems } from "@/features/stripe/server/order.services"
 import { getPaymentIntent } from "@/features/stripe/server/stripe.services"
 import { cn, formatPrice } from "@/lib/client/utils"
 import { buttonVariants } from "@/components/ui/button"
-import { CartLineItems } from "@/features/cart/client/components/cart-line-items"
+import { CartLineItems } from "@/features/cart/client/components/list.cart-line-items"
 import { VerifyOderForm } from "@/features/stripe/client/components/verify-order-form"
 import {
   PageHeader,

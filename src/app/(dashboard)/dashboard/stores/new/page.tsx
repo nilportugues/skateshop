@@ -10,7 +10,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card"
-import { AddStoreForm } from "@/features/stores/client/components/dashboard/add-store-form"
+import { AddStoreForm } from "@/features/stores/client/components/dashboard.form.add-store"
 import {
   PageHeader,
   PageHeaderDescription,
