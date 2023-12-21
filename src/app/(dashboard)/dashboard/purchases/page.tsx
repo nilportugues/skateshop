@@ -15,7 +15,7 @@ import {
   PageHeaderDescription,
   PageHeaderHeading,
 } from "@/components/page-header"
-import { PurchasesTableShell } from "@/features/stripe/client/components/dashboard.purchases-table-shell"
+import { PurchasesDataTable } from "@/features/stripe/client/components/dashboard.datatable.purchases"
 import { Shell } from "@/components/shells/shell"
 
 export const metadata: Metadata = {
@@ -139,7 +139,7 @@ export default async function PurchasesPage({
         </PageHeaderDescription>
       </PageHeader>
       <React.Suspense fallback={<DataTableSkeleton columnCount={6} />}>
-        <PurchasesTableShell transaction={transaction} limit={limit} />
+        <PurchasesDataTable transaction={transaction} limit={limit} />
       </React.Suspense>
     </Shell>
   )

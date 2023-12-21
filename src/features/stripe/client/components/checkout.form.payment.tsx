@@ -16,15 +16,15 @@ import { Icons } from "@/components/icons"
 
 // Docs: https://stripe.com/docs/payments/quickstart
 
-interface CheckoutFormProps extends React.ComponentPropsWithoutRef<"form"> {
+interface CheckoutPaymentFormProps extends React.ComponentPropsWithoutRef<"form"> {
   storeId: number
 }
 
-export function CheckoutForm({
+export function CheckoutPaymentForm({
   storeId,
   className,
   ...props
-}: CheckoutFormProps) {
+}: CheckoutPaymentFormProps) {
   const id = React.useId()
   const stripe = useStripe()
   const elements = useElements()

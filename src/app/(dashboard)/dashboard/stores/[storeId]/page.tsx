@@ -21,7 +21,7 @@ import {
 import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
-import { ConnectStoreToStripeButton } from "@/features/stripe/client/components/connect-store-to-stripe-button"
+import { ConnectStoreToStripeButton } from "@/features/stripe/client/components/dashboard.button.connect-store-to-stripe"
 import { LoadingButton } from "@/components/loading-button"
 
 export const metadata: Metadata = {

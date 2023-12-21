@@ -9,7 +9,7 @@ import {
   PageHeaderHeading,
 } from "@/components/page-header"
 import { Shell } from "@/components/shells/shell"
-import { Stores } from "@/features/stores/client/stores"
+import { Stores } from "@/features/stores/client/components/searchable.stores"
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),

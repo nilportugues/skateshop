@@ -10,7 +10,7 @@ import { RocketIcon } from "@radix-ui/react-icons"
 import { desc, eq, sql } from "drizzle-orm"
 
 import { getSubscriptionPlan } from "@/features/stripe/server/stripe.services"
-import { getDashboardRedirectPath, getPlanFeatures } from "@/features/stripe/client/subscription"
+import { getDashboardRedirectPath, getPlanFeatures } from "@/features/stripe/client/utils/subscription"
 import { cn } from "@/lib/client/utils"
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert"
 import { buttonVariants } from "@/components/ui/button"

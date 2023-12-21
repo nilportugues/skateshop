@@ -10,7 +10,7 @@ import {
 import { Shell } from "@/components/shells/shell"
 import { findStoryById } from "@/features/stores/server/db"
 import { findOrderById } from "@/features/stripe/server/db"
-import { OrderCard } from "@/features/stripe/client/components/dashboard.order-card"
+import { OrderCard } from "@/features/stripe/client/components/dashboard.card.order"
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),

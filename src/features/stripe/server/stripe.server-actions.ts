@@ -8,7 +8,7 @@ import { currentUser } from "@clerk/nextjs"
 import { eq } from "drizzle-orm"
 import { type z } from "zod"
 
-import { calculateOrderAmount } from "@/features/stripe/client/checkout"
+import { calculateOrderAmount } from "@/features/stripe/client/utils/checkout"
 import { getStripeAccount } from "@/features/stripe/server/stripe.services"
 import { stripe } from "@/features/stripe/server/libs/stripe"
 import { absoluteUrl, getUserEmail } from "@/lib/client/utils"

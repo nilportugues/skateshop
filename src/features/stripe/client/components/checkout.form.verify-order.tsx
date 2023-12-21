@@ -20,10 +20,10 @@ import {
 import { Input } from "@/components/ui/input"
 import { Icons } from "@/components/icons"
 
-interface VerifyOderFormProps extends React.ComponentPropsWithoutRef<"form"> {}
+interface VerifyOrderFormProps extends React.ComponentPropsWithoutRef<"form"> {}
 type Inputs = z.infer<typeof verifyOrderSchema>
 
-export function VerifyOderForm({ className, ...props }: VerifyOderFormProps) {
+export function VerifyOrderForm({ className, ...props }: VerifyOrderFormProps) {
   const router = useRouter()
   const [isPending, startTransition] = React.useTransition()
 

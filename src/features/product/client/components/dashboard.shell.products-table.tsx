@@ -28,7 +28,7 @@ type AwaitedProduct = Pick<
   "id" | "name" | "category" | "price" | "inventory" | "rating" | "createdAt"
 >
 
-interface ProductsTableShellProps {
+interface ProductsDataTableProps {
   transaction: Promise<{
     items: AwaitedProduct[]
     count: number
@@ -37,11 +37,11 @@ interface ProductsTableShellProps {
   storeId: number
 }
 
-export function ProductsTableShell({
+export function ProductsDataTable({
   transaction,
   limit,
   storeId,
-}: ProductsTableShellProps) {
+}: ProductsDataTableProps) {
   const { items: data, count } = React.use(transaction)
   const pageCount = Math.ceil(count / limit)
 

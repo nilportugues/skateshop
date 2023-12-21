@@ -11,7 +11,7 @@ import { z } from "zod"
 import {
   getStripePaymentStatusColor,
   stripePaymentStatuses,
-} from "@/features/stripe/client/checkout"
+} from "@/features/stripe/client/utils/checkout"
 import { cn, formatDate, formatId, formatPrice } from "@/lib/client/utils"
 import { checkoutItemSchema } from "@/features/cart/cart.validation"
 import { Badge } from "@/components/ui/badge"
@@ -54,7 +54,7 @@ export type AwaitedOrder = Pick<
   store: string | null
 }
 
-interface PurchasesTableShellProps {
+interface PurchasesDataTableProps {
   transaction: Promise<{
     items: AwaitedOrder[]
     count: number
@@ -62,10 +62,10 @@ interface PurchasesTableShellProps {
   limit: number
 }
 
-export function PurchasesTableShell({
+export function PurchasesDataTable({
   transaction,
   limit,
-}: PurchasesTableShellProps) {
+}: PurchasesDataTableProps) {
   const { items: data, count } = React.use(transaction)
 
   const pageCount = Math.ceil(count / limit)

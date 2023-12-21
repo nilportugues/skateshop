@@ -5,7 +5,7 @@ import { currentUser } from "@clerk/nextjs"
 import { eq } from "drizzle-orm"
 
 import { getSubscriptionPlan } from "@/features/stripe/server/stripe.services"
-import { getDashboardRedirectPath } from "@/features/stripe/client/subscription"
+import { getDashboardRedirectPath } from "@/features/stripe/client/utils/subscription"
 import {
   PageHeader,
   PageHeaderDescription,

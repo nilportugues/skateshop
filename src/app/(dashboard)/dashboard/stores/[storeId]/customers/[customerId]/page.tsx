@@ -9,7 +9,7 @@ import { and, asc, desc, eq, gte, inArray, lte, sql } from "drizzle-orm"
 import { customerSearchParamsSchema } from "@/lib/server/params.validations"
 import { DataTableSkeleton } from "@/components/data-table/data-table-skeleton"
 import { DateRangePicker } from "@/components/date-range-picker"
-import { OrdersTableShell } from "@/features/stripe/client/components/dashboard.orders-table-shell"
+import { OrdersDataTable } from "@/features/stripe/client/components/dashboard.datatable.orders"
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -149,7 +149,7 @@ export default async function CustomerPage({
           <DataTableSkeleton columnCount={6} searchableFieldCount={0} />
         }
       >
-        <OrdersTableShell
+        <OrdersDataTable
           transaction={transaction}
           limit={limit}
           storeId={storeId}

@@ -5,7 +5,7 @@ import { cn, formatPrice } from "@/lib/client/utils";
 import { UserSubscriptionPlan } from "@/types";
 import { CheckIcon } from "@radix-ui/react-icons";
 import Link from "next/link";
-import { ManageSubscriptionForm } from "../manage-subscription-form";
+import { ManageSubscriptionForm } from "./dashboard.form.manage-subscription";
 import { Skeleton } from "@/components/ui/skeleton";
 
 export function SubscriptionPlans({subscriptionPlan}: {subscriptionPlan: UserSubscriptionPlan | null}) {

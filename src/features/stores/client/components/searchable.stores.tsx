@@ -18,8 +18,9 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { StoreCard } from "@/features/stores/client/components/card.store"
 import { PaginationButton } from "@/components/pagers/pagination-button"
+import { FacetedFilter } from "@/components/faceted-filter"
 
-import { FacetedFilter } from "../../../components/faceted-filter"
+
 
 interface StoresProps {
   stores: CuratedStore[]

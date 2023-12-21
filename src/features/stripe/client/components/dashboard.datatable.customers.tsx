@@ -24,7 +24,7 @@ interface AwaitedCustomer {
   createdAt: string
 }
 
-interface CustomersTableShellProps {
+interface CustomersDataTableProps {
   transaction: Promise<{
     items: AwaitedCustomer[]
     count: number
@@ -33,11 +33,11 @@ interface CustomersTableShellProps {
   storeId: number
 }
 
-export function CustomersTableShell({
+export function CustomersDataTable({
   transaction,
   limit,
   storeId,
-}: CustomersTableShellProps) {
+}: CustomersDataTableProps) {
   const { items: data, count } = React.use(transaction)
 
   const pageCount = Math.ceil(count / limit)

@@ -10,7 +10,7 @@ import { getPaymentIntent } from "@/features/stripe/server/stripe.services"
 import { cn, formatPrice } from "@/lib/client/utils"
 import { buttonVariants } from "@/components/ui/button"
 import { CartLineItems } from "@/features/cart/client/components/list.cart-line-items"
-import { VerifyOderForm } from "@/features/stripe/client/components/verify-order-form"
+import { VerifyOrderForm } from "@/features/stripe/client/components/checkout.form.verify-order"
 import {
   PageHeader,
   PageHeaderDescription,
@@ -154,7 +154,7 @@ export default async function OrderSuccessPage({
               Please enter your delivery postal code to verify your order
             </PageHeaderDescription>
           </PageHeader>
-          <VerifyOderForm
+          <VerifyOrderForm
             id="order-success-verify-order-form"
             aria-labelledby="order-success-verify-order-form-heading"
             className="mx-auto w-full max-w-md pt-40"

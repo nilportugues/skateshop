@@ -16,8 +16,8 @@ import { Drawer, DrawerContent, DrawerTrigger } from "@/components/ui/drawer"
 import { ScrollArea } from "@/components/ui/scroll-area"
 import { Separator } from "@/components/ui/separator"
 import { CartLineItems } from "@/features/cart/client/components/list.cart-line-items"
-import { CheckoutForm } from "@/features/stripe/client/components/checkout-form"
-import { CheckoutShell } from "@/features/stripe/client/components/checkout-shell"
+import { CheckoutPaymentForm } from "@/features/stripe/client/components/checkout.form.payment"
+import { CheckoutShell } from "@/features/stripe/client/components/checkout.shell"
 import { Shell } from "@/components/shells/shell"
 
 export const metadata: Metadata = {
@@ -163,7 +163,7 @@ export default async function CheckoutPage({ params }: CheckoutPageProps) {
         className="h-full w-full flex-1 bg-white pb-12 pt-10 lg:flex-initial lg:pl-12 lg:pt-16"
       >
         <ScrollArea className="h-full">
-          <CheckoutForm
+          <CheckoutPaymentForm
             storeId={store.id}
             className="container max-w-xl pr-6 lg:ml-0 lg:mr-auto"
           />

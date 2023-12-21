@@ -10,7 +10,7 @@ import { type ColumnDef } from "@tanstack/react-table"
 import {
   getStripePaymentStatusColor,
   stripePaymentStatuses,
-} from "@/features/stripe/client/checkout"
+} from "@/features/stripe/client/utils/checkout"
 import { cn, formatDate, formatId, formatPrice } from "@/lib/client/utils"
 import { Badge } from "@/components/ui/badge"
 import { Button } from "@/components/ui/button"
@@ -29,7 +29,7 @@ type AwaitedOrder = Pick<Order, "id" | "quantity" | "amount" | "createdAt"> & {
   paymentIntentId: string
 }
 
-interface OrdersTableShellProps {
+interface OrdersDataTableProps {
   transaction: Promise<{
     items: AwaitedOrder[]
     count: number
@@ -39,12 +39,12 @@ interface OrdersTableShellProps {
   isSearchable?: boolean
 }
 
-export function OrdersTableShell({
+export function OrdersDataTable({
   transaction,
   limit,
   storeId,
   isSearchable = true,
-}: OrdersTableShellProps) {
+}: OrdersDataTableProps) {
   const { items: data, count } = React.use(transaction)
 
   const pageCount = Math.ceil(count / limit)
