@@ -1,6 +1,6 @@
 import { redirect } from "next/navigation"
 import { currentUser } from "@clerk/nextjs"
-import DashboardLayout from "@/components/dashboard.layout"
+import DashboardLayout from "@/components/dashboard/dashboard-layout"
 
 export default async function Layout({
   children,

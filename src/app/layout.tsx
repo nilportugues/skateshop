@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next"
 import { env } from "@/env.mjs"
 import { ClerkProvider } from "@clerk/nextjs"
 
-import "@/styles/globals.css"
+import "./globals.css"
 
 import { siteConfig } from "@/app/menu-config"
 import { fontHeading, fontMono, fontSans } from "@/lib/client/fonts"

@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation"
 import { allPages } from "contentlayer/generated"
 
-import "@/styles/mdx.css"
+import "../../mdx.css"
 
 import { type Metadata } from "next"
 
