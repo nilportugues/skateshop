@@ -9,7 +9,7 @@ import { type z } from "zod"
 
 import { storeSubscriptionPlans } from "@/features/stripe/config/subscriptions"
 import { stripe } from "@/features/stripe/server/libs/stripe"
-import { userPrivateMetadataSchema } from "@/features/auth/auth.validation"
+import { userPrivateMetadataSchema } from "@/features/auth/constants"
 import {
   getPaymentIntentSchema,
   getPaymentIntentsSchema,

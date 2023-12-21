@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form"
 import type { z } from "zod"
 
 import { catchClerkError } from "@/lib/client/utils"
-import { verifyEmailSchema } from "@/features/auth/auth.validation"
+import { verifyEmailSchema } from "@/features/auth/constants"
 import { Button } from "@/components/ui/button"
 import {
   Form,

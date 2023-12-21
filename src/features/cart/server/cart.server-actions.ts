@@ -1,10 +1,8 @@
 "use server"
 
 import { revalidatePath } from "next/cache"
-import { cookies } from "next/headers"
 import { db } from "@/db"
-import { carts, products } from "@/db/schema"
-import { eq } from "drizzle-orm"
+import { carts } from "@/db/schema"
 import { type z } from "zod"
 
 import {
@@ -12,18 +10,14 @@ import {
   deleteCartItemSchema,
   deleteCartItemsSchema,
 } from "@/features/cart/cart.validation"
+import { deleteCartById, findCartById, updateCartItemsById } from "./db"
+import { addCartCookie, deleteCartCookie, getCartCookie } from "./cookies"
+import { findProductById } from "@/features/product/server/db"
 
 export async function addToCart(rawInput: z.infer<typeof cartItemSchema>) {
   const input = cartItemSchema.parse(rawInput)
 
-  // Checking if product is in stock
-  const product = await db.query.products.findFirst({
-    columns: {
-      inventory: true,
-    },
-    where: eq(products.id, input.productId),
-  })
-
+  const product = await findProductById({productId: input.productId})
   if (!product) {
     throw new Error("Product not found, please try again.")
   }
@@ -32,48 +26,33 @@ export async function addToCart(rawInput: z.infer<typeof cartItemSchema>) {
     throw new Error("Product is out of stock, please try again later.")
   }
 
-  const cookieStore = cookies()
-  const cartId = cookieStore.get("cartId")?.value
-
+  const cartId = getCartCookie();
   if (!cartId) {
     const cart = await db.insert(carts).values({
       items: [input],
     })
 
-    // Note: .set() is only available in a Server Action or Route Handler
-    cookieStore.set("cartId", String(cart.insertId))
-
+    addCartCookie({cartId: cart.insertId})
     revalidatePath("/")
     return
   }
 
-  const cart = await db.query.carts.findFirst({
-    where: eq(carts.id, Number(cartId)),
-  })
-
-  // TODO: Find a better way to deal with expired carts
+  const cart = await findCartById({cartId})
   if (!cart) {
-    cookieStore.set({
-      name: "cartId",
-      value: "",
-      expires: new Date(0),
-    })
-
-    await db.delete(carts).where(eq(carts.id, Number(cartId)))
-
+    deleteCartCookie();
+    await deleteCartById({cartId})
     throw new Error("Cart not found, please try again.")
   }
 
   // If cart is closed, delete it and create a new one
   if (cart.closed) {
-    await db.delete(carts).where(eq(carts.id, Number(cartId)))
+    await deleteCartById({cartId})    
 
     const newCart = await db.insert(carts).values({
       items: [input],
     })
 
-    cookieStore.set("cartId", String(newCart.insertId))
-
+    addCartCookie({cartId: newCart.insertId})
     revalidatePath("/")
     return
   }
@@ -88,21 +67,15 @@ export async function addToCart(rawInput: z.infer<typeof cartItemSchema>) {
     cart.items?.push(input)
   }
 
-  await db
-    .update(carts)
-    .set({
-      items: cart.items,
-    })
-    .where(eq(carts.id, Number(cartId)))
-
+  await updateCartItemsById({cartId, items: cart.items ?? []});
   revalidatePath("/")
 }
+
 
 export async function updateCartItem(rawInput: z.infer<typeof cartItemSchema>) {
   const input = cartItemSchema.parse(rawInput)
 
-  const cartId = cookies().get("cartId")?.value
-
+  const cartId = getCartCookie()
   if (!cartId) {
     throw new Error("cartId not found, please try again.")
   }
@@ -111,10 +84,7 @@ export async function updateCartItem(rawInput: z.infer<typeof cartItemSchema>) {
     throw new Error("Invalid cartId, please try again.")
   }
 
-  const cart = await db.query.carts.findFirst({
-    where: eq(carts.id, Number(cartId)),
-  })
-
+  const cart = await findCartById({cartId})
   if (!cart) {
     throw new Error("Cart not found, please try again.")
   }
@@ -134,37 +104,12 @@ export async function updateCartItem(rawInput: z.infer<typeof cartItemSchema>) {
     cartItem.quantity = input.quantity
   }
 
-  await db
-    .update(carts)
-    .set({
-      items: cart.items,
-    })
-    .where(eq(carts.id, Number(cartId)))
-
+  await updateCartItemsById({cartId, items: cart.items ?? []});
   revalidatePath("/")
 }
 
 export async function deleteCart() {
-  const cartId = Number(cookies().get("cartId")?.value)
-
-  if (!cartId) {
-    throw new Error("cartId not found, please try again.")
-  }
-
-  if (isNaN(cartId)) {
-    throw new Error("Invalid cartId, please try again.")
-  }
-
-  await db.delete(carts).where(eq(carts.id, cartId))
-}
-
-export async function deleteCartItem(
-  rawInput: z.infer<typeof deleteCartItemSchema>
-) {
-  const input = deleteCartItemSchema.parse(rawInput)
-
-  const cartId = cookies().get("cartId")?.value
-
+  const cartId = getCartCookie();
   if (!cartId) {
     throw new Error("cartId not found, please try again.")
   }
@@ -173,21 +118,28 @@ export async function deleteCartItem(
     throw new Error("Invalid cartId, please try again.")
   }
 
-  const cart = await db.query.carts.findFirst({
-    where: eq(carts.id, Number(cartId)),
-  })
+  await deleteCartById({cartId})
+}
 
+export async function deleteCartItem(
+  rawInput: z.infer<typeof deleteCartItemSchema>
+) {
+  const input = deleteCartItemSchema.parse(rawInput)
+
+  const cartId = getCartCookie();
+  if (!cartId) {
+    throw new Error("cartId not found, please try again.")
+  }
+
+  if (isNaN(Number(cartId))) {
+    throw new Error("Invalid cartId, please try again.")
+  }
+
+  const cart = await findCartById({cartId})
   if (!cart) return
-
-  cart.items =
-    cart.items?.filter((item) => item.productId !== input.productId) ?? []
-
-  await db
-    .update(carts)
-    .set({
-      items: cart.items,
-    })
-    .where(eq(carts.id, Number(cartId)))
+  
+  cart.items = cart.items?.filter((item) => item.productId !== input.productId) ?? []
+  await updateCartItemsById({cartId, items: cart.items ?? []});
 
   revalidatePath("/")
 }
@@ -197,8 +149,7 @@ export async function deleteCartItems(
 ) {
   const input = deleteCartItemsSchema.parse(rawInput)
 
-  const cartId = cookies().get("cartId")?.value
-
+  const cartId = getCartCookie();
   if (!cartId) {
     throw new Error("cartId not found, please try again.")
   }
@@ -207,22 +158,11 @@ export async function deleteCartItems(
     throw new Error("Invalid cartId, please try again.")
   }
 
-  const cart = await db.query.carts.findFirst({
-    where: eq(carts.id, Number(cartId)),
-  })
-
+  const cart = await findCartById({cartId})
   if (!cart) return
 
-  cart.items =
-    cart.items?.filter((item) => !input.productIds.includes(item.productId)) ??
-    []
-
-  await db
-    .update(carts)
-    .set({
-      items: cart.items,
-    })
-    .where(eq(carts.id, Number(cartId)))
+  cart.items = cart.items?.filter((item) => !input.productIds.includes(item.productId)) ?? []
+  await updateCartItemsById({cartId, items: cart.items ?? []});
 
   revalidatePath("/")
 }

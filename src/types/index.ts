@@ -3,7 +3,7 @@ import { type FileWithPath } from "react-dropzone"
 import type Stripe from "stripe"
 import { type z } from "zod"
 
-import { type userPrivateMetadataSchema } from "@/features/auth/auth.validation"
+import { type userPrivateMetadataSchema } from "@/features/auth/constants"
 import type {
   cartItemSchema,
   cartLineItemSchema,

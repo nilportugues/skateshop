@@ -9,7 +9,7 @@ import { toast } from "sonner"
 import type { z } from "zod"
 
 import { catchClerkError } from "@/lib/client/utils"
-import { authSchema } from "@/features/auth/auth.validation"
+import { authSchema } from "@/features/auth/constants"
 import { Button } from "@/components/ui/button"
 import {
   Form,
