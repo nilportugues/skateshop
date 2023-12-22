@@ -55,23 +55,20 @@ export type AwaitedOrder = Pick<
 }
 
 interface PurchasesDataTableProps {
-  transaction: Promise<{
-    items: AwaitedOrder[]
+    items: Order[]
     count: number
-  }>
   limit: number
 }
 
 export function PurchasesDataTable({
-  transaction,
+  items, count,
   limit,
 }: PurchasesDataTableProps) {
-  const { items: data, count } = React.use(transaction)
 
   const pageCount = Math.ceil(count / limit)
 
   // Memoize the columns so they don't re-render on every render
-  const columns = React.useMemo<ColumnDef<AwaitedOrder, unknown>[]>(
+  const columns = React.useMemo<ColumnDef<Order, unknown>[]>(
     () => [
       {
         accessorKey: "id",
@@ -183,7 +180,7 @@ export function PurchasesDataTable({
   return (
     <DataTable
       columns={columns}
-      data={data}
+      data={items}
       pageCount={pageCount}
       searchableColumns={[
         {

@@ -47,9 +47,11 @@ export default async function PurchasesPage({
   const pageAsNumber = Number(page)
   const fallbackPage =
     isNaN(pageAsNumber) || pageAsNumber < 1 ? 1 : pageAsNumber
+
   // Number of items per page
   const perPageAsNumber = Number(per_page)
   const limit = isNaN(perPageAsNumber) ? 10 : perPageAsNumber
+
   // Number of items to skip
   const offset = fallbackPage > 0 ? (fallbackPage - 1) * limit : 0
 
@@ -62,69 +64,11 @@ export default async function PurchasesPage({
   const statuses = status ? status.split(".") : []
 
   // Transaction is used to ensure both queries are executed in a single transaction
-  const transaction = db.transaction(async (tx) => {
-    const items = await tx
-      .select({
-        id: orders.id,
-        email: orders.email,
-        items: orders.items,
-        amount: orders.amount,
-        status: orders.stripePaymentIntentStatus,
-        createdAt: orders.createdAt,
-        storeId: orders.storeId,
-        store: stores.name,
-      })
-      .from(orders)
-      .leftJoin(stores, eq(orders.storeId, stores.id))
-      .limit(limit)
-      .offset(offset)
-      .where(
-        and(
-          eq(orders.email, email),
-          // Filter by store
-          typeof store === "string"
-            ? like(stores.name, `%${store}%`)
-            : undefined,
-          // Filter by status
-          statuses.length > 0
-            ? inArray(orders.stripePaymentIntentStatus, statuses)
-            : undefined
-        )
-      )
-      .orderBy(
-        column && column in orders
-          ? order === "asc"
-            ? asc(orders[column])
-            : desc(orders[column])
-          : desc(orders.createdAt)
-      )
+  const [ items, count ] = await Promise.all([
+    findOrdersByEmailAndStore({email, store, statuses, column, order, limit, offset}),
+    countOrdersByEmailAndStore({email, store, statuses})
+  ]);
 
-    const count = await tx
-      .select({
-        count: sql<number>`count(*)`,
-      })
-      .from(orders)
-      .leftJoin(stores, eq(orders.storeId, stores.id))
-      .where(
-        and(
-          eq(orders.email, email),
-          // Filter by store
-          typeof store === "string"
-            ? like(stores.name, `%${store}%`)
-            : undefined,
-          // Filter by status
-          statuses.length > 0
-            ? inArray(orders.stripePaymentIntentStatus, statuses)
-            : undefined
-        )
-      )
-      .then((res) => res[0]?.count ?? 0)
-
-    return {
-      items,
-      count,
-    }
-  })
 
   return (
     <Shell variant="sidebar">
@@ -144,3 +88,65 @@ export default async function PurchasesPage({
     </Shell>
   )
 }
+async function countOrdersByEmailAndStore({email, store, statuses}: {email: string, store: string | undefined, statuses: string[]}) {
+  return  db
+    .select({
+      count: sql<number> `count(*)`,
+    })
+    .from(orders)
+    .leftJoin(stores, eq(orders.storeId, stores.id))
+    .where(
+      and(
+        eq(orders.email, email),
+        // Filter by store
+        typeof store === "string"
+          ? like(stores.name, `%${store}%`)
+          : undefined,
+        // Filter by status
+        statuses.length > 0
+          ? inArray(orders.stripePaymentIntentStatus, statuses)
+          : undefined
+      )
+    )
+    .then((res) => res[0]?.count ?? 0)
+}
+
+async function findOrdersByEmailAndStore(
+  {email, store, statuses, column, order, limit, offset}:  {email: string, store?: string, statuses: string[], column?: keyof Order, order?: "asc" | "desc", limit: number, offset: number}) {
+  return  db
+    .select({
+      id: orders.id,
+      email: orders.email,
+      items: orders.items,
+      amount: orders.amount,
+      status: orders.stripePaymentIntentStatus,
+      createdAt: orders.createdAt,
+      storeId: orders.storeId,
+      store: stores.name,
+    })
+    .from(orders)
+    .leftJoin(stores, eq(orders.storeId, stores.id))
+    .limit(limit)
+    .offset(offset)
+    .where(
+      and(
+        eq(orders.email, email),
+        // Filter by store
+        typeof store === "string"
+          ? like(stores.name, `%${store}%`)
+          : undefined,
+        // Filter by status
+        statuses.length > 0
+          ? inArray(orders.stripePaymentIntentStatus, statuses)
+          : undefined
+      )
+    )
+    .orderBy(
+      column && column in orders
+        ? order === "asc"
+          ? asc(orders[column])
+          : desc(orders[column])
+        : desc(orders.createdAt)
+    )
+}
+
