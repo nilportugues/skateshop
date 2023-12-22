@@ -1,25 +1,20 @@
-import { cookies } from "next/headers"
 import { db } from "@/db"
 import { carts, products, stores } from "@/db/schema"
 import type { CartLineItem } from "@/types"
 import { and, asc, desc, eq, inArray, sql } from "drizzle-orm"
+import { findCartById } from "./db"
+import { getCartCookie } from "./cookies"
 
 export async function getCart(input?: {
   storeId: number
 }): Promise<CartLineItem[]> {
-  const cartId = cookies().get("cartId")?.value
+  const cartId = getCartCookie()
 
+  //--service logic
   if (!cartId || isNaN(Number(cartId))) return []
-
-  const cart = await db.query.carts.findFirst({
-    columns: {
-      items: true,
-    },
-    where: eq(carts.id, Number(cartId)),
-  })
+  const cart = await findCartById({ cartId: String(cartId) })
 
   const productIds = cart?.items?.map((item) => item.productId) ?? []
-
   if (productIds.length === 0) return []
 
   const uniqueProductIds = [...new Set(productIds)]
@@ -62,14 +57,17 @@ export async function getCart(input?: {
     })
 
   return cartLineItems
+  //-end serivce logic
 }
 
 export async function getUniqueStoreIds() {
-  const cartId = cookies().get("cartId")?.value
+  const cartId = getCartCookie()
 
+  //--service logic
   if (!cartId || isNaN(Number(cartId))) return []
 
   try {
+    //findStoreIdsByCartId
     const cart = await db
       .selectDistinct({ storeId: products.storeId })
       .from(carts)
@@ -87,16 +85,14 @@ export async function getUniqueStoreIds() {
     console.error(err)
     return []
   }
+  //-end serivce logic
 }
 
 export async function getCartItems(input: { cartId?: number }) {
   if (!input.cartId || isNaN(input.cartId)) return []
 
   try {
-    const cart = await db.query.carts.findFirst({
-      where: eq(carts.id, input.cartId),
-    })
-
+    const cart = await findCartById({ cartId: String(input.cartId) });
     return cart?.items
   } catch (err) {
     console.error(err)

@@ -1,6 +1,6 @@
 import Link from "next/link"
 
-import { getCart } from "@/features/cart/server/cart"
+import { getCart } from "@/features/cart/server/cart.server-actions-2"
 import { cn, formatPrice } from "@/lib/client/utils"
 import { buttonVariants } from "@/components/ui/button"
 import {

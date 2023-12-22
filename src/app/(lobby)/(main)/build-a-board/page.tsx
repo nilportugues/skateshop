@@ -5,7 +5,7 @@ import { env } from "@/env.mjs"
 import { CheckIcon, CircleIcon } from "@radix-ui/react-icons"
 
 import { productCategories } from "@/features/product/config/products"
-import { getCartItems } from "@/features/cart/server/cart"
+import { getCartItems } from "@/features/cart/server/cart.server-actions-2"
 import { getProducts } from "@/features/product/server/product"
 import { cn } from "@/lib/client/utils"
 import { productsSearchParamsSchema } from "@/lib/server/params.validations"

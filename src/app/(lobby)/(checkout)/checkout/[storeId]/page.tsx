@@ -8,7 +8,7 @@ import { ArrowLeftIcon } from "@radix-ui/react-icons"
 import { eq } from "drizzle-orm"
 
 import { createPaymentIntent } from "@/features/stripe/server/stripe.server-actions"
-import { getCart } from "@/features/cart/server/cart"
+import { getCart } from "@/features/cart/server/cart.server-actions-2"
 import { getStripeAccount } from "@/features/stripe/server/stripe.services"
 import { cn, formatPrice } from "@/lib/client/utils"
 import { Button, buttonVariants } from "@/components/ui/button"
