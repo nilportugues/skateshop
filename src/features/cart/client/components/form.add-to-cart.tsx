@@ -8,7 +8,7 @@ import { useForm } from "react-hook-form"
 import { toast } from "sonner"
 import type { z } from "zod"
 
-import { addToCart } from "@/features/cart/server/cart.server-actions"
+import { addToCartAction } from "@/features/cart/server/cart.server-actions"
 import { catchError, cn } from "@/lib/client/utils"
 import { updateCartItemSchema } from "@/features/cart/cart.validation"
 import { Button } from "@/components/ui/button"
@@ -47,7 +47,7 @@ export function AddToCartForm({ productId, showBuyNow }: AddToCartFormProps) {
   function onSubmit(data: Inputs) {
     startAddingToCart(async () => {
       try {
-        await addToCart({
+        await addToCartAction({
           productId,
           quantity: data.quantity,
         })
@@ -135,7 +135,7 @@ export function AddToCartForm({ productId, showBuyNow }: AddToCartFormProps) {
               onClick={() => {
                 startBuyingNow(async () => {
                   try {
-                    await addToCart({
+                    await addToCartAction({
                       productId,
                       quantity: form.getValues("quantity"),
                     })

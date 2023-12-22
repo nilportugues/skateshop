@@ -7,7 +7,7 @@ import { type Product } from "@/db/schema"
 import { CheckIcon, EyeOpenIcon, PlusIcon } from "@radix-ui/react-icons"
 import { toast } from "sonner"
 
-import { addToCart } from "@/features/cart/server/cart.server-actions"
+import { addToCartAction } from "@/features/cart/server/cart.server-actions"
 import { catchError, cn, formatPrice } from "@/lib/client/utils"
 import { AspectRatio } from "@/components/ui/aspect-ratio"
 import { Button, buttonVariants } from "@/components/ui/button"
@@ -86,7 +86,7 @@ export function ProductCard({
               onClick={() => {
                 startAddingToCart(async () => {
                   try {
-                    await addToCart({
+                    await addToCartAction({
                       productId: product.id,
                       quantity: 1,
                     })

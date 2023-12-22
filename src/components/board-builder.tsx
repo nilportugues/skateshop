@@ -8,7 +8,7 @@ import { ChevronDownIcon } from "@radix-ui/react-icons"
 import { toast } from "sonner"
 
 import { sortOptions } from "@/features/product/config/products"
-import { addToCart, deleteCartItem } from "@/features/cart/server/cart.server-actions"
+import { addToCartAction, deleteCartItemAction } from "@/features/cart/server/cart.server-actions"
 import { catchError, cn } from "@/lib/client/utils"
 import { useDebounce } from "@/hooks/use-debounce"
 import { Button } from "@/components/ui/button"
@@ -114,12 +114,12 @@ export function BoardBuilder({
           )
 
           if (productWithSameSubcategory) {
-            await deleteCartItem({
+            await deleteCartItemAction({
               productId: productWithSameSubcategory.productId,
             })
           }
 
-          await addToCart({
+          await addToCartAction({
             productId: product.id,
             quantity: 1,
             subcategory: product.subcategory ?? subcategory,
@@ -129,7 +129,7 @@ export function BoardBuilder({
           return
         }
 
-        await deleteCartItem({
+        await deleteCartItemAction({
           productId: product.id,
         })
         toast.success("Removed from cart.")
