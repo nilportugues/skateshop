@@ -83,7 +83,7 @@ export default async function PurchasesPage({
         </PageHeaderDescription>
       </PageHeader>
       <React.Suspense fallback={<DataTableSkeleton columnCount={6} />}>
-        <PurchasesDataTable transaction={transaction} limit={limit} />
+        <PurchasesDataTable items={items} count={count} limit={limit} />
       </React.Suspense>
     </Shell>
   )
@@ -113,7 +113,7 @@ async function countOrdersByEmailAndStore({email, store, statuses}: {email: stri
 
 async function findOrdersByEmailAndStore(
   {email, store, statuses, column, order, limit, offset}:  {email: string, store?: string, statuses: string[], column?: keyof Order, order?: "asc" | "desc", limit: number, offset: number}) {
-  return  db
+  const data =  db
     .select({
       id: orders.id,
       email: orders.email,
@@ -147,6 +147,8 @@ async function findOrdersByEmailAndStore(
           ? asc(orders[column])
           : desc(orders[column])
         : desc(orders.createdAt)
-    )
+    ).execute()
+
+    return data;
 }
 
