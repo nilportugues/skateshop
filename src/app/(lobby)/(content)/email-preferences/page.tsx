@@ -34,7 +34,6 @@ export default async function EmailPreferencesPage({
         typeof searchParams.token === 'string' ? searchParams.token : '';
 
     const emailPreference = await getEmailPreferencesByToken({ token });
-
     if (!emailPreference) {
         notFound();
     }

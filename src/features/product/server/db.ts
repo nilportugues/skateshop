@@ -1,7 +1,8 @@
-import { and, desc, eq, not } from 'drizzle-orm';
+import { and, desc, eq, not, sql } from 'drizzle-orm';
 
 import { db } from '@/lib/server/db';
 import { products } from '@/lib/server/db/schema';
+import { stores } from 'drizzle/schema';
 
 export async function findProductById({ productId }: { productId: number }) {
     return await db.query.products.findFirst({
@@ -49,5 +50,22 @@ export async function findRelatedProductsByProductId({
                 ),
             )
             .orderBy(desc(products.inventory))) ?? []
+    );
+}
+
+
+
+export async function getAllProductsFromStoresWithStripeAccounts() {
+    return await db
+    .select({
+        id: products.id,
+    })
+    .from(products)
+    .leftJoin(stores, eq(products.storeId, stores.id))
+    .groupBy(products.id)
+    .orderBy(
+        desc(sql<number>`count(${stores.stripeAccountId})`),
+        desc(sql<number>`count(${products.images})`),
+        desc(products.createdAt),
     );
 }
