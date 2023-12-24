@@ -24,10 +24,9 @@ import type {
 } from 'react-hook-form';
 import { toast } from 'sonner';
 
-import { cn, formatBytes } from '@/lib/client/utils';
-
 import { Button } from '@/components/ui/button';
 import { Dialog, DialogContent, DialogTrigger } from '@/components/ui/dialog';
+import { cn, formatBytes } from '@/libs/client/utils';
 import type { FileWithPreview } from '@/types';
 
 // FIXME Your proposed upload exceeds the maximum allowed size, this should trigger toast.error too

@@ -2,7 +2,7 @@ import { getAllProductsFromStoresWithStripeAccounts } from '@/features/product/s
 
 import { getAllStoresIdsWithProducts } from '@/features/stores/server/db';
 
-import { absoluteUrl } from '@/lib/client/utils';
+import { absoluteUrl } from '@/libs/client/utils';
 
 export async function buildAllStoreUrls() {
     const allStores = await getAllStoresIdsWithProducts();

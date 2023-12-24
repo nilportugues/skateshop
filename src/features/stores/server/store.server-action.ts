@@ -11,9 +11,9 @@ import {
     updateStoreSchema,
 } from '@/features/stores/store.validation';
 
-import { slugify } from '@/lib/client/utils';
-import { db } from '@/lib/server/db';
-import { stores } from '@/lib/server/db/schema';
+import { slugify } from '@/libs/client/utils';
+import { db } from '@/libs/server/db';
+import { stores } from '@/libs/server/db/schema';
 
 const extendedStoreSchema = storeSchema.extend({
     userId: z.string(),

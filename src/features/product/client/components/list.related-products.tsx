@@ -1,8 +1,7 @@
 import { ProductCard } from '@/features/stores/client/components/card.product';
 
-import { type Product } from '@/lib/server/db/schema';
-
 import { ScrollArea } from '@/components/ui/scroll-area';
+import { type Product } from '@/libs/server/db/schema';
 
 type RelatedProductsProps = {
     store?: { id: number; name: string };

@@ -5,12 +5,11 @@ import type { Table } from '@tanstack/react-table';
 import Link from 'next/link';
 import * as React from 'react';
 
-import { cn } from '@/lib/client/utils';
-
 import { DataTableFacetedFilter } from '@/components/data-table/data-table-faceted-filter';
 import { DataTableViewOptions } from '@/components/data-table/data-table-view-options';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { cn } from '@/libs/client/utils';
 import type {
     DataTableFilterableColumn,
     DataTableSearchableColumn,

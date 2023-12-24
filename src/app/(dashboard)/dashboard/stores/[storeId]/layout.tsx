@@ -7,9 +7,6 @@ import { StoreTabs } from '@/features/stores/client/components/dashboard.tabs.st
 import { getDashboardRedirectPath } from '@/features/stripe/client/utils/subscription';
 import { getSubscriptionPlan } from '@/features/stripe/server/stripe.services';
 
-import { db } from '@/lib/server/db';
-import { stores } from '@/lib/server/db/schema';
-
 import {
     PageHeader,
     PageHeaderDescription,
@@ -17,6 +14,8 @@ import {
 } from '@/components/page-header';
 import { StoreSwitcher } from '@/components/pagers/store-switcher';
 import { Shell } from '@/components/shells/shell';
+import { db } from '@/libs/server/db';
+import { stores } from '@/libs/server/db/schema';
 
 interface StoreLayoutProps extends React.PropsWithChildren {
     params: {

@@ -1,7 +1,6 @@
-import { formatDate } from '@/lib/client/utils';
-
 import { Card } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
+import { formatDate } from '@/libs/client/utils';
 import { UserSubscriptionPlan } from '@/types';
 
 export function BillingInfo({

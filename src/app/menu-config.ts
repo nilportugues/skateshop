@@ -1,7 +1,6 @@
 import { productCategories } from '@/features/product/config/products';
 
-import { slugify } from '@/lib/client/utils';
-
+import { slugify } from '@/libs/client/utils';
 import type { FooterItem, MainNavItem } from '@/types';
 
 export type SiteConfig = typeof siteConfig;

@@ -7,13 +7,12 @@ import { getProducts } from '@/features/product/server/product';
 
 import { getStores } from '@/features/stores/store';
 
-import { db } from '@/lib/server/db';
-import { products, stores } from '@/lib/server/db/schema';
-
 import { Breadcrumbs } from '@/components/pagers/breadcrumbs';
 import { Shell } from '@/components/shells/shell';
 import { Separator } from '@/components/ui/separator';
 import { env } from '@/env.mjs';
+import { db } from '@/libs/server/db';
+import { products, stores } from '@/libs/server/db/schema';
 
 interface StorePageProps {
     params: {

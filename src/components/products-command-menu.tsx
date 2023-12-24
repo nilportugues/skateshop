@@ -7,9 +7,6 @@ import * as React from 'react';
 import { productCategories } from '@/features/product/config/products';
 import { filterProducts } from '@/features/product/server/product.server-actions';
 
-import { catchError, cn, isMacOs } from '@/lib/client/utils';
-import { type Product } from '@/lib/server/db/schema';
-
 import { Button } from '@/components/ui/button';
 import {
     CommandDialog,
@@ -21,6 +18,8 @@ import {
 } from '@/components/ui/command';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useDebounce } from '@/hooks/use-debounce';
+import { catchError, cn, isMacOs } from '@/libs/client/utils';
+import { type Product } from '@/libs/server/db/schema';
 
 interface ProductGroup {
     category: Product['category'];

@@ -1,7 +1,7 @@
 import { and, asc, desc, eq, inArray, like, sql } from 'drizzle-orm';
 
-import { db } from '@/lib/server/db';
-import { Order, orders, stores } from '@/lib/server/db/schema';
+import { db } from '@/libs/server/db';
+import { Order, orders, stores } from '@/libs/server/db/schema';
 
 export async function findOrderById({ orderId }: { orderId: number }) {
     return db.query.orders.findFirst({

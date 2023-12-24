@@ -1,6 +1,5 @@
-import { cn } from '@/lib/client/utils';
-
 import { Skeleton } from '@/components/ui/skeleton';
+import { cn } from '@/libs/client/utils';
 
 interface FormLoadingProps {
     showSecondaryButton?: boolean;

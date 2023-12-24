@@ -3,9 +3,6 @@ import { unstable_noStore as noStore } from 'next/cache';
 import Link from 'next/link';
 import * as React from 'react';
 
-import { db } from '@/lib/server/db';
-import { products } from '@/lib/server/db/schema';
-
 import {
     Card,
     CardContent,
@@ -14,6 +11,8 @@ import {
     CardTitle,
 } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
+import { db } from '@/libs/server/db';
+import { products } from '@/libs/server/db/schema';
 import type { Category } from '@/types';
 
 interface CategoryCardProps {

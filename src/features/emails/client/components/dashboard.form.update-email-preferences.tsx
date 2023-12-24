@@ -9,9 +9,6 @@ import { type z } from 'zod';
 import { updateEmailPreferencesSchema } from '@/features/emails/email.validation';
 import { updateEmailPreferences } from '@/features/emails/server/email.server-actions';
 
-import { catchClerkError } from '@/lib/client/utils';
-import { type EmailPreference } from '@/lib/server/db/schema';
-
 import { Icons } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import {
@@ -24,6 +21,8 @@ import {
     FormMessage,
 } from '@/components/ui/form';
 import { Switch } from '@/components/ui/switch';
+import { catchClerkError } from '@/libs/client/utils';
+import { type EmailPreference } from '@/libs/server/db/schema';
 
 interface UpdateEmailPreferencesFormProps {
     emailPreference: EmailPreference;

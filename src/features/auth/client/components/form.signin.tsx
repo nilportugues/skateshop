@@ -9,8 +9,6 @@ import type { z } from 'zod';
 
 import { authSchema } from '@/features/auth/constants';
 
-import { catchClerkError } from '@/lib/client/utils';
-
 import { Icons } from '@/components/icons';
 import { PasswordInput } from '@/components/password-input';
 import { Button } from '@/components/ui/button';
@@ -23,6 +21,7 @@ import {
     FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { catchClerkError } from '@/libs/client/utils';
 
 type Inputs = z.infer<typeof authSchema>;
 

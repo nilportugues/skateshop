@@ -1,7 +1,7 @@
 import { eq } from 'drizzle-orm';
 
-import { db } from '@/lib/server/db';
-import { carts } from '@/lib/server/db/schema';
+import { db } from '@/libs/server/db';
+import { carts } from '@/libs/server/db/schema';
 
 export async function deleteCartById({ cartId }: { cartId: string }) {
     await db.delete(carts).where(eq(carts.id, Number(cartId)));

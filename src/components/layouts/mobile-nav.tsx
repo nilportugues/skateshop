@@ -5,8 +5,6 @@ import Link from 'next/link';
 import { useSelectedLayoutSegment } from 'next/navigation';
 import * as React from 'react';
 
-import { cn } from '@/lib/client/utils';
-
 import { siteConfig } from '@/app/menu-config';
 import { Icons } from '@/components/icons';
 import {
@@ -18,6 +16,7 @@ import {
 import { Button } from '@/components/ui/button';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Sheet, SheetContent, SheetTrigger } from '@/components/ui/sheet';
+import { cn } from '@/libs/client/utils';
 import type { MainNavItem, SidebarNavItem } from '@/types';
 
 interface MobileNavProps {

@@ -5,8 +5,6 @@ import { getUniqueStoreIds } from '@/features/cart/server/cart.server-actions-2'
 
 import { CheckoutCard } from '@/features/stripe/client/components/checkout.card';
 
-import { cn } from '@/lib/client/utils';
-
 import { Icons } from '@/components/icons';
 import {
     PageHeader,
@@ -16,6 +14,7 @@ import {
 import { Shell } from '@/components/shells/shell';
 import { buttonVariants } from '@/components/ui/button';
 import { env } from '@/env.mjs';
+import { cn } from '@/libs/client/utils';
 
 export const metadata: Metadata = {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),

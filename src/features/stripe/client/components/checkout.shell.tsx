@@ -6,7 +6,7 @@ import * as React from 'react';
 
 import { getStripe } from '@/features/stripe/client/libs/get-stripe';
 
-import { cn } from '@/lib/client/utils';
+import { cn } from '@/libs/client/utils';
 
 // Docs: https://stripe.com/docs/payments/quickstart
 

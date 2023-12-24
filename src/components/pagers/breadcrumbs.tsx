@@ -2,7 +2,7 @@ import { ChevronRightIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 import * as React from 'react';
 
-import { cn, truncate } from '@/lib/client/utils';
+import { cn, truncate } from '@/libs/client/utils';
 
 interface BreadcrumbsProps extends React.ComponentPropsWithoutRef<'nav'> {
     segments: {

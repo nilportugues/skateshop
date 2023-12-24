@@ -7,9 +7,8 @@ import {
 import { usePathname, useRouter } from 'next/navigation';
 import * as React from 'react';
 
-import { cn } from '@/lib/client/utils';
-
 import { Button } from '@/components/ui/button';
+import { cn } from '@/libs/client/utils';
 
 interface PaginationButtonProps extends React.HTMLAttributes<HTMLDivElement> {
     pageCount: number;

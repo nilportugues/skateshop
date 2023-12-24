@@ -5,8 +5,6 @@ import { type ColumnDef } from '@tanstack/react-table';
 import Link from 'next/link';
 import * as React from 'react';
 
-import { formatDate, formatPrice } from '@/lib/client/utils';
-
 import { DataTable } from '@/components/data-table/data-table';
 import { DataTableColumnHeader } from '@/components/data-table/data-table-column-header';
 import { Button } from '@/components/ui/button';
@@ -16,6 +14,7 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { formatDate, formatPrice } from '@/libs/client/utils';
 
 interface AwaitedCustomer {
     email: string | null;

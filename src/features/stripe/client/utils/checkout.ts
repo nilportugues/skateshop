@@ -1,5 +1,4 @@
-import { cn } from '@/lib/client/utils';
-
+import { cn } from '@/libs/client/utils';
 import type { CartLineItem, StripePaymentStatus } from '@/types';
 
 // Original source: https://github.com/jackblatch/OneStopShop/blob/main/server-actions/stripe/payment.ts

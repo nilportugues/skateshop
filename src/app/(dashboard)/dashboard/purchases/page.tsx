@@ -9,10 +9,6 @@ import {
     findOrdersByEmailAndStore,
 } from '@/features/stripe/server/db';
 
-import { getUserEmail } from '@/lib/client/utils';
-import { type Order } from '@/lib/server/db/schema';
-import { purchasesSearchParamsSchema } from '@/lib/server/params.validations';
-
 import { DataTableSkeleton } from '@/components/data-table/data-table-skeleton';
 import {
     PageHeader,
@@ -21,6 +17,9 @@ import {
 } from '@/components/page-header';
 import { Shell } from '@/components/shells/shell';
 import { env } from '@/env.mjs';
+import { getUserEmail } from '@/libs/client/utils';
+import { type Order } from '@/libs/server/db/schema';
+import { purchasesSearchParamsSchema } from '@/libs/server/params.validations';
 
 export const metadata: Metadata = {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),

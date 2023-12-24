@@ -2,8 +2,6 @@ import { allPages } from 'contentlayer/generated';
 import { type Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { absoluteUrl } from '@/lib/client/utils';
-
 import { siteConfig } from '@/app/menu-config';
 import { Mdx } from '@/components/mdx/mdx-components';
 import {
@@ -14,6 +12,7 @@ import {
 import { MdxPager } from '@/components/pagers/mdx-pager';
 import { Shell } from '@/components/shells/shell';
 import { Separator } from '@/components/ui/separator';
+import { absoluteUrl } from '@/libs/client/utils';
 
 import '../../mdx.css';
 

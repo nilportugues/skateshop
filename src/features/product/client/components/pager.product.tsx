@@ -10,9 +10,8 @@ import {
     getPreviousProductId,
 } from '@/features/product/server/product';
 
-import { type Product } from '@/lib/server/db/schema';
-
 import { Button } from '@/components/ui/button';
+import { type Product } from '@/libs/server/db/schema';
 
 import { NextProductButton } from '../../server/components/buttons/next-product-button';
 

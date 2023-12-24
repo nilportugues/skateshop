@@ -11,10 +11,6 @@ import {
 import { ConnectStoreToStripeButton } from '@/features/stripe/client/components/dashboard.button.connect-store-to-stripe';
 import { getStripeAccount } from '@/features/stripe/server/stripe.services';
 
-import { cn, formatDate } from '@/lib/client/utils';
-import { db } from '@/lib/server/db';
-import { stores } from '@/lib/server/db/schema';
-
 import { LoadingButton } from '@/components/loading-button';
 import { buttonVariants } from '@/components/ui/button';
 import {
@@ -29,6 +25,9 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { env } from '@/env.mjs';
+import { cn, formatDate } from '@/libs/client/utils';
+import { db } from '@/libs/server/db';
+import { stores } from '@/libs/server/db/schema';
 
 export const metadata: Metadata = {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),

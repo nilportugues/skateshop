@@ -1,10 +1,9 @@
 import { Slot } from '@radix-ui/react-slot';
 
-import { cn } from '@/lib/client/utils';
-
 import { Icons } from '@/components/icons';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Skeleton } from '@/components/ui/skeleton';
+import { cn } from '@/libs/client/utils';
 
 interface PlaceholderImageProps
     extends React.ComponentPropsWithoutRef<typeof AspectRatio> {

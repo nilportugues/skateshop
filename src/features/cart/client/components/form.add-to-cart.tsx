@@ -11,8 +11,6 @@ import type { z } from 'zod';
 import { updateCartItemSchema } from '@/features/cart/cart.validation';
 import { addToCartAction } from '@/features/cart/server/cart.server-actions';
 
-import { catchError, cn } from '@/lib/client/utils';
-
 import { Icons } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import {
@@ -24,6 +22,7 @@ import {
     FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { catchError, cn } from '@/libs/client/utils';
 
 interface AddToCartFormProps {
     productId: number;

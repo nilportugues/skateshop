@@ -1,15 +1,14 @@
 import { ClerkProvider } from '@clerk/nextjs';
 import type { Metadata, Viewport } from 'next';
 
-import { fontHeading, fontMono, fontSans } from '@/lib/client/fonts';
-import { cn } from '@/lib/client/utils';
-
 import { siteConfig } from '@/app/menu-config';
 import { Analytics } from '@/components/analytics';
 import { ThemeProvider } from '@/components/providers';
 import { TailwindIndicator } from '@/components/tailwind-indicator';
 import { Toaster } from '@/components/ui/toaster';
 import { env } from '@/env.mjs';
+import { fontHeading, fontMono, fontSans } from '@/libs/client/fonts';
+import { cn } from '@/libs/client/utils';
 
 import './globals.css';
 

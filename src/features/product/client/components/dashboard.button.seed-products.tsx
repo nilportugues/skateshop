@@ -5,10 +5,9 @@ import { toast } from 'sonner';
 
 import { seedProducts } from '@/features/product/server/product.server-actions';
 
-import { cn } from '@/lib/client/utils';
-
 import { Icons } from '@/components/icons';
 import { Button, type ButtonProps } from '@/components/ui/button';
+import { cn } from '@/libs/client/utils';
 
 interface SeedProductsProps extends ButtonProps {
     storeId: number;

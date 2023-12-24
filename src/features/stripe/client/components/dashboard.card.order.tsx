@@ -1,7 +1,5 @@
 import Link from 'next/link';
 
-import { formatId, formatPrice } from '@/lib/client/utils';
-
 import {
     Card,
     CardContent,
@@ -9,6 +7,7 @@ import {
     CardHeader,
     CardTitle,
 } from '@/components/ui/card';
+import { formatId, formatPrice } from '@/libs/client/utils';
 import { CartLineItem } from '@/types';
 
 export function OrderCard({

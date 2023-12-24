@@ -4,8 +4,7 @@ import { ChevronLeftIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 import { useSelectedLayoutSegment } from 'next/navigation';
 
-import { cn } from '@/lib/client/utils';
-
+import { cn } from '@/libs/client/utils';
 import type { SidebarNavItem } from '@/types';
 
 import { Icons } from '../icons';

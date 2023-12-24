@@ -5,15 +5,14 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-import { cn, formatPrice } from '@/lib/client/utils';
-import { db } from '@/lib/server/db';
-
 import { PlaceholderImage } from '@/components/placeholder-image';
 import { Rating } from '@/components/rating';
 import { DialogShell } from '@/components/shells/dialog-shell';
 import { AlertDialogAction } from '@/components/ui/alert-dialog';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { buttonVariants } from '@/components/ui/button';
+import { cn, formatPrice } from '@/libs/client/utils';
+import { db } from '@/libs/server/db';
 import type { StoredFile } from '@/types';
 
 interface ProductModalPageProps {

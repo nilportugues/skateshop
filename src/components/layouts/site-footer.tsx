@@ -2,13 +2,12 @@ import Link from 'next/link';
 
 import { JoinNewsletterForm } from '@/features/emails/client/components/form.join-newsletter';
 
-import { cn } from '@/lib/client/utils';
-
 import { siteConfig } from '@/app/menu-config';
 import { Icons } from '@/components/icons';
 import { ModeToggle } from '@/components/layouts/mode-toggle';
 import { Shell } from '@/components/shells/shell';
 import { buttonVariants } from '@/components/ui/button';
+import { cn } from '@/libs/client/utils';
 
 export function SiteFooter() {
     return (

@@ -6,10 +6,9 @@ import { type z } from 'zod';
 import { manageSubscription } from '@/features/stripe/server/stripe.server-actions';
 import { type manageSubscriptionSchema } from '@/features/stripe/stripe.validation';
 
-import { catchError } from '@/lib/client/utils';
-
 import { Icons } from '@/components/icons';
 import { Button } from '@/components/ui/button';
+import { catchError } from '@/libs/client/utils';
 
 type ManageSubscriptionFormProps = z.infer<typeof manageSubscriptionSchema>;
 

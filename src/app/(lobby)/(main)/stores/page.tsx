@@ -3,8 +3,6 @@ import { type Metadata } from 'next';
 import { Stores } from '@/features/stores/client/components/searchable.stores';
 import { getStores } from '@/features/stores/store';
 
-import { storesSearchParamsSchema } from '@/lib/server/params.validations';
-
 import {
     PageHeader,
     PageHeaderDescription,
@@ -12,6 +10,7 @@ import {
 } from '@/components/page-header';
 import { Shell } from '@/components/shells/shell';
 import { env } from '@/env.mjs';
+import { storesSearchParamsSchema } from '@/libs/server/params.validations';
 
 export const metadata: Metadata = {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),

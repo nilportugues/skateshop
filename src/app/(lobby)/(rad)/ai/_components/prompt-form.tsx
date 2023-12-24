@@ -2,8 +2,6 @@ import { PaperPlaneIcon } from '@radix-ui/react-icons';
 import { type UseChatHelpers } from 'ai/react';
 import * as React from 'react';
 
-import { catchError } from '@/lib/client/utils';
-
 import { Icons } from '@/components/icons';
 import { TextareaAutosize } from '@/components/textarea-autosize';
 import { Button } from '@/components/ui/button';
@@ -13,6 +11,7 @@ import {
     TooltipTrigger,
 } from '@/components/ui/tooltip';
 import { useEnterSubmit } from '@/hooks/use-enter-submit';
+import { catchError } from '@/libs/client/utils';
 
 export interface PromptFormProps
     extends Pick<UseChatHelpers, 'input' | 'setInput'> {

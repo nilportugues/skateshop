@@ -4,12 +4,11 @@ import { SignOutButton } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
 import * as React from 'react';
 
-import { cn } from '@/lib/client/utils';
-
 import { Icons } from '@/components/icons';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useMounted } from '@/hooks/use-mounted';
+import { cn } from '@/libs/client/utils';
 
 export function LogOutButtons() {
     const router = useRouter();

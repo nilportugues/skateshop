@@ -8,16 +8,15 @@ import { checkoutItemSchema } from '@/features/cart/cart.validation';
 
 import { stripe } from '@/features/stripe/server/libs/stripe';
 
-import { db } from '@/lib/server/db';
+import { env } from '@/env.mjs';
+import { db } from '@/libs/server/db';
 import {
     addresses,
     carts,
     orders,
     payments,
     products,
-} from '@/lib/server/db/schema';
-
-import { env } from '@/env.mjs';
+} from '@/libs/server/db/schema';
 import type { CheckoutItem } from '@/types';
 
 export async function POST(req: Request) {

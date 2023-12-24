@@ -8,10 +8,9 @@ import {
     updateCartItemAction,
 } from '@/features/cart/server/cart.server-actions';
 
-import { catchError } from '@/lib/client/utils';
-
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
+import { catchError } from '@/libs/client/utils';
 import type { CartLineItem } from '@/types';
 
 interface UpdateCartProps {

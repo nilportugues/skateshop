@@ -6,9 +6,6 @@ import { getProducts } from '@/features/product/server/product';
 
 import { getStores } from '@/features/stores/store';
 
-import { products } from '@/lib/server/db/schema';
-import { productsSearchParamsSchema } from '@/lib/server/params.validations';
-
 import {
     PageHeader,
     PageHeaderDescription,
@@ -16,6 +13,8 @@ import {
 } from '@/components/page-header';
 import { Shell } from '@/components/shells/shell';
 import { env } from '@/env.mjs';
+import { products } from '@/libs/server/db/schema';
+import { productsSearchParamsSchema } from '@/libs/server/params.validations';
 
 export const metadata: Metadata = {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),

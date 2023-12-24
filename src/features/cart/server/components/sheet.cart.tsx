@@ -3,8 +3,6 @@ import Link from 'next/link';
 import { CartLineItems } from '@/features/cart/client/components/list.cart-line-items';
 import { getCart } from '@/features/cart/server/cart.server-actions-2';
 
-import { cn, formatPrice } from '@/lib/client/utils';
-
 import { Icons } from '@/components/icons';
 import { Badge } from '@/components/ui/badge';
 import { Button, buttonVariants } from '@/components/ui/button';
@@ -17,6 +15,7 @@ import {
     SheetTitle,
     SheetTrigger,
 } from '@/components/ui/sheet';
+import { cn, formatPrice } from '@/libs/client/utils';
 
 export async function CartSheet() {
     const cartLineItems = await getCart();

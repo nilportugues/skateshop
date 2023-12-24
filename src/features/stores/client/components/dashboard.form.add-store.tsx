@@ -10,8 +10,6 @@ import type { z } from 'zod';
 import { addStore } from '@/features/stores/server/store.server-action';
 import { storeSchema } from '@/features/stores/store.validation';
 
-import { catchError } from '@/lib/client/utils';
-
 import { Icons } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import {
@@ -24,6 +22,7 @@ import {
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { Textarea } from '@/components/ui/textarea';
+import { catchError } from '@/libs/client/utils';
 
 interface AddStoreFormProps {
     userId: string;

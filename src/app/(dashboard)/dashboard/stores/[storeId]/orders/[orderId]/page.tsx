@@ -5,10 +5,6 @@ import { notFound } from 'next/navigation';
 
 import { getOrderLineItems } from '@/features/stripe/server/order.services';
 
-import { formatId, formatPrice } from '@/lib/client/utils';
-import { db } from '@/lib/server/db';
-import { orders, products } from '@/lib/server/db/schema';
-
 import {
     Card,
     CardContent,
@@ -17,6 +13,9 @@ import {
     CardTitle,
 } from '@/components/ui/card';
 import { env } from '@/env.mjs';
+import { formatId, formatPrice } from '@/libs/client/utils';
+import { db } from '@/libs/server/db';
+import { orders, products } from '@/libs/server/db/schema';
 
 export const metadata: Metadata = {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),

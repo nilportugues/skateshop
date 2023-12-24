@@ -3,7 +3,7 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 import { OpenAIStream, StreamingTextResponse } from 'ai';
 
-import { functions, openai, runFunction } from '@/lib/server/openai';
+import { functions, openai, runFunction } from '@/libs/server/openai';
 
 export const runtime = 'edge';
 

@@ -3,8 +3,6 @@ import Link from 'next/link';
 import { CartLineItems } from '@/features/cart/client/components/list.cart-line-items';
 import { getCart } from '@/features/cart/server/cart.server-actions-2';
 
-import { cn, formatPrice } from '@/lib/client/utils';
-
 import { buttonVariants } from '@/components/ui/button';
 import {
     Card,
@@ -14,6 +12,7 @@ import {
     CardTitle,
 } from '@/components/ui/card';
 import { Separator } from '@/components/ui/separator';
+import { cn, formatPrice } from '@/libs/client/utils';
 
 interface CheckoutCardProps {
     storeId: number;

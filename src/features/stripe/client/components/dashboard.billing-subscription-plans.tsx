@@ -3,8 +3,6 @@ import Link from 'next/link';
 
 import { storeSubscriptionPlans } from '@/features/stripe/config/subscriptions';
 
-import { cn, formatPrice } from '@/lib/client/utils';
-
 import { buttonVariants } from '@/components/ui/button';
 import {
     Card,
@@ -15,6 +13,7 @@ import {
     CardTitle,
 } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
+import { cn, formatPrice } from '@/libs/client/utils';
 import { UserSubscriptionPlan } from '@/types';
 
 import { ManageSubscriptionForm } from './dashboard.form.manage-subscription';

@@ -8,9 +8,6 @@ import { toast } from 'sonner';
 
 import { deleteProduct } from '@/features/product/server/product.server-actions';
 
-import { catchError, formatDate, formatPrice } from '@/lib/client/utils';
-import { type Product, products } from '@/lib/server/db/schema';
-
 import { DataTable } from '@/components/data-table/data-table';
 import { DataTableColumnHeader } from '@/components/data-table/data-table-column-header';
 import { Badge } from '@/components/ui/badge';
@@ -24,6 +21,8 @@ import {
     DropdownMenuShortcut,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { catchError, formatDate, formatPrice } from '@/libs/client/utils';
+import { type Product, products } from '@/libs/server/db/schema';
 
 type AwaitedProduct = Pick<
     Product,

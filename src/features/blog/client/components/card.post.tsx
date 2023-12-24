@@ -2,11 +2,10 @@ import { type Post } from 'contentlayer/generated';
 import Image from 'next/image';
 import Link from 'next/link';
 
-import { formatDate } from '@/lib/client/utils';
-
 import { PlaceholderImage } from '@/components/placeholder-image';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { formatDate } from '@/libs/client/utils';
 
 interface PostCardProps {
     post: Post;

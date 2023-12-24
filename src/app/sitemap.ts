@@ -8,7 +8,7 @@ import {
     buildAllStoreUrls,
 } from '@/features/sitemap/server/sitemap.service';
 
-import { absoluteUrl } from '@/lib/client/utils';
+import { absoluteUrl } from '@/libs/client/utils';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const storesRoutes = await buildAllStoreUrls();

@@ -10,10 +10,9 @@ import {
 import * as React from 'react';
 import { toast } from 'sonner';
 
-import { absoluteUrl, cn } from '@/lib/client/utils';
-
 import { Icons } from '@/components/icons';
 import { Button } from '@/components/ui/button';
+import { absoluteUrl, cn } from '@/libs/client/utils';
 
 // Docs: https://stripe.com/docs/payments/quickstart
 

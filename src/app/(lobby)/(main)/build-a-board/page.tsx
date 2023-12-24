@@ -8,9 +8,6 @@ import { getCartItems } from '@/features/cart/server/cart.server-actions-2';
 import { productCategories } from '@/features/product/config/products';
 import { getProducts } from '@/features/product/server/product';
 
-import { cn } from '@/lib/client/utils';
-import { productsSearchParamsSchema } from '@/lib/server/params.validations';
-
 import { BoardBuilder } from '@/components/board-builder';
 import {
     PageHeader,
@@ -19,6 +16,8 @@ import {
 } from '@/components/page-header';
 import { Shell } from '@/components/shells/shell';
 import { env } from '@/env.mjs';
+import { cn } from '@/libs/client/utils';
+import { productsSearchParamsSchema } from '@/libs/server/params.validations';
 
 export const metadata: Metadata = {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),

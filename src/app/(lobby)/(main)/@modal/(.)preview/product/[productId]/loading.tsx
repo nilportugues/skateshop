@@ -1,8 +1,7 @@
-import { cn } from '@/lib/client/utils';
-
 import { PlaceholderImage } from '@/components/placeholder-image';
 import { DialogShell } from '@/components/shells/dialog-shell';
 import { Skeleton } from '@/components/ui/skeleton';
+import { cn } from '@/libs/client/utils';
 
 export default function ProductModalLoading() {
     return (

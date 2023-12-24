@@ -4,10 +4,9 @@ import * as React from 'react';
 
 import { createAccountLink } from '@/features/stripe/server/stripe.server-actions';
 
-import { catchError } from '@/lib/client/utils';
-
 import { Icons } from '@/components/icons';
 import { Button } from '@/components/ui/button';
+import { catchError } from '@/libs/client/utils';
 
 interface ConnectToStripeButtonProps {
     storeId: number;

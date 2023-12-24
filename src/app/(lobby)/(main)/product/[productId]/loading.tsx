@@ -1,12 +1,11 @@
 import { ProductCardSkeleton } from '@/features/stores/client/components/card.product-skeleton';
 
-import { cn } from '@/lib/client/utils';
-
 import { Icons } from '@/components/icons';
 import { Shell } from '@/components/shells/shell';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
 import { Skeleton } from '@/components/ui/skeleton';
+import { cn } from '@/libs/client/utils';
 
 export default function ProductLoading() {
     return (

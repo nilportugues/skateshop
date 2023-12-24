@@ -3,7 +3,7 @@
  */
 import Link from 'next/link';
 
-import { cn } from '@/lib/client/utils';
+import { cn } from '@/libs/client/utils';
 
 interface CardProps extends React.HTMLAttributes<HTMLDivElement> {
     href?: string;

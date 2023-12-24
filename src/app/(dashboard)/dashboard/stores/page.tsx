@@ -15,10 +15,6 @@ import {
 } from '@/features/stripe/client/utils/subscription';
 import { getSubscriptionPlan } from '@/features/stripe/server/stripe.services';
 
-import { cn } from '@/lib/client/utils';
-import { db } from '@/lib/server/db';
-import { products, stores } from '@/lib/server/db/schema';
-
 import {
     PageHeader,
     PageHeaderDescription,
@@ -28,6 +24,9 @@ import { Shell } from '@/components/shells/shell';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { buttonVariants } from '@/components/ui/button';
 import { env } from '@/env.mjs';
+import { cn } from '@/libs/client/utils';
+import { db } from '@/libs/server/db';
+import { products, stores } from '@/libs/server/db/schema';
 
 export const metadata: Metadata = {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),

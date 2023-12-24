@@ -4,8 +4,6 @@ import Link from 'next/link';
 
 import { CartSheet } from '@/features/cart/server/components/sheet.cart';
 
-import { getUserEmail } from '@/lib/client/utils';
-
 import { siteConfig } from '@/app/menu-config';
 import { dashboardConfig } from '@/components/dashboard/dashboard-menu';
 import { Icons } from '@/components/icons';
@@ -24,6 +22,7 @@ import {
     DropdownMenuShortcut,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { getUserEmail } from '@/libs/client/utils';
 
 interface SiteHeaderProps {
     user: User | null;

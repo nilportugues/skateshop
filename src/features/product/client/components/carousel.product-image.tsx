@@ -8,10 +8,9 @@ import useEmblaCarousel, {
 import Image from 'next/image';
 import * as React from 'react';
 
-import { cn } from '@/lib/client/utils';
-
 import { Icons } from '@/components/icons';
 import { Button } from '@/components/ui/button';
+import { cn } from '@/libs/client/utils';
 import { type StoredFile } from '@/types';
 
 interface ProductImageCarouselProps

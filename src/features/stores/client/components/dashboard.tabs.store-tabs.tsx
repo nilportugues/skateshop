@@ -3,9 +3,8 @@
 import { Tabs, TabsList, TabsTrigger } from '@radix-ui/react-tabs';
 import { useRouter, useSelectedLayoutSegment } from 'next/navigation';
 
-import { cn } from '@/lib/client/utils';
-
 import { Separator } from '@/components/ui/separator';
+import { cn } from '@/libs/client/utils';
 
 interface StoreTabsProps {
     storeId: number;

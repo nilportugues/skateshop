@@ -6,10 +6,9 @@ import { toast } from 'sonner';
 
 import { updateProductRating } from '@/features/product/server/product.server-actions';
 
-import { catchError, cn } from '@/lib/client/utils';
-
 import { Icons } from '@/components/icons';
 import { Button, type ButtonProps } from '@/components/ui/button';
+import { catchError, cn } from '@/libs/client/utils';
 
 interface UpdateProductRatingButtonProps extends ButtonProps {
     productId: number;

@@ -1,9 +1,8 @@
 import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons';
 import Link from 'next/link';
 
-import { cn, truncate } from '@/lib/client/utils';
-
 import { buttonVariants } from '@/components/ui/button';
+import { cn, truncate } from '@/libs/client/utils';
 
 interface MdxPagerItem {
     title: string;

@@ -2,10 +2,9 @@
 
 import { ArrowDownIcon } from '@radix-ui/react-icons';
 
-import { cn } from '@/lib/client/utils';
-
 import { Button, type ButtonProps } from '@/components/ui/button';
 import { useAtBottom } from '@/hooks/use-at-bottom';
+import { cn } from '@/libs/client/utils';
 
 export function ScrollToBottomButton({ className, ...props }: ButtonProps) {
     const isAtBottom = useAtBottom();

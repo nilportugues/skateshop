@@ -1,13 +1,12 @@
 import { useMDXComponent } from 'next-contentlayer/hooks';
 
-import { cn } from '@/lib/client/utils';
-
 import { Callout } from '@/components/mdx/callout';
 import { CodeBlock } from '@/components/mdx/code-block';
 import { MdxCard } from '@/components/mdx/mdx-card';
 import { MdxImage } from '@/components/mdx/mdx-image';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { AspectRatio } from '@/components/ui/aspect-ratio';
+import { cn } from '@/libs/client/utils';
 
 /** Originally from `shadcn/ui-docs`
  * @link https://github.com/shadcn/ui/blob/main/apps/www/components/mdx-components.tsx

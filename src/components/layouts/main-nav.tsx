@@ -3,8 +3,6 @@
 import Link from 'next/link';
 import * as React from 'react';
 
-import { cn } from '@/lib/client/utils';
-
 import { siteConfig } from '@/app/menu-config';
 import { Icons } from '@/components/icons';
 import {
@@ -16,6 +14,7 @@ import {
     NavigationMenuTrigger,
     navigationMenuTriggerStyle,
 } from '@/components/ui/navigation-menu';
+import { cn } from '@/libs/client/utils';
 import type { MainNavItem } from '@/types';
 
 interface MainNavProps {

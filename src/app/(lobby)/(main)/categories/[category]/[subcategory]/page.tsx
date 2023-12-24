@@ -5,10 +5,6 @@ import { getProducts } from '@/features/product/server/product';
 
 import { getStores } from '@/features/stores/store';
 
-import { toTitleCase, unslugify } from '@/lib/client/utils';
-import { type Product } from '@/lib/server/db/schema';
-import { productsSearchParamsSchema } from '@/lib/server/params.validations';
-
 import {
     PageHeader,
     PageHeaderDescription,
@@ -16,6 +12,9 @@ import {
 } from '@/components/page-header';
 import { Shell } from '@/components/shells/shell';
 import { env } from '@/env.mjs';
+import { toTitleCase, unslugify } from '@/libs/client/utils';
+import { type Product } from '@/libs/server/db/schema';
+import { productsSearchParamsSchema } from '@/libs/server/params.validations';
 
 interface SubcategoryPageProps {
     params: {

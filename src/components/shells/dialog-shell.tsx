@@ -4,10 +4,9 @@ import { Cross2Icon } from '@radix-ui/react-icons';
 import { useRouter } from 'next/navigation';
 import * as React from 'react';
 
-import { cn } from '@/lib/client/utils';
-
 import { Button } from '@/components/ui/button';
 import { useClickOutside } from '@/hooks/use-click-outside';
+import { cn } from '@/libs/client/utils';
 
 interface DialogShellProps extends React.HTMLAttributes<HTMLDivElement> {}
 

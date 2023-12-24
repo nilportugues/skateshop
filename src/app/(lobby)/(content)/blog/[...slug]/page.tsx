@@ -5,8 +5,6 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-import { absoluteUrl, cn, formatDate } from '@/lib/client/utils';
-
 import { Mdx } from '@/components/mdx/mdx-components';
 import { MdxPager } from '@/components/pagers/mdx-pager';
 import { Shell } from '@/components/shells/shell';
@@ -14,6 +12,7 @@ import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { buttonVariants } from '@/components/ui/button';
 import { Separator } from '@/components/ui/separator';
 import { env } from '@/env.mjs';
+import { absoluteUrl, cn, formatDate } from '@/libs/client/utils';
 
 import '../../mdx.css';
 

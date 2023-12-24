@@ -5,13 +5,12 @@ import { MagnifyingGlassIcon } from '@radix-ui/react-icons';
 import { Command as CommandPrimitive } from 'cmdk';
 import * as React from 'react';
 
-import { cn } from '@/lib/client/utils';
-
 import {
     Dialog,
     DialogContent,
     type DialogPosition,
 } from '@/components/ui/dialog';
+import { cn } from '@/libs/client/utils';
 
 const Command = React.forwardRef<
     React.ElementRef<typeof CommandPrimitive>,

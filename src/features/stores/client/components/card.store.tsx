@@ -1,8 +1,5 @@
 import Link from 'next/link';
 
-import { getRandomPatternStyle } from '@/lib/client/generate-pattern';
-import { cn } from '@/lib/client/utils';
-
 import { AspectRatio } from '@/components/ui/aspect-ratio';
 import { Badge } from '@/components/ui/badge';
 import {
@@ -11,6 +8,8 @@ import {
     CardHeader,
     CardTitle,
 } from '@/components/ui/card';
+import { getRandomPatternStyle } from '@/libs/client/generate-pattern';
+import { cn } from '@/libs/client/utils';
 import { type CuratedStore } from '@/types';
 
 interface StoreCardProps {

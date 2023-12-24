@@ -8,8 +8,6 @@ import type { z } from 'zod';
 
 import { verifyOrderSchema } from '@/features/stripe/order.validation';
 
-import { cn } from '@/lib/client/utils';
-
 import { Icons } from '@/components/icons';
 import { Button } from '@/components/ui/button';
 import {
@@ -21,6 +19,7 @@ import {
     FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
+import { cn } from '@/libs/client/utils';
 
 interface VerifyOrderFormProps extends React.ComponentPropsWithoutRef<'form'> {}
 type Inputs = z.infer<typeof verifyOrderSchema>;

@@ -13,8 +13,6 @@ import {
 
 import { findStoryById } from '@/features/stores/server/db';
 
-import { formatPrice, toTitleCase } from '@/lib/client/utils';
-
 import { Breadcrumbs } from '@/components/pagers/breadcrumbs';
 import { Rating } from '@/components/rating';
 import { Shell } from '@/components/shells/shell';
@@ -27,6 +25,7 @@ import {
 import { Separator } from '@/components/ui/separator';
 import { UpdateProductRatingButton } from '@/components/update-product-rating-button';
 import { env } from '@/env.mjs';
+import { formatPrice, toTitleCase } from '@/libs/client/utils';
 
 interface ProductPageProps {
     params: {

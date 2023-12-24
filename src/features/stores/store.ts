@@ -4,8 +4,8 @@ import { z } from 'zod';
 
 import { getStoresSchema } from '@/features/stores/store.validation';
 
-import { db } from '@/lib/server/db';
-import { products, type Store, stores } from '@/lib/server/db/schema';
+import { db } from '@/libs/server/db';
+import { products, type Store, stores } from '@/libs/server/db/schema';
 
 export async function getStores(rawInput: z.infer<typeof getStoresSchema>) {
     noStore();

@@ -3,8 +3,6 @@
 import * as React from 'react';
 import { useFormStatus } from 'react-dom';
 
-import { cn } from '@/lib/client/utils';
-
 import { Icons } from '@/components/icons';
 import {
     Button,
@@ -13,6 +11,7 @@ import {
 } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useMounted } from '@/hooks/use-mounted';
+import { cn } from '@/libs/client/utils';
 
 const LoadingButton = React.forwardRef<HTMLButtonElement, ButtonProps>(
     ({ children, className, variant, size, ...props }, ref) => {

@@ -7,13 +7,12 @@ import * as React from 'react';
 import { SeedProducts } from '@/features/product/client/components/dashboard.button.seed-products';
 import { ProductsDataTable } from '@/features/product/client/components/dashboard.shell.products-table';
 
-import { db } from '@/lib/server/db';
-import { type Product, products, stores } from '@/lib/server/db/schema';
-import { dashboardProductsSearchParamsSchema } from '@/lib/server/params.validations';
-
 import { DataTableSkeleton } from '@/components/data-table/data-table-skeleton';
 import { DateRangePicker } from '@/components/date-range-picker';
 import { env } from '@/env.mjs';
+import { db } from '@/libs/server/db';
+import { type Product, products, stores } from '@/libs/server/db/schema';
+import { dashboardProductsSearchParamsSchema } from '@/libs/server/params.validations';
 
 export const metadata: Metadata = {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),

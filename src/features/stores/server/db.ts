@@ -1,7 +1,7 @@
 import { desc, eq, sql } from 'drizzle-orm';
 import { products, stores } from 'drizzle/schema';
 
-import { db } from '@/lib/server/db';
+import { db } from '@/libs/server/db';
 
 export async function findStoryById({ storeId }: { storeId: number }) {
     return await db.query.stores.findFirst({

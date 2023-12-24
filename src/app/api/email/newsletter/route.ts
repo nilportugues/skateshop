@@ -5,11 +5,10 @@ import { z } from 'zod';
 import { joinNewsletterSchema } from '@/features/emails/email.validation';
 import NewsletterWelcomeEmail from '@/features/emails/templates/newsletter-welcome-email';
 
-import { db } from '@/lib/server/db';
-import { emailPreferences } from '@/lib/server/db/schema';
-import { resend } from '@/lib/server/resend';
-
 import { env } from '@/env.mjs';
+import { db } from '@/libs/server/db';
+import { emailPreferences } from '@/libs/server/db/schema';
+import { resend } from '@/libs/server/resend';
 
 export async function POST(req: Request) {
     const input = joinNewsletterSchema.parse(await req.json());

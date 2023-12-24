@@ -12,16 +12,15 @@ import { CheckoutShell } from '@/features/stripe/client/components/checkout.shel
 import { createPaymentIntent } from '@/features/stripe/server/stripe.server-actions';
 import { getStripeAccount } from '@/features/stripe/server/stripe.services';
 
-import { cn, formatPrice } from '@/lib/client/utils';
-import { db } from '@/lib/server/db';
-import { stores } from '@/lib/server/db/schema';
-
 import { Shell } from '@/components/shells/shell';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
 import { env } from '@/env.mjs';
+import { cn, formatPrice } from '@/libs/client/utils';
+import { db } from '@/libs/server/db';
+import { stores } from '@/libs/server/db/schema';
 
 export const metadata: Metadata = {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),

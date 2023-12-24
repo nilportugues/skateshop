@@ -3,11 +3,10 @@ import Image from 'next/image';
 
 import { UpdateCart } from '@/features/cart/client/components/button.update-cart';
 
-import { cn, formatPrice } from '@/lib/client/utils';
-
 import { Icons } from '@/components/icons';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
+import { cn, formatPrice } from '@/libs/client/utils';
 import type { CartLineItem } from '@/types';
 
 interface CartLineItemsProps extends React.HTMLAttributes<HTMLDivElement> {

@@ -1,7 +1,7 @@
 import { eq } from 'drizzle-orm';
 
-import { db } from '@/lib/server/db';
-import { emailPreferences } from '@/lib/server/db/schema';
+import { db } from '@/libs/server/db';
+import { emailPreferences } from '@/libs/server/db/schema';
 
 export async function getEmailPreferencesByToken({ token }: { token: string }) {
     return await db.query.emailPreferences.findFirst({

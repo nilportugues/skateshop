@@ -10,8 +10,6 @@ import {
     storeStatusOptions,
 } from '@/features/stores/config/searchable.stores.filter-options';
 
-import { cn } from '@/lib/client/utils';
-
 import { FacetedFilter } from '@/components/faceted-filter';
 import { PaginationButton } from '@/components/pagers/pagination-button';
 import { Button } from '@/components/ui/button';
@@ -23,6 +21,7 @@ import {
     DropdownMenuSeparator,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
+import { cn } from '@/libs/client/utils';
 import type { CuratedStore } from '@/types';
 
 interface StoresProps {

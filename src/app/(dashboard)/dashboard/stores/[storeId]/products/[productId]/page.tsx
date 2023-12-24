@@ -5,9 +5,6 @@ import { notFound } from 'next/navigation';
 import { UpdateProductForm } from '@/features/product/client/components/dashboard.form.update-product';
 import { ProductPager } from '@/features/product/client/components/pager.product';
 
-import { db } from '@/lib/server/db';
-import { products } from '@/lib/server/db/schema';
-
 import {
     Card,
     CardContent,
@@ -16,6 +13,8 @@ import {
     CardTitle,
 } from '@/components/ui/card';
 import { env } from '@/env.mjs';
+import { db } from '@/libs/server/db';
+import { products } from '@/libs/server/db/schema';
 
 export const metadata: Metadata = {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),

@@ -2,7 +2,7 @@ import { ImageResponse } from 'next/og';
 
 import { ogImageSchema } from '@/features/opengraph/constants';
 
-import { cn } from '@/lib/client/utils';
+import { cn } from '@/libs/client/utils';
 
 export const runtime = 'edge';
 
