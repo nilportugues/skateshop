@@ -5,11 +5,7 @@ import * as React from 'react';
 import { PostCard } from '@/features/blog/client/components/card.post';
 import { PostCardSkeleton } from '@/features/blog/client/components/card.post-skeleton';
 
-import {
-    PageHeader,
-    PageHeaderDescription,
-    PageHeaderHeading,
-} from '@/components/page-header';
+import { PageHeaderBlock } from '@/components/page-header.block';
 import { Shell } from '@/components/shells/shell';
 import { Separator } from '@/components/ui/separator';
 import { env } from '@/env.mjs';
@@ -27,13 +23,13 @@ export default function BlogPage() {
 
     return (
         <Shell className="md:pb-10">
-            <PageHeader>
-                <PageHeaderHeading>Blog</PageHeaderHeading>
-                <PageHeaderDescription>
-                    Explore the latest news and updates from the community
-                </PageHeaderDescription>
-            </PageHeader>
+            <PageHeaderBlock
+                title="Blog"
+                description="Explore the latest news and updates from the community"
+            />
+
             <Separator className="mb-2.5" />
+
             <section className="grid grid-cols-1 gap-8 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
                 <React.Suspense
                     fallback={Array.from({ length: 4 }).map((_, i) => (

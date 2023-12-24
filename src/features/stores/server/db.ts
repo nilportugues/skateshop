@@ -23,3 +23,29 @@ export async function getAllStoresIdsWithProducts() {
         .groupBy(stores.id)
         .orderBy(desc(stores.active), desc(sql<number>`count(*)`));
 }
+
+export type GetStoresByUserId = {
+    id: number;
+    name: string;
+    description: null | string;
+    stripeAccountId: null | string;
+};
+
+export async function getStoresByUserId({
+    userId,
+}: {
+    userId: string;
+}): Promise<GetStoresByUserId[]> {
+    return db
+        .select({
+            id: stores.id,
+            name: stores.name,
+            description: stores.description,
+            stripeAccountId: stores.stripeAccountId,
+        })
+        .from(stores)
+        .leftJoin(products, eq(products.storeId, stores.id))
+        .groupBy(stores.id)
+        .orderBy(desc(stores.stripeAccountId), desc(sql<number>`count(*)`))
+        .where(eq(stores.userId, userId));
+}

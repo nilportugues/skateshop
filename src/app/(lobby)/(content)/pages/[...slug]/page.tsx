@@ -4,11 +4,7 @@ import { notFound } from 'next/navigation';
 
 import { siteConfig } from '@/app/menu-config';
 import { Mdx } from '@/components/mdx/mdx-components';
-import {
-    PageHeader,
-    PageHeaderDescription,
-    PageHeaderHeading,
-} from '@/components/page-header';
+import { PageHeaderBlock } from '@/components/page-header.block';
 import { MdxPager } from '@/components/pagers/mdx-pager';
 import { Shell } from '@/components/shells/shell';
 import { Separator } from '@/components/ui/separator';
@@ -99,12 +95,11 @@ export default function Page({ params }: PageProps) {
 
     return (
         <Shell as="article" variant="markdown">
-            <PageHeader>
-                <PageHeaderHeading>{page.title}</PageHeaderHeading>
-                <PageHeaderDescription>
-                    {page.description}
-                </PageHeaderDescription>
-            </PageHeader>
+            <PageHeaderBlock
+                title={page.title}
+                description={page.description}
+            />
+
             <Separator className="my-4" />
             <Mdx code={page.body.code} />
             <MdxPager
