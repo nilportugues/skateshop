@@ -1,11 +1,9 @@
 import * as React from "react"
 import type { Metadata } from "next"
 import { redirect } from "next/navigation"
-import { db } from "@/db"
-import { orders, stores, type Order } from "@/db/schema"
+import { type Order } from "@/db/schema"
 import { env } from "@/env.mjs"
 import { currentUser } from "@clerk/nextjs"
-import { and, asc, desc, eq, inArray, like, sql } from "drizzle-orm"
 
 import { getUserEmail } from "@/lib/client/utils"
 import { purchasesSearchParamsSchema } from "@/lib/server/params.validations"
@@ -17,6 +15,7 @@ import {
 } from "@/components/page-header"
 import { PurchasesDataTable } from "@/features/stripe/client/components/dashboard.datatable.purchases"
 import { Shell } from "@/components/shells/shell"
+import { countOrdersByEmailAndStore, findOrdersByEmailAndStore } from "@/features/stripe/server/db"
 
 export const metadata: Metadata = {
   metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -29,31 +28,36 @@ interface PurchasesPageProps {
   }
 }
 
-export default async function PurchasesPage({
-  searchParams,
-}: PurchasesPageProps) {
-  const { page, per_page, sort, store, status } =
-    purchasesSearchParamsSchema.parse(searchParams)
+function calculateOffset(fallbackPage: number, limit: number) {
+  return fallbackPage > 0 ? (fallbackPage - 1) * limit : 0
+}
+
+function calculatePageSizeLimit(per_page: string) {
+  const perPageAsNumber = Number(per_page)
+  const limit = isNaN(perPageAsNumber) ? 10 : perPageAsNumber
+  return limit
+}
+
+function calculateFallbackPage(page: string) {
+  const pageAsNumber = Number(page)
+  const fallbackPage = isNaN(pageAsNumber) || pageAsNumber < 1 ? 1 : pageAsNumber
+  return fallbackPage
+}
+
+
+export default async function PurchasesPage({ searchParams }: PurchasesPageProps) {
+  const { page, per_page, sort, store, status } = purchasesSearchParamsSchema.parse(searchParams)
 
   const user = await currentUser()
-
   if (!user) {
     redirect("/signin")
   }
 
   const email = getUserEmail(user)
 
-  // Fallback page for invalid page numbers
-  const pageAsNumber = Number(page)
-  const fallbackPage =
-    isNaN(pageAsNumber) || pageAsNumber < 1 ? 1 : pageAsNumber
-
-  // Number of items per page
-  const perPageAsNumber = Number(per_page)
-  const limit = isNaN(perPageAsNumber) ? 10 : perPageAsNumber
-
-  // Number of items to skip
-  const offset = fallbackPage > 0 ? (fallbackPage - 1) * limit : 0
+  const fallbackPage = calculateFallbackPage(page)
+  const limit = calculatePageSizeLimit(per_page)
+  const offset = calculateOffset(fallbackPage, limit)
 
   // Column and order to sort by
   const [column, order] = (sort?.split(".") as [
@@ -87,69 +91,3 @@ export default async function PurchasesPage({
     </Shell>
   )
 }
-async function countOrdersByEmailAndStore({email, store, statuses}: {email: string, store: string | undefined, statuses: string[]}) {
-  return await db
-    .select({
-      count: sql<number> `count(*)`,
-    })
-    .from(orders)
-    .leftJoin(stores, eq(orders.storeId, stores.id))
-    .where(
-      and(
-        eq(orders.email, email),
-        // Filter by store
-        typeof store === "string"
-          ? like(stores.name, `%${store}%`)
-          : undefined,
-        // Filter by status
-        statuses.length > 0
-          ? inArray(orders.stripePaymentIntentStatus, statuses)
-          : undefined
-      )
-    )
-    .then((res) => res[0]?.count ?? 0)
-}
-
-export type FindOrdersByEmailAndStore = Awaited<typeof findOrdersByEmailAndStore>;
-
-async function findOrdersByEmailAndStore(
-  {email, store, statuses, column, order, limit, offset}:  {email: string, store?: string, statuses: string[], column?: keyof Order, order?: "asc" | "desc", limit: number, offset: number}) {
-  const data =  await db
-    .select({
-      id: orders.id,
-      email: orders.email,
-      items: orders.items,
-      amount: orders.amount,
-      status: orders.stripePaymentIntentStatus,
-      createdAt: orders.createdAt,
-      storeId: orders.storeId,
-      store: stores.name,
-    })
-    .from(orders)
-    .leftJoin(stores, eq(orders.storeId, stores.id))
-    .limit(limit)
-    .offset(offset)
-    .where(
-      and(
-        eq(orders.email, email),
-        // Filter by store
-        typeof store === "string"
-          ? like(stores.name, `%${store}%`)
-          : undefined,
-        // Filter by status
-        statuses.length > 0
-          ? inArray(orders.stripePaymentIntentStatus, statuses)
-          : undefined
-      )
-    )
-    .orderBy(
-      column && column in orders
-        ? order === "asc"
-          ? asc(orders[column])
-          : desc(orders[column])
-        : desc(orders.createdAt)
-    )
-
-    return data;
-}
-

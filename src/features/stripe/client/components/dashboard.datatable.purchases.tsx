@@ -2,7 +2,7 @@
 
 import * as React from "react"
 import Link from "next/link"
-import { type Order } from "@/db/schema"
+import { type Order, orders, stores } from "@/db/schema"
 import type { StripePaymentStatus } from "@/types"
 import { DotsHorizontalIcon } from "@radix-ui/react-icons"
 import { type ColumnDef } from "@tanstack/react-table"
@@ -24,6 +24,8 @@ import {
 } from "@/components/ui/dropdown-menu"
 import { DataTable } from "@/components/data-table/data-table"
 import { DataTableColumnHeader } from "@/components/data-table/data-table-column-header"
+import { db } from "@/db"
+import { sql } from "drizzle-orm"
 
 type Item = {
   id: number;
