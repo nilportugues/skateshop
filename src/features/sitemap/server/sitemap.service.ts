@@ -1,6 +1,8 @@
-import { getAllProductsFromStoresWithStripeAccounts } from "@/features/product/server/db";
-import { getAllStoresIdsWithProducts } from "@/features/stores/server/db";
-import { absoluteUrl } from "@/lib/client/utils";
+import { getAllProductsFromStoresWithStripeAccounts } from '@/features/product/server/db';
+
+import { getAllStoresIdsWithProducts } from '@/features/stores/server/db';
+
+import { absoluteUrl } from '@/lib/client/utils';
 
 export async function buildAllStoreUrls() {
     const allStores = await getAllStoresIdsWithProducts();
@@ -8,7 +10,7 @@ export async function buildAllStoreUrls() {
         url: absoluteUrl(`/products?store_ids=${store.id}`),
         lastModified: new Date().toISOString(),
     }));
-    return storesRoutes
+    return storesRoutes;
 }
 
 export async function buildAllProductUrls() {

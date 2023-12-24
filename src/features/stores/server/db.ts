@@ -1,6 +1,7 @@
-import { db } from '@/lib/server/db';
 import { desc, eq, sql } from 'drizzle-orm';
 import { products, stores } from 'drizzle/schema';
+
+import { db } from '@/lib/server/db';
 
 export async function findStoryById({ storeId }: { storeId: number }) {
     return await db.query.stores.findFirst({
@@ -12,14 +13,13 @@ export async function findStoryById({ storeId }: { storeId: number }) {
     });
 }
 
-
 export async function getAllStoresIdsWithProducts() {
     return db
-    .select({
-        id: stores.id,
-    })
-    .from(stores)
-    .leftJoin(products, eq(products.storeId, stores.id))
-    .groupBy(stores.id)
-    .orderBy(desc(stores.active), desc(sql<number> `count(*)`));
+        .select({
+            id: stores.id,
+        })
+        .from(stores)
+        .leftJoin(products, eq(products.storeId, stores.id))
+        .groupBy(stores.id)
+        .orderBy(desc(stores.active), desc(sql<number>`count(*)`));
 }
