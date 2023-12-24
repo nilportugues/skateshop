@@ -84,6 +84,7 @@
         "react-wrap-balancer": "^1.1.0",
         "resend": "^2.1.0-canary.1",
         "sonner": "^1.2.4",
+        "strip-ansi": "^7.1.0",
         "stripe": "^14.7.0",
         "tailwind-merge": "^2.1.0",
         "tailwindcss-animate": "^1.0.7",
