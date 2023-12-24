@@ -9,6 +9,8 @@ import { getOrderLineItems } from '@/features/stripe/server/order.services';
 import { getPaymentIntent } from '@/features/stripe/server/stripe.services';
 
 import { cn, formatPrice } from '@/lib/client/utils';
+import { db } from '@/lib/server/db';
+import { stores } from '@/lib/server/db/schema';
 
 import {
     PageHeader,
@@ -16,8 +18,6 @@ import {
     PageHeaderHeading,
 } from '@/components/page-header';
 import { buttonVariants } from '@/components/ui/button';
-import { db } from '@/db';
-import { stores } from '@/db/schema';
 import { env } from '@/env.mjs';
 
 export const metadata: Metadata = {

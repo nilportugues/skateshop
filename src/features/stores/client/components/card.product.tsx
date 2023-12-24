@@ -9,6 +9,7 @@ import { toast } from 'sonner';
 import { addToCartAction } from '@/features/cart/server/cart.server-actions';
 
 import { catchError, cn, formatPrice } from '@/lib/client/utils';
+import { type Product } from '@/lib/server/db/schema';
 
 import { Icons } from '@/components/icons';
 import { PlaceholderImage } from '@/components/placeholder-image';
@@ -22,7 +23,6 @@ import {
     CardHeader,
     CardTitle,
 } from '@/components/ui/card';
-import { type Product } from '@/db/schema';
 
 interface ProductCardProps extends React.HTMLAttributes<HTMLDivElement> {
     product: Pick<

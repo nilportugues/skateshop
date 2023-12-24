@@ -7,8 +7,9 @@ import { toast } from 'sonner';
 
 import { getNextProductId } from '@/features/product/server/product';
 
+import { Product } from '@/lib/server/db/schema';
+
 import { Button } from '@/components/ui/button';
-import { Product } from '@/db/schema';
 
 export async function NextProductButton({ product }: { product: Product }) {
     const router = useRouter();

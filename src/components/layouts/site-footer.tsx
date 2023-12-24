@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-import { JoinNewsletterForm } from '@/features/email-preferences/client/components/form.join-newsletter';
+import { JoinNewsletterForm } from '@/features/emails/client/components/form.join-newsletter';
 
 import { cn } from '@/lib/client/utils';
 

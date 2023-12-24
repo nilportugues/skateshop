@@ -14,8 +14,9 @@ import {
     getStripeAccountSchema,
 } from '@/features/stripe/stripe.validation';
 
-import { db } from '@/db';
-import { payments, stores } from '@/db/schema';
+import { db } from '@/lib/server/db';
+import { payments, stores } from '@/lib/server/db/schema';
+
 import type { UserSubscriptionPlan } from '@/types';
 
 // Getting the subscription plan for a user

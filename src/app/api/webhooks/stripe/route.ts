@@ -8,8 +8,15 @@ import { checkoutItemSchema } from '@/features/cart/cart.validation';
 
 import { stripe } from '@/features/stripe/server/libs/stripe';
 
-import { db } from '@/db';
-import { addresses, carts, orders, payments, products } from '@/db/schema';
+import { db } from '@/lib/server/db';
+import {
+    addresses,
+    carts,
+    orders,
+    payments,
+    products,
+} from '@/lib/server/db/schema';
+
 import { env } from '@/env.mjs';
 import type { CheckoutItem } from '@/types';
 

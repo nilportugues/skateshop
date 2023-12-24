@@ -10,6 +10,7 @@ import { usePathname, useRouter } from 'next/navigation';
 import * as React from 'react';
 
 import { cn } from '@/lib/client/utils';
+import { type Store } from '@/lib/server/db/schema';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -27,7 +28,6 @@ import {
     PopoverContent,
     PopoverTrigger,
 } from '@/components/ui/popover';
-import { type Store } from '@/db/schema';
 
 interface StoreSwitcherProps
     extends React.ComponentPropsWithoutRef<typeof PopoverTrigger> {

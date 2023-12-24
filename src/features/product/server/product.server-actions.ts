@@ -15,8 +15,8 @@ import {
     updateProductRatingSchema,
 } from '@/features/product/product.validation';
 
-import { db } from '@/db';
-import { type Product, products } from '@/db/schema';
+import { db } from '@/lib/server/db';
+import { type Product, products } from '@/lib/server/db/schema';
 
 export async function seedProducts({
     storeId,

@@ -3,6 +3,8 @@ import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
 import { formatNumber, formatPrice } from '@/lib/client/utils';
+import { db } from '@/lib/server/db';
+import { orders, stores } from '@/lib/server/db/schema';
 import { searchParamsSchema } from '@/lib/server/params.validations';
 
 import { DateRangePicker } from '@/components/date-range-picker';
@@ -14,8 +16,6 @@ import {
     CardHeader,
     CardTitle,
 } from '@/components/ui/card';
-import { db } from '@/db';
-import { orders, stores } from '@/db/schema';
 import { env } from '@/env.mjs';
 
 export const metadata: Metadata = {

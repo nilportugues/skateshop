@@ -3,8 +3,9 @@
 import { usePathname, useRouter, useSearchParams } from 'next/navigation';
 import * as React from 'react';
 
+import { products } from '@/lib/server/db/schema';
+
 import { TabsList, TabsTrigger } from '@/components/ui/tabs';
-import { products } from '@/db/schema';
 
 export function ProudctTabs() {
     const router = useRouter();

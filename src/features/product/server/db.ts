@@ -1,7 +1,7 @@
 import { and, desc, eq, not } from 'drizzle-orm';
 
-import { db } from '@/db';
-import { products } from '@/db/schema';
+import { db } from '@/lib/server/db';
+import { products } from '@/lib/server/db/schema';
 
 export async function findProductById({ productId }: { productId: number }) {
     return await db.query.products.findFirst({

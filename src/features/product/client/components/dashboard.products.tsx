@@ -16,6 +16,7 @@ import {
 import { ProductCard } from '@/features/stores/client/components/card.product';
 
 import { cn, toTitleCase, truncate } from '@/lib/client/utils';
+import { type Product, type Store } from '@/lib/server/db/schema';
 
 import { MultiSelect } from '@/components/multi-select';
 import { PaginationButton } from '@/components/pagers/pagination-button';
@@ -44,7 +45,6 @@ import {
 } from '@/components/ui/sheet';
 import { Slider } from '@/components/ui/slider';
 import { Switch } from '@/components/ui/switch';
-import { type Product, type Store } from '@/db/schema';
 import { useDebounce } from '@/hooks/use-debounce';
 import type { Option } from '@/types';
 

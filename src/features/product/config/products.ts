@@ -1,7 +1,8 @@
 import { MixIcon } from '@radix-ui/react-icons';
 
+import { type Product } from '@/lib/server/db/schema';
+
 import { Icons } from '@/components/icons';
-import { type Product } from '@/db/schema';
 import type { Category, Option } from '@/types';
 
 export const sortOptions = [

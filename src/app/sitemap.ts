@@ -6,8 +6,7 @@ import { type MetadataRoute } from 'next';
 import { productCategories } from '@/features/product/config/products';
 
 import { absoluteUrl } from '@/lib/client/utils';
-
-import { db } from '@/db';
+import { db } from '@/lib/server/db';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
     const allStores = await db

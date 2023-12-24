@@ -2,13 +2,13 @@ import { currentUser } from '@clerk/nextjs';
 import { eq } from 'drizzle-orm';
 import { z } from 'zod';
 
-import { joinNewsletterSchema } from '@/features/email-preferences/email.validation';
+import { joinNewsletterSchema } from '@/features/emails/email.validation';
+import NewsletterWelcomeEmail from '@/features/emails/templates/newsletter-welcome-email';
 
+import { db } from '@/lib/server/db';
+import { emailPreferences } from '@/lib/server/db/schema';
 import { resend } from '@/lib/server/resend';
 
-import { db } from '@/db';
-import { emailPreferences } from '@/db/schema';
-import NewsletterWelcomeEmail from '@/emails/newsletter-welcome-email';
 import { env } from '@/env.mjs';
 
 export async function POST(req: Request) {

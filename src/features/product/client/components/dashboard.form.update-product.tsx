@@ -18,6 +18,7 @@ import {
 } from '@/features/product/server/product.server-actions';
 
 import { catchError, isArrayOfFile } from '@/lib/client/utils';
+import { type Product, products } from '@/lib/server/db/schema';
 
 import type { OurFileRouter } from '@/app/api/uploadthing/core';
 import { FileDialog } from '@/components/file-dialog';
@@ -43,7 +44,6 @@ import {
 } from '@/components/ui/select';
 import { Textarea } from '@/components/ui/textarea';
 import { Zoom } from '@/components/zoom-image';
-import { type Product, products } from '@/db/schema';
 import type { FileWithPreview } from '@/types';
 
 interface UpdateProductFormProps {

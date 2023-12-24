@@ -6,6 +6,7 @@ import { getProducts } from '@/features/product/server/product';
 import { getStores } from '@/features/stores/store';
 
 import { toTitleCase } from '@/lib/client/utils';
+import { type Product } from '@/lib/server/db/schema';
 import { productsSearchParamsSchema } from '@/lib/server/params.validations';
 
 import {
@@ -14,7 +15,6 @@ import {
     PageHeaderHeading,
 } from '@/components/page-header';
 import { Shell } from '@/components/shells/shell';
-import { type Product } from '@/db/schema';
 import { env } from '@/env.mjs';
 
 interface CategoryPageProps {

@@ -5,6 +5,9 @@ import { notFound } from 'next/navigation';
 import { UpdateProductForm } from '@/features/product/client/components/dashboard.form.update-product';
 import { ProductPager } from '@/features/product/client/components/pager.product';
 
+import { db } from '@/lib/server/db';
+import { products } from '@/lib/server/db/schema';
+
 import {
     Card,
     CardContent,
@@ -12,8 +15,6 @@ import {
     CardHeader,
     CardTitle,
 } from '@/components/ui/card';
-import { db } from '@/db';
-import { products } from '@/db/schema';
 import { env } from '@/env.mjs';
 
 export const metadata: Metadata = {

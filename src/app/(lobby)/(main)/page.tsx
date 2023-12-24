@@ -14,6 +14,8 @@ import { StoreCard } from '@/features/stores/client/components/card.store';
 import { StoreCardSkeleton } from '@/features/stores/client/components/card.store-skeleton';
 
 import { cn } from '@/lib/client/utils';
+import { db } from '@/lib/server/db';
+import { products, stores } from '@/lib/server/db/schema';
 
 import { siteConfig } from '@/app/menu-config';
 import { Icons } from '@/components/icons';
@@ -21,8 +23,6 @@ import { Shell } from '@/components/shells/shell';
 import { Badge } from '@/components/ui/badge';
 import { buttonVariants } from '@/components/ui/button';
 import { Skeleton } from '@/components/ui/skeleton';
-import { db } from '@/db';
-import { products, stores } from '@/db/schema';
 
 export default async function IndexPage() {
     // See the unstable_cache API docs: https://nextjs.org/docs/app/api-reference/functions/unstable_cache

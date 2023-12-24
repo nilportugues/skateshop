@@ -13,8 +13,8 @@ import {
 
 import { findProductById } from '@/features/product/server/db';
 
-import { db } from '@/db';
-import { carts } from '@/db/schema';
+import { db } from '@/lib/server/db';
+import { carts } from '@/lib/server/db/schema';
 
 export async function updateCartItem({
     cartId,

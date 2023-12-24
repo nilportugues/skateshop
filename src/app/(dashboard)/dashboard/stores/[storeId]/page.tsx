@@ -12,6 +12,8 @@ import { ConnectStoreToStripeButton } from '@/features/stripe/client/components/
 import { getStripeAccount } from '@/features/stripe/server/stripe.services';
 
 import { cn, formatDate } from '@/lib/client/utils';
+import { db } from '@/lib/server/db';
+import { stores } from '@/lib/server/db/schema';
 
 import { LoadingButton } from '@/components/loading-button';
 import { buttonVariants } from '@/components/ui/button';
@@ -26,8 +28,6 @@ import {
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
-import { db } from '@/db';
-import { stores } from '@/db/schema';
 import { env } from '@/env.mjs';
 
 export const metadata: Metadata = {

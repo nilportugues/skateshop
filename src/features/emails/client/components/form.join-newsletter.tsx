@@ -7,7 +7,7 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import type { z } from 'zod';
 
-import { emailSchema } from '@/features/email-preferences/email.validation';
+import { emailSchema } from '@/features/emails/email.validation';
 
 import { Icons } from '@/components/icons';
 import { Button } from '@/components/ui/button';

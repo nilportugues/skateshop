@@ -15,9 +15,9 @@ import {
 } from '@/features/stripe/stripe.validation';
 
 import { absoluteUrl, getUserEmail } from '@/lib/client/utils';
+import { db } from '@/lib/server/db';
+import { carts, payments } from '@/lib/server/db/schema';
 
-import { db } from '@/db';
-import { carts, payments } from '@/db/schema';
 import type { CheckoutItem } from '@/types';
 
 // Managing stripe subscriptions for a user

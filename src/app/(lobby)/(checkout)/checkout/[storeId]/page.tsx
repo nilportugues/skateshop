@@ -13,14 +13,14 @@ import { createPaymentIntent } from '@/features/stripe/server/stripe.server-acti
 import { getStripeAccount } from '@/features/stripe/server/stripe.services';
 
 import { cn, formatPrice } from '@/lib/client/utils';
+import { db } from '@/lib/server/db';
+import { stores } from '@/lib/server/db/schema';
 
 import { Shell } from '@/components/shells/shell';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { Drawer, DrawerContent, DrawerTrigger } from '@/components/ui/drawer';
 import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
-import { db } from '@/db';
-import { stores } from '@/db/schema';
 import { env } from '@/env.mjs';
 
 export const metadata: Metadata = {

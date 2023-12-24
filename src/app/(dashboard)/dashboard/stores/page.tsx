@@ -16,6 +16,8 @@ import {
 import { getSubscriptionPlan } from '@/features/stripe/server/stripe.services';
 
 import { cn } from '@/lib/client/utils';
+import { db } from '@/lib/server/db';
+import { products, stores } from '@/lib/server/db/schema';
 
 import {
     PageHeader,
@@ -25,8 +27,6 @@ import {
 import { Shell } from '@/components/shells/shell';
 import { Alert, AlertDescription, AlertTitle } from '@/components/ui/alert';
 import { buttonVariants } from '@/components/ui/button';
-import { db } from '@/db';
-import { products, stores } from '@/db/schema';
 import { env } from '@/env.mjs';
 
 export const metadata: Metadata = {

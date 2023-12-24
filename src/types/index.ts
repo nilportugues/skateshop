@@ -10,8 +10,9 @@ import type {
     checkoutItemSchema,
 } from '@/features/cart/cart.validation';
 
+import type { Product, Store } from '@/lib/server/db/schema';
+
 import type { Icons } from '@/components/icons';
-import type { Product, Store } from '@/db/schema';
 
 export interface NavItem {
     title: string;

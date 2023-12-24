@@ -6,10 +6,11 @@ import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { type z } from 'zod';
 
-import { updateEmailPreferencesSchema } from '@/features/email-preferences/email.validation';
-import { updateEmailPreferences } from '@/features/email-preferences/server/email.server-actions';
+import { updateEmailPreferencesSchema } from '@/features/emails/email.validation';
+import { updateEmailPreferences } from '@/features/emails/server/email.server-actions';
 
 import { catchClerkError } from '@/lib/client/utils';
+import { type EmailPreference } from '@/lib/server/db/schema';
 
 import { Icons } from '@/components/icons';
 import { Button } from '@/components/ui/button';
@@ -23,7 +24,6 @@ import {
     FormMessage,
 } from '@/components/ui/form';
 import { Switch } from '@/components/ui/switch';
-import { type EmailPreference } from '@/db/schema';
 
 interface UpdateEmailPreferencesFormProps {
     emailPreference: EmailPreference;

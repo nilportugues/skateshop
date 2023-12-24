@@ -11,6 +11,7 @@ import {
 } from '@/features/stripe/client/utils/checkout';
 
 import { cn, formatDate, formatId, formatPrice } from '@/lib/client/utils';
+import { type Order } from '@/lib/server/db/schema';
 
 import { DataTable } from '@/components/data-table/data-table';
 import { DataTableColumnHeader } from '@/components/data-table/data-table-column-header';
@@ -22,7 +23,6 @@ import {
     DropdownMenuItem,
     DropdownMenuTrigger,
 } from '@/components/ui/dropdown-menu';
-import { type Order } from '@/db/schema';
 import type { StripePaymentStatus } from '@/types';
 
 type AwaitedOrder = Pick<Order, 'id' | 'quantity' | 'amount' | 'createdAt'> & {

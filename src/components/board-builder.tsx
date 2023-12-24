@@ -15,6 +15,7 @@ import { sortOptions } from '@/features/product/config/products';
 import { ProductCard } from '@/features/stores/client/components/card.product';
 
 import { catchError, cn } from '@/lib/client/utils';
+import { type Product } from '@/lib/server/db/schema';
 
 import { PaginationButton } from '@/components/pagers/pagination-button';
 import { Button } from '@/components/ui/button';
@@ -40,7 +41,6 @@ import {
 } from '@/components/ui/sheet';
 import { Slider } from '@/components/ui/slider';
 import { Switch } from '@/components/ui/switch';
-import { type Product } from '@/db/schema';
 import { useDebounce } from '@/hooks/use-debounce';
 import type { CartItem } from '@/types';
 

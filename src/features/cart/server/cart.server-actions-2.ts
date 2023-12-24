@@ -1,7 +1,8 @@
 import { and, asc, desc, eq, inArray, sql } from 'drizzle-orm';
 
-import { db } from '@/db';
-import { carts, products, stores } from '@/db/schema';
+import { db } from '@/lib/server/db';
+import { carts, products, stores } from '@/lib/server/db/schema';
+
 import type { CartLineItem } from '@/types';
 
 import { getCartCookie } from './cookies';

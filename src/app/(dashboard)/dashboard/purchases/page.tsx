@@ -10,6 +10,7 @@ import {
 } from '@/features/stripe/server/db';
 
 import { getUserEmail } from '@/lib/client/utils';
+import { type Order } from '@/lib/server/db/schema';
 import { purchasesSearchParamsSchema } from '@/lib/server/params.validations';
 
 import { DataTableSkeleton } from '@/components/data-table/data-table-skeleton';
@@ -19,7 +20,6 @@ import {
     PageHeaderHeading,
 } from '@/components/page-header';
 import { Shell } from '@/components/shells/shell';
-import { type Order } from '@/db/schema';
 import { env } from '@/env.mjs';
 
 export const metadata: Metadata = {

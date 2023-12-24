@@ -108,7 +108,7 @@ export const Page = defineDocumentType(() => ({
 }));
 
 export default makeSource({
-    contentDirPath: './src/content',
+    contentDirPath: './content',
     documentTypes: [Post, Author, Page],
     mdx: {
         rehypePlugins: [

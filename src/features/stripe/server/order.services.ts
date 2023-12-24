@@ -7,8 +7,15 @@ import { checkoutItemSchema } from '@/features/cart/cart.validation';
 
 import type { getOrderLineItemsSchema } from '@/features/stripe/order.validation';
 
-import { db } from '@/db';
-import { addresses, carts, orders, payments, products } from '@/db/schema';
+import { db } from '@/lib/server/db';
+import {
+    addresses,
+    carts,
+    orders,
+    payments,
+    products,
+} from '@/lib/server/db/schema';
+
 import type { CartLineItem, CheckoutItem } from '@/types';
 
 export async function getOrderCartLineItems(

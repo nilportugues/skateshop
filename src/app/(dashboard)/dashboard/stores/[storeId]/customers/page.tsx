@@ -5,12 +5,12 @@ import * as React from 'react';
 
 import { CustomersDataTable } from '@/features/stripe/client/components/dashboard.datatable.customers';
 
+import { db } from '@/lib/server/db';
+import { orders, stores } from '@/lib/server/db/schema';
 import { customersSearchParamsSchema } from '@/lib/server/params.validations';
 
 import { DataTableSkeleton } from '@/components/data-table/data-table-skeleton';
 import { DateRangePicker } from '@/components/date-range-picker';
-import { db } from '@/db';
-import { orders, stores } from '@/db/schema';
 import { env } from '@/env.mjs';
 
 export const metadata: Metadata = {

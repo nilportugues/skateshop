@@ -6,6 +6,7 @@ import { getProducts } from '@/features/product/server/product';
 
 import { getStores } from '@/features/stores/store';
 
+import { products } from '@/lib/server/db/schema';
 import { productsSearchParamsSchema } from '@/lib/server/params.validations';
 
 import {
@@ -14,7 +15,6 @@ import {
     PageHeaderHeading,
 } from '@/components/page-header';
 import { Shell } from '@/components/shells/shell';
-import { products } from '@/db/schema';
 import { env } from '@/env.mjs';
 
 export const metadata: Metadata = {

@@ -8,6 +8,7 @@ import { productCategories } from '@/features/product/config/products';
 import { filterProducts } from '@/features/product/server/product.server-actions';
 
 import { catchError, cn, isMacOs } from '@/lib/client/utils';
+import { type Product } from '@/lib/server/db/schema';
 
 import { Button } from '@/components/ui/button';
 import {
@@ -19,7 +20,6 @@ import {
     CommandList,
 } from '@/components/ui/command';
 import { Skeleton } from '@/components/ui/skeleton';
-import { type Product } from '@/db/schema';
 import { useDebounce } from '@/hooks/use-debounce';
 
 interface ProductGroup {

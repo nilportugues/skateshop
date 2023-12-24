@@ -1,8 +1,8 @@
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { UpdateEmailPreferencesForm } from '@/features/email-preferences/client/components/dashboard.form.update-email-preferences';
-import { getEmailPreferencesByToken } from '@/features/email-preferences/server/db';
+import { UpdateEmailPreferencesForm } from '@/features/emails/client/components/dashboard.form.update-email-preferences';
+import { getEmailPreferencesByToken } from '@/features/emails/server/db';
 
 import { PageHeader } from '@/components/page-header';
 import { Shell } from '@/components/shells/shell';
