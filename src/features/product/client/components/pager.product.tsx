@@ -65,7 +65,6 @@ export function ProductPager({
             {nextProductId && (
                 <NextProductButton {...{ storeId, nextProductId }} />
             )}
-            <pre>{JSON.stringify({ prevProductId, nextProductId })}</pre>
         </div>
     );
 }
