@@ -5,9 +5,6 @@ import { type MetadataRoute } from 'next';
 import { productCategories } from '@/features/product/config/products';
 
 import { absoluteUrl } from '@/lib/client/utils';
-import { db } from '@/lib/server/db';
-import { getAllStoresIdsWithProducts } from '@/features/stores/server/db';
-import { getAllProductsFromStoresWithStripeAccounts } from '@/features/product/server/db';
 import { buildAllProductUrls, buildAllStoreUrls } from '@/features/sitemap/server/sitemap.service';
 
 

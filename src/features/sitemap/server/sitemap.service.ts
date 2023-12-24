@@ -8,6 +8,7 @@ export async function buildAllStoreUrls() {
         url: absoluteUrl(`/products?store_ids=${store.id}`),
         lastModified: new Date().toISOString(),
     }));
+    return storesRoutes
 }
 
 export async function buildAllProductUrls() {
@@ -16,4 +17,5 @@ export async function buildAllProductUrls() {
         url: absoluteUrl(`/product/${product.id}`),
         lastModified: new Date().toISOString(),
     }));
+    return productsRoutes;
 }
