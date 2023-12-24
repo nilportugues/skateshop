@@ -9,6 +9,7 @@ import {
     PageHeaderDescription,
     PageHeaderHeading,
 } from '@/components/page-header';
+import { PageHeaderBlock } from '@/components/page-header.block';
 import { Shell } from '@/components/shells/shell';
 import {
     Card,
@@ -34,15 +35,11 @@ export default async function NewStorePage() {
 
     return (
         <Shell variant="sidebar">
-            <PageHeader
-                id="new-store-page-header"
-                aria-labelledby="new-store-page-header-heading"
-            >
-                <PageHeaderHeading size="sm">New Store</PageHeaderHeading>
-                <PageHeaderDescription size="sm">
-                    Add a new store to your account
-                </PageHeaderDescription>
-            </PageHeader>
+            <PageHeaderBlock
+                size="sm"
+                title="New Store"
+                description="Add a new store to your account"
+            />
 
             <Card
                 as="section"

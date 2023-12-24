@@ -11,11 +11,7 @@ import { getStoresByUserId } from '@/features/stores/server/db';
 import { getPlanFeatures } from '@/features/stripe/client/utils/subscription';
 import { getSubscriptionPlan } from '@/features/stripe/server/stripe.services';
 
-import {
-    PageHeader,
-    PageHeaderDescription,
-    PageHeaderHeading,
-} from '@/components/page-header';
+import { PageHeaderBlock } from '@/components/page-header.block';
 import { Shell } from '@/components/shells/shell';
 import { env } from '@/env.mjs';
 
@@ -40,19 +36,15 @@ export default async function StoresPage() {
 
     return (
         <Shell variant="sidebar">
-            <PageHeader>
-                <div className="flex space-x-4">
-                    <PageHeaderHeading size="sm" className="flex-1">
-                        Stores
-                    </PageHeaderHeading>
-                    <DashboardCreateStoreButton
-                        {...{ storeCount: allStores.length, subscriptionPlan }}
-                    />
-                </div>
-                <PageHeaderDescription size="sm">
-                    Manage your stores
-                </PageHeaderDescription>
-            </PageHeader>
+            <PageHeaderBlock
+                size="sm"
+                title="Stores"
+                description="Manage your stores"
+            >
+                <DashboardCreateStoreButton
+                    {...{ storeCount: allStores.length, subscriptionPlan }}
+                />
+            </PageHeaderBlock>
 
             <DashboardAlertPlanLimits
                 maxProductCount={Number(maxProductCount)}

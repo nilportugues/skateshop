@@ -3,7 +3,7 @@ import * as React from 'react';
 import { StoreCard } from '@/features/stores/client/components/card.store';
 import { StoreCardSkeleton } from '@/features/stores/client/components/card.store-skeleton';
 
-import { GetStoresByUserId } from '../../server/db';
+import type { GetStoresByUserId } from '../../server/db';
 
 export function DashboardUserStoreList({
     allStores,
