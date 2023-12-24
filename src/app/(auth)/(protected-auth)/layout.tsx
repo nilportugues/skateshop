@@ -1,14 +1,14 @@
-import { redirect } from "next/navigation"
-import { currentUser } from "@clerk/nextjs"
+import { currentUser } from '@clerk/nextjs';
+import { redirect } from 'next/navigation';
 
 export default async function ProtectedAuthLayout({
-  children,
+    children,
 }: React.PropsWithChildren) {
-  const user = await currentUser()
+    const user = await currentUser();
 
-  if (user) {
-    redirect("/")
-  }
+    if (user) {
+        redirect('/');
+    }
 
-  return <>{children}</>
+    return <>{children}</>;
 }

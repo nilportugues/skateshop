@@ -1,15 +1,15 @@
-import { redirect } from "next/navigation"
+import { redirect } from 'next/navigation';
 
 interface ProductPreviewPageProps {
-  params: {
-    productId: string
-  }
+    params: {
+        productId: string;
+    };
 }
 
 export default function ProductPreviewPage({
-  params,
+    params,
 }: ProductPreviewPageProps) {
-  const productId = Number(params.productId)
+    const productId = Number(params.productId);
 
-  redirect(`/product/${productId}`)
+    redirect(`/product/${productId}`);
 }

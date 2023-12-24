@@ -1,55 +1,60 @@
-import type { Metadata } from "next"
-import { notFound } from "next/navigation"
-import { env } from "@/env.mjs"
+import type { Metadata } from 'next';
+import { notFound } from 'next/navigation';
 
+import { UpdateEmailPreferencesForm } from '@/features/email-preferences/client/components/dashboard.form.update-email-preferences';
+import { getEmailPreferencesByToken } from '@/features/email-preferences/server/db';
+
+import { PageHeader } from '@/components/page-header';
+import { Shell } from '@/components/shells/shell';
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import { UpdateEmailPreferencesForm } from "@/features/email-preferences/client/components/dashboard.form.update-email-preferences"
-import { PageHeader } from "@/components/page-header"
-import { Shell } from "@/components/shells/shell"
-import { getEmailPreferencesByToken } from "@/features/email-preferences/server/db"
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from '@/components/ui/card';
+import { env } from '@/env.mjs';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
-  title: "Email Preferences",
-  description: "Manage your email preferences",
-}
+    metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
+    title: 'Email Preferences',
+    description: 'Manage your email preferences',
+};
 
 interface EmailPreferencesPageProps {
-  searchParams: {
-    [key: string]: string | string[] | undefined
-  }
+    searchParams: {
+        [key: string]: string | string[] | undefined;
+    };
 }
 
 export default async function EmailPreferencesPage({
-  searchParams,
+    searchParams,
 }: EmailPreferencesPageProps) {
-  const token = typeof searchParams.token === "string" ? searchParams.token : ""
+    const token =
+        typeof searchParams.token === 'string' ? searchParams.token : '';
 
-  const emailPreference = await getEmailPreferencesByToken({token})
+    const emailPreference = await getEmailPreferencesByToken({ token });
 
-  if (!emailPreference) {
-    notFound()
-  }
+    if (!emailPreference) {
+        notFound();
+    }
 
-  return (
-    <Shell variant="centered">
-      <PageHeader title="Email Preferences" className="text-center" />
-      <Card className="w-full">
-        <CardHeader>
-          <CardTitle>Email Preferences</CardTitle>
-          <CardDescription>Manage your email preferences</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <UpdateEmailPreferencesForm emailPreference={emailPreference} />
-        </CardContent>
-      </Card>
-    </Shell>
-  )
+    return (
+        <Shell variant="centered">
+            <PageHeader title="Email Preferences" className="text-center" />
+            <Card className="w-full">
+                <CardHeader>
+                    <CardTitle>Email Preferences</CardTitle>
+                    <CardDescription>
+                        Manage your email preferences
+                    </CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <UpdateEmailPreferencesForm
+                        emailPreference={emailPreference}
+                    />
+                </CardContent>
+            </Card>
+        </Shell>
+    );
 }
-

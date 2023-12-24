@@ -10,11 +10,11 @@ In this guide you will get an overview of the contribution workflow from opening
 
 To get an overview of the project, read the [README](README.md). Here are some resources to help you get started with open source contributions:
 
-- [How to Contribute to Open Source](https://opensource.guide/how-to-contribute/)
-- [Understanding the GitHub flow](https://guides.github.com/introduction/flow/)
+-   [How to Contribute to Open Source](https://opensource.guide/how-to-contribute/)
+-   [Understanding the GitHub flow](https://guides.github.com/introduction/flow/)
 
-- [GitHub Help Documentation](https://help.github.com/)
-- [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/)
+-   [GitHub Help Documentation](https://help.github.com/)
+-   [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/)
 
 ## Getting started
 
@@ -71,7 +71,7 @@ git push -u origin my-new-feature
 
 When you're finished with the changes, create a pull request, also known as a PR.
 
-- Fill the "Ready for review" template so that we can review your PR. This template helps reviewers understand your changes as well as the purpose of your pull request.
+-   Fill the "Ready for review" template so that we can review your PR. This template helps reviewers understand your changes as well as the purpose of your pull request.
 
 ### Issues
 

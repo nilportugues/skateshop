@@ -1,15 +1,14 @@
-import { redirect } from "next/navigation"
-import { currentUser } from "@clerk/nextjs"
-import DashboardLayout from "@/components/dashboard/dashboard-layout"
+import { currentUser } from '@clerk/nextjs';
+import { redirect } from 'next/navigation';
 
-export default async function Layout({
-  children,
-}: React.PropsWithChildren) {
-  const user = await currentUser()
+import DashboardLayout from '@/components/dashboard/dashboard-layout';
 
-  if (!user) {
-    redirect("/signin")
-  }
+export default async function Layout({ children }: React.PropsWithChildren) {
+    const user = await currentUser();
 
-  return (<DashboardLayout user={user}>{children}</DashboardLayout>)
+    if (!user) {
+        redirect('/signin');
+    }
+
+    return <DashboardLayout user={user}>{children}</DashboardLayout>;
 }

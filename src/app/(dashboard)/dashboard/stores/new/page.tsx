@@ -1,62 +1,64 @@
-import type { Metadata } from "next"
-import { redirect } from "next/navigation"
-import { env } from "@/env.mjs"
-import { currentUser } from "@clerk/nextjs"
+import { currentUser } from '@clerk/nextjs';
+import type { Metadata } from 'next';
+import { redirect } from 'next/navigation';
+
+import { AddStoreForm } from '@/features/stores/client/components/dashboard.form.add-store';
 
 import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card"
-import { AddStoreForm } from "@/features/stores/client/components/dashboard.form.add-store"
+    PageHeader,
+    PageHeaderDescription,
+    PageHeaderHeading,
+} from '@/components/page-header';
+import { Shell } from '@/components/shells/shell';
 import {
-  PageHeader,
-  PageHeaderDescription,
-  PageHeaderHeading,
-} from "@/components/page-header"
-import { Shell } from "@/components/shells/shell"
+    Card,
+    CardContent,
+    CardDescription,
+    CardHeader,
+    CardTitle,
+} from '@/components/ui/card';
+import { env } from '@/env.mjs';
 
 export const metadata: Metadata = {
-  metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
-  title: "New Store",
-  description: "Add a new store",
-}
+    metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
+    title: 'New Store',
+    description: 'Add a new store',
+};
 
 export default async function NewStorePage() {
-  const user = await currentUser()
+    const user = await currentUser();
 
-  if (!user) {
-    redirect("/signin")
-  }
+    if (!user) {
+        redirect('/signin');
+    }
 
-  return (
-    <Shell variant="sidebar">
-      
-      <PageHeader
-        id="new-store-page-header"
-        aria-labelledby="new-store-page-header-heading"
-      >
-        <PageHeaderHeading size="sm">New Store</PageHeaderHeading>
-        <PageHeaderDescription size="sm">
-          Add a new store to your account
-        </PageHeaderDescription>
-      </PageHeader>
+    return (
+        <Shell variant="sidebar">
+            <PageHeader
+                id="new-store-page-header"
+                aria-labelledby="new-store-page-header-heading"
+            >
+                <PageHeaderHeading size="sm">New Store</PageHeaderHeading>
+                <PageHeaderDescription size="sm">
+                    Add a new store to your account
+                </PageHeaderDescription>
+            </PageHeader>
 
-      <Card
-        as="section"
-        id="new-store-page-form-container"
-        aria-labelledby="new-store-page-form-heading"
-      >
-        <CardHeader className="space-y-1">
-          <CardTitle className="text-2xl">Add store</CardTitle>
-          <CardDescription>Add a new store to your account</CardDescription>
-        </CardHeader>
-        <CardContent>
-          <AddStoreForm userId={user.id} />
-        </CardContent>
-      </Card>
-    </Shell>
-  )
+            <Card
+                as="section"
+                id="new-store-page-form-container"
+                aria-labelledby="new-store-page-form-heading"
+            >
+                <CardHeader className="space-y-1">
+                    <CardTitle className="text-2xl">Add store</CardTitle>
+                    <CardDescription>
+                        Add a new store to your account
+                    </CardDescription>
+                </CardHeader>
+                <CardContent>
+                    <AddStoreForm userId={user.id} />
+                </CardContent>
+            </Card>
+        </Shell>
+    );
 }

@@ -1,9 +1,10 @@
-import { db } from "@/db";
-import { eq } from "drizzle-orm";
-import { emailPreferences } from "@/db/schema"
+import { eq } from 'drizzle-orm';
 
-export async function getEmailPreferencesByToken({token}: {token: string}) {
+import { db } from '@/db';
+import { emailPreferences } from '@/db/schema';
+
+export async function getEmailPreferencesByToken({ token }: { token: string }) {
     return await db.query.emailPreferences.findFirst({
-      where: eq(emailPreferences.token, token),
-    })
-  }
+        where: eq(emailPreferences.token, token),
+    });
+}

@@ -1,14 +1,14 @@
-import { redirect } from "next/navigation"
-import { currentUser } from "@clerk/nextjs"
+import { currentUser } from '@clerk/nextjs';
+import { redirect } from 'next/navigation';
 
 export default async function CheckoutLayout({
-  children,
+    children,
 }: React.PropsWithChildren) {
-  const user = await currentUser()
+    const user = await currentUser();
 
-  if (!user) {
-    redirect("/signin")
-  }
+    if (!user) {
+        redirect('/signin');
+    }
 
-  return <main>{children}</main>
+    return <main>{children}</main>;
 }

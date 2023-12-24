@@ -1,16 +1,16 @@
 {
-  "tailwindCSS.includeLanguages": {
-    "plaintext": "html"
-  },
-  "tailwindCSS.experimental.classRegex": [
-    ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
-    ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
-    ["tw=\"([^\"]*)\""]
-  ],
-  "markdownlint.config": {
-    "MD033": {
-      "allowed_elements": ["img", "p", "a"]
+    "tailwindCSS.includeLanguages": {
+        "plaintext": "html"
     },
-    "MD045": false
-  }
+    "tailwindCSS.experimental.classRegex": [
+        ["cva\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+        ["cn\\(([^)]*)\\)", "[\"'`]([^\"'`]*).*?[\"'`]"],
+        ["tw=\"([^\"]*)\""]
+    ],
+    "markdownlint.config": {
+        "MD033": {
+            "allowed_elements": ["img", "p", "a"]
+        },
+        "MD045": false
+    }
 }
