@@ -4,11 +4,6 @@ import { redirect } from 'next/navigation';
 
 import { AddStoreForm } from '@/features/stores/client/components/dashboard.form.add-store';
 
-import {
-    PageHeader,
-    PageHeaderDescription,
-    PageHeaderHeading,
-} from '@/components/page-header';
 import { PageHeaderBlock } from '@/components/page-header.block';
 import { Shell } from '@/components/shells/shell';
 import {

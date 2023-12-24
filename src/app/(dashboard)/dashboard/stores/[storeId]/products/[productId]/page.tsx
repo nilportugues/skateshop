@@ -4,6 +4,10 @@ import { notFound } from 'next/navigation';
 
 import { UpdateProductForm } from '@/features/product/client/components/dashboard.form.update-product';
 import { ProductPager } from '@/features/product/client/components/pager.product';
+import {
+    getNextProductId,
+    getPreviousProductId,
+} from '@/features/product/server/product';
 
 import {
     Card,
@@ -43,6 +47,26 @@ export default async function UpdateProductPage({
         notFound();
     }
 
+    let nextProductId;
+    try {
+        nextProductId = await getNextProductId({
+            id: productId,
+            storeId: storeId,
+        });
+    } catch (e) {
+        nextProductId = undefined;
+    }
+
+    let prevProductId;
+    try {
+        prevProductId = await getPreviousProductId({
+            id: productId,
+            storeId: storeId,
+        });
+    } catch (e) {
+        prevProductId = undefined;
+    }
+
     return (
         <Card>
             <CardHeader className="space-y-1">
@@ -50,7 +74,11 @@ export default async function UpdateProductPage({
                     <CardTitle as="h2" className="text-2xl">
                         Update product
                     </CardTitle>
-                    <ProductPager product={product} />
+                    <ProductPager
+                        storeId={storeId}
+                        nextProductId={nextProductId}
+                        prevProductId={prevProductId}
+                    />
                 </div>
                 <CardDescription>
                     Update your product information, or delete it

@@ -1,16 +1,19 @@
 'use client';
 
 import { ChevronRightIcon } from '@radix-ui/react-icons';
-import { useRouter } from 'next/router';
+import { useRouter } from 'next/navigation';
 import * as React from 'react';
 import { toast } from 'sonner';
 
-import { getNextProductId } from '@/features/product/server/product';
-
 import { Button } from '@/components/ui/button';
-import { Product } from '@/libs/server/db/schema';
 
-export async function NextProductButton({ product }: { product: Product }) {
+export function NextProductButton({
+    nextProductId,
+    storeId,
+}: {
+    nextProductId?: number;
+    storeId: number;
+}) {
     const router = useRouter();
     const [isPending, startTransition] = React.useTransition();
 
@@ -20,14 +23,9 @@ export async function NextProductButton({ product }: { product: Product }) {
             size="icon"
             onClick={() => {
                 startTransition(async () => {
-                    'use server';
                     try {
-                        const nextProductId = await getNextProductId({
-                            id: product.id,
-                            storeId: product.storeId,
-                        });
                         router.push(
-                            `/dashboard/stores/${product.storeId}/products/${nextProductId}`,
+                            `/dashboard/stores/${storeId}/products/${nextProductId}`,
                         );
                     } catch (error) {
                         error instanceof Error

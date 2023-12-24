@@ -1,25 +1,27 @@
 'use client';
 
-import { ChevronLeftIcon, ChevronRightIcon } from '@radix-ui/react-icons';
+import { ChevronLeftIcon } from '@radix-ui/react-icons';
 import { useRouter } from 'next/navigation';
 import * as React from 'react';
 import { toast } from 'sonner';
 
-import {
-    getNextProductId,
-    getPreviousProductId,
-} from '@/features/product/server/product';
-
 import { Button } from '@/components/ui/button';
-import { type Product } from '@/libs/server/db/schema';
 
 import { NextProductButton } from '../../server/components/buttons/next-product-button';
 
 interface ProductPagerProps {
-    product: Product;
+    storeId: number;
+    nextProductId?: number;
+    prevProductId?: number;
 }
 
-function PreviousProductButton({ product }: { product: Product }) {
+function PreviousProductButton({
+    prevProductId,
+    storeId,
+}: {
+    prevProductId?: number;
+    storeId: number;
+}) {
     const router = useRouter();
     const [isPending, startTransition] = React.useTransition();
 
@@ -30,12 +32,8 @@ function PreviousProductButton({ product }: { product: Product }) {
             onClick={() => {
                 startTransition(async () => {
                     try {
-                        const prevProductId = await getPreviousProductId({
-                            id: product.id,
-                            storeId: product.storeId,
-                        });
                         router.push(
-                            `/dashboard/stores/${product.storeId}/products/${prevProductId}`,
+                            `/dashboard/stores/${storeId}/products/${prevProductId}`,
                         );
                     } catch (error) {
                         error instanceof Error
@@ -54,11 +52,20 @@ function PreviousProductButton({ product }: { product: Product }) {
     );
 }
 
-export function ProductPager({ product }: ProductPagerProps) {
+export function ProductPager({
+    storeId,
+    prevProductId,
+    nextProductId,
+}: ProductPagerProps) {
     return (
         <div className="flex space-x-0.5">
-            <PreviousProductButton product={product} />
-            <NextProductButton product={product} />
+            {prevProductId && (
+                <PreviousProductButton {...{ storeId, prevProductId }} />
+            )}
+            {nextProductId && (
+                <NextProductButton {...{ storeId, nextProductId }} />
+            )}
+            <pre>{JSON.stringify({ prevProductId, nextProductId })}</pre>
         </div>
     );
 }

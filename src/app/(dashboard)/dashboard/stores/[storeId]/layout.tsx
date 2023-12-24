@@ -7,11 +7,7 @@ import { StoreTabs } from '@/features/stores/client/components/dashboard.tabs.st
 import { getDashboardRedirectPath } from '@/features/stripe/client/utils/subscription';
 import { getSubscriptionPlan } from '@/features/stripe/server/stripe.services';
 
-import {
-    PageHeader,
-    PageHeaderDescription,
-    PageHeaderHeading,
-} from '@/components/page-header';
+import { PageHeaderBlock } from '@/components/page-header.block';
 import { StoreSwitcher } from '@/components/pagers/store-switcher';
 import { Shell } from '@/components/shells/shell';
 import { db } from '@/libs/server/db';
@@ -54,12 +50,12 @@ export default async function StoreLayout({
     return (
         <Shell variant="sidebar">
             <div className="flex flex-col gap-4 pr-1 xxs:flex-row">
-                <PageHeader className="flex-1">
-                    <PageHeaderHeading size="sm">Dashboard</PageHeaderHeading>
-                    <PageHeaderDescription size="sm">
-                        Manage your store
-                    </PageHeaderDescription>
-                </PageHeader>
+                <PageHeaderBlock
+                    size="sm"
+                    title="Dashboard"
+                    description="Manage your store"
+                />
+
                 {allStores.length > 1 ? (
                     <StoreSwitcher
                         currentStore={store}
