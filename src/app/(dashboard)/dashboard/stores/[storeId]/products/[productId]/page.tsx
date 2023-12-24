@@ -3,6 +3,7 @@ import { notFound } from 'next/navigation';
 
 import { UpdateProductForm } from '@/features/product/client/components/dashboard.form.update-product';
 import { ProductPager } from '@/features/product/client/components/pager.product';
+import { findProductByIdAndStoreId } from '@/features/product/server/db';
 import {
     getNextProductId,
     getPreviousProductId,
@@ -16,7 +17,6 @@ import {
     CardTitle,
 } from '@/components/ui/card';
 import { env } from '@/env.mjs';
-import { findProductByIdAndStoreId } from '@/features/product/server/db';
 
 export const metadata: Metadata = {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -37,7 +37,7 @@ export default async function UpdateProductPage({
     const storeId = Number(params.storeId);
     const productId = Number(params.productId);
 
-    const product = await findProductByIdAndStoreId({storeId, productId});
+    const product = await findProductByIdAndStoreId({ storeId, productId });
     if (!product) {
         notFound();
     }

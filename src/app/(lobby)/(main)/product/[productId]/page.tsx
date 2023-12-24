@@ -5,6 +5,7 @@ import { notFound } from 'next/navigation';
 import { AddToCartForm } from '@/features/cart/client/components/form.add-to-cart';
 
 import { ProductImageCarousel } from '@/features/product/client/components/carousel.product-image';
+import { ProductListLink } from '@/features/product/client/components/link.product-list';
 import { RelatedProducts } from '@/features/product/client/components/list.related-products';
 import {
     findProductById,
@@ -102,14 +103,12 @@ export default async function ProductPage({ params }: ProductPageProps) {
                         <p className="text-base text-muted-foreground">
                             {formatPrice(product.price)}
                         </p>
-                        {store ? (
-                            <Link
-                                href={`/products?store_ids=${store.id}`}
-                                className="line-clamp-1 inline-block text-base text-muted-foreground hover:underline"
-                            >
-                                {store.name}
-                            </Link>
-                        ) : null}
+                        <ProductListLink
+                            {...{
+                                storeId: store?.id,
+                                storeName: store?.name,
+                            }}
+                        />
                     </div>
                     <Separator className="my-1.5" />
                     <p className="text-base text-muted-foreground">

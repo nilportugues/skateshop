@@ -4,16 +4,21 @@ import { products, stores } from 'drizzle/schema';
 import { db } from '@/libs/server/db';
 
 export async function findStoryById({ storeId }: { storeId: number }) {
-    return await db.query.stores.findFirst({        
+    return await db.query.stores.findFirst({
         where: eq(stores.id, storeId),
     });
 }
-export async function findStoryByIdAndProductId({ productId, storeId }: { productId: number, storeId: number }) {
-    return await db.query.stores.findFirst({        
+export async function findStoryByIdAndProductId({
+    productId,
+    storeId,
+}: {
+    productId: number;
+    storeId: number;
+}) {
+    return await db.query.stores.findFirst({
         where: and(eq(products.id, productId), eq(products.storeId, storeId)),
     });
 }
-
 
 export async function getAllStoresIdsWithProducts() {
     return db
