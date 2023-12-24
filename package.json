@@ -11,7 +11,7 @@
         "db:push": "dotenv drizzle-kit push:mysql",
         "db:studio": "dotenv drizzle-kit studio --verbose",
         "dev": "contentlayer dev & next dev",
-        "email:dev": "email dev --dir src/components/emails -p 3001",
+        "dev:email": "email dev --dir ./src/features/emails/templates -p 9000",
         "format": "prettier --write \"**/*.{html,js,json,jsx,ts,tsx,md}\";",
         "format:check": "prettier --check \"**/*.{ts,tsx,mdx}\" --cache",
         "format:write": "prettier --write \"**/*.{ts,tsx,mdx}\" --cache",

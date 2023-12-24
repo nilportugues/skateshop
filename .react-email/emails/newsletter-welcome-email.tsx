@@ -1,2 +1,2 @@
-import Mail from '../../src/components/emails/newsletter-welcome-email.tsx';
+import Mail from '../../src/features/emails/templates/newsletter-welcome-email.tsx';
 export default Mail;
