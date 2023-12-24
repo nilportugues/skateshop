@@ -69,7 +69,6 @@ export default async function PurchasesPage({
     countOrdersByEmailAndStore({email, store, statuses})
   ]);
 
-
   return (
     <Shell variant="sidebar">
       <PageHeader
@@ -89,7 +88,7 @@ export default async function PurchasesPage({
   )
 }
 async function countOrdersByEmailAndStore({email, store, statuses}: {email: string, store: string | undefined, statuses: string[]}) {
-  return  db
+  return await db
     .select({
       count: sql<number> `count(*)`,
     })
@@ -111,9 +110,11 @@ async function countOrdersByEmailAndStore({email, store, statuses}: {email: stri
     .then((res) => res[0]?.count ?? 0)
 }
 
+export type FindOrdersByEmailAndStore = Awaited<typeof findOrdersByEmailAndStore>;
+
 async function findOrdersByEmailAndStore(
   {email, store, statuses, column, order, limit, offset}:  {email: string, store?: string, statuses: string[], column?: keyof Order, order?: "asc" | "desc", limit: number, offset: number}) {
-  const data =  db
+  const data =  await db
     .select({
       id: orders.id,
       email: orders.email,
@@ -147,7 +148,7 @@ async function findOrdersByEmailAndStore(
           ? asc(orders[column])
           : desc(orders[column])
         : desc(orders.createdAt)
-    ).execute()
+    )
 
     return data;
 }

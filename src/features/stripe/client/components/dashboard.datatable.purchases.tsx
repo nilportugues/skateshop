@@ -25,40 +25,37 @@ import {
 import { DataTable } from "@/components/data-table/data-table"
 import { DataTableColumnHeader } from "@/components/data-table/data-table-column-header"
 
-Promise<{
+type Item = {
+  id: number;
+  email: string | null;
   items: {
-    id: number
-    email: string | null
-    items:
-      | {
-          productId: number
-          quantity: number
-          price: number
-          subcategory?: string | null | undefined
-        }[]
-      | null
-    amount: string
-    status: string
-    createdAt: Date | null
-    storeId: number
-    store: string | null
-  }[]
-  count: number
-}>
+      productId: number;
+      quantity: number;
+      price: number;
+      subcategory?: string | null | undefined;
+  }[] | null;
+  amount: string;
+  status: string;
+  createdAt: Date | null;
+  storeId: number;
+  store: string | null;
+}
+
+export interface PurchasesDataTableProps {
+    items: Item[]
+    count: number
+  limit: number
+}
+
 
 export type AwaitedOrder = Pick<
-  Order,
+  Item,
   "id" | "email" | "items" | "amount" | "createdAt" | "storeId"
 > & {
   status: Order["stripePaymentIntentStatus"]
   store: string | null
 }
 
-interface PurchasesDataTableProps {
-    items: Order[]
-    count: number
-  limit: number
-}
 
 export function PurchasesDataTable({
   items, count,
@@ -68,7 +65,7 @@ export function PurchasesDataTable({
   const pageCount = Math.ceil(count / limit)
 
   // Memoize the columns so they don't re-render on every render
-  const columns = React.useMemo<ColumnDef<Order, unknown>[]>(
+  const columns = React.useMemo<ColumnDef<Item, unknown>[]>(
     () => [
       {
         accessorKey: "id",
