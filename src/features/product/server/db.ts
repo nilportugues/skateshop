@@ -6,18 +6,15 @@ import { products } from '@/libs/server/db/schema';
 
 export async function findProductById({ productId }: { productId: number }) {
     return await db.query.products.findFirst({
-        columns: {
-            id: true,
-            name: true,
-            description: true,
-            price: true,
-            images: true,
-            category: true,
-            inventory: true,
-            rating: true,
-            storeId: true,
-        },
+        
         where: eq(products.id, productId),
+    });
+}
+
+
+export async function findProductByIdAndStoreId({ productId, storeId }: { productId: number, storeId: number }) {
+    return await db.query.products.findFirst({        
+        where: and(eq(products.id, productId), eq(products.storeId, storeId)),
     });
 }
 

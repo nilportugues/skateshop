@@ -1,4 +1,3 @@
-import { and, eq } from 'drizzle-orm';
 import { type Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -17,8 +16,7 @@ import {
     CardTitle,
 } from '@/components/ui/card';
 import { env } from '@/env.mjs';
-import { db } from '@/libs/server/db';
-import { products } from '@/libs/server/db/schema';
+import { findProductByIdAndStoreId } from '@/features/product/server/db';
 
 export const metadata: Metadata = {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -39,10 +37,7 @@ export default async function UpdateProductPage({
     const storeId = Number(params.storeId);
     const productId = Number(params.productId);
 
-    const product = await db.query.products.findFirst({
-        where: and(eq(products.id, productId), eq(products.storeId, storeId)),
-    });
-
+    const product = await findProductByIdAndStoreId({storeId, productId});
     if (!product) {
         notFound();
     }

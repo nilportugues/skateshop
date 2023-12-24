@@ -1,17 +1,19 @@
-import { desc, eq, sql } from 'drizzle-orm';
+import { and, desc, eq, sql } from 'drizzle-orm';
 import { products, stores } from 'drizzle/schema';
 
 import { db } from '@/libs/server/db';
 
 export async function findStoryById({ storeId }: { storeId: number }) {
-    return await db.query.stores.findFirst({
-        columns: {
-            id: true,
-            name: true,
-        },
+    return await db.query.stores.findFirst({        
         where: eq(stores.id, storeId),
     });
 }
+export async function findStoryByIdAndProductId({ productId, storeId }: { productId: number, storeId: number }) {
+    return await db.query.stores.findFirst({        
+        where: and(eq(products.id, productId), eq(products.storeId, storeId)),
+    });
+}
+
 
 export async function getAllStoresIdsWithProducts() {
     return db
