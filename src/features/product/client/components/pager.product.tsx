@@ -7,7 +7,7 @@ import { toast } from 'sonner';
 
 import { Button } from '@/components/ui/button';
 
-import { NextProductButton } from '../../server/components/buttons/next-product-button';
+import { NextProductButton } from './dashboard.button.next-product';
 
 interface ProductPagerProps {
     storeId: number;
