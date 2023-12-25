@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { CartLineItems } from '@/features/cart/client/components/list.cart-line-items';
 
 import { VerifyOrderForm } from '@/features/stripe/client/components/checkout.form.verify-order';
-import { getOrderLineItems } from '@/features/stripe/server/order.services';
+import { getOrderCartLineItems } from '@/features/stripe/server/order.services';
 import { getPaymentIntent } from '@/features/stripe/server/stripe.services';
 
 import {
@@ -65,7 +65,7 @@ export default async function OrderSuccessPage({
 
     const lineItems =
         isVerified && paymentIntent
-            ? await getOrderLineItems({
+            ? await getOrderCartLineItems({
                   storeId,
                   items: paymentIntent?.metadata?.items,
                   paymentIntent,
