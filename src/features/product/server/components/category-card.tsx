@@ -1,4 +1,3 @@
-import { eq, sql } from 'drizzle-orm';
 import { unstable_noStore as noStore } from 'next/cache';
 import Link from 'next/link';
 import * as React from 'react';
@@ -11,9 +10,8 @@ import {
     CardTitle,
 } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
-import { db } from '@/libs/server/db';
-import { products } from '@/libs/server/db/schema';
 import type { Category } from '@/types';
+import { getProductCategoryCount } from '@/features/product/server/db';
 
 interface CategoryCardProps {
     category: Category;
@@ -22,15 +20,7 @@ interface CategoryCardProps {
 export async function CategoryCard({ category }: CategoryCardProps) {
     noStore();
 
-    const productCount = await db
-        .select({
-            count: sql<number>`count(*)`.mapWith(Number),
-        })
-        .from(products)
-        .where(eq(products.category, category.title))
-        .execute()
-        .then((res) => res[0]?.count ?? 0)
-        .catch(() => 0);
+    const productCount = await getProductCategoryCount({name: category.title});
 
     return (
         <Link key={category.title} href={`/categories/${category.title}`}>

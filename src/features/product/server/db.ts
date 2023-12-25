@@ -3,6 +3,7 @@ import { stores } from 'drizzle/schema';
 
 import { db } from '@/libs/server/db';
 import { products } from '@/libs/server/db/schema';
+import { Category } from '@/types';
 
 export async function findProductById({ productId }: { productId: number }) {
     return await db.query.products.findFirst({
@@ -67,4 +68,17 @@ export async function getAllProductsFromStoresWithStripeAccounts() {
             desc(sql<number>`count(${products.images})`),
             desc(products.createdAt),
         );
+}
+
+
+export async function getProductCategoryCount({name}: {name: Category['title']}) {
+    return await db
+        .select({
+            count: sql<number> `count(*)`.mapWith(Number),
+        })
+        .from(products)
+        .where(eq(products.category, name))
+        .execute()
+        .then((res) => res[0]?.count ?? 0)
+        .catch(() => 0);
 }
