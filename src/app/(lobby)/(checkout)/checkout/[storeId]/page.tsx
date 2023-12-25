@@ -18,7 +18,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
 import { env } from '@/env.mjs';
 import { cn, formatPrice } from '@/libs/client/utils';
-import { findStoryById } from '@/features/stores/server/db';
+import { findStoreById } from '@/features/stores/server/db';
 
 export const metadata: Metadata = {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -35,7 +35,7 @@ interface CheckoutPageProps {
 export default async function CheckoutPage({ params }: CheckoutPageProps) {
     const storeId = Number(params.storeId);
 
-    const store = await findStoryById({ storeId });
+    const store = await findStoreById({ storeId });
     if (!store) {
         notFound();
     }

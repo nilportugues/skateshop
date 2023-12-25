@@ -15,7 +15,7 @@ import {
 import { buttonVariants } from '@/components/ui/button';
 import { env } from '@/env.mjs';
 import { cn, formatPrice } from '@/libs/client/utils';
-import { findStoryById } from '@/features/stores/server/db';
+import { findStoreById } from '@/features/stores/server/db';
 
 export const metadata: Metadata = {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -45,7 +45,7 @@ export default async function OrderSuccessPage({
     } = searchParams ?? {};
 
     
-    const store = await findStoryById({ storeId });
+    const store = await findStoreById({ storeId });
 
     const { isVerified, paymentIntent } = await getPaymentIntent({
         storeId,

@@ -1,7 +1,7 @@
 import { type Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
-import { findStoryById } from '@/features/stores/server/db';
+import { findStoreById } from '@/features/stores/server/db';
 
 import { OrderCard } from '@/features/stripe/client/components/dashboard.card.order';
 import { findOrderById } from '@/features/stripe/server/db';
@@ -41,7 +41,7 @@ export default async function PurchasePage({ params }: PurchasePageProps) {
         storeId: order.storeId,
     });
 
-    const store = await findStoryById({ storeId: order.storeId });
+    const store = await findStoreById({ storeId: order.storeId });
 
     return (
         <Shell variant="sidebar">

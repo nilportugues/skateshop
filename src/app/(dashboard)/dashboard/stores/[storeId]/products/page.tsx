@@ -13,7 +13,7 @@ import { env } from '@/env.mjs';
 import { db } from '@/libs/server/db';
 import { type Product, products } from '@/libs/server/db/schema';
 import { dashboardProductsSearchParamsSchema } from '@/libs/server/params.validations';
-import { findStoryById } from '@/features/stores/server/db';
+import { findStoreById } from '@/features/stores/server/db';
 
 export const metadata: Metadata = {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -40,7 +40,7 @@ export default async function ProductsPage({
     const { page, per_page, sort, name, category, from, to } =
         dashboardProductsSearchParamsSchema.parse(searchParams);
 
-    const store = await findStoryById({ storeId });
+    const store = await findStoreById({ storeId });
     if (!store) {
         notFound();
     }

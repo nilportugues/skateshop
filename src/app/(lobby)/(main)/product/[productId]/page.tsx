@@ -11,7 +11,7 @@ import {
     findRelatedProductsByProductId,
 } from '@/features/product/server/db';
 
-import { findStoryById } from '@/features/stores/server/db';
+import { findStoreById } from '@/features/stores/server/db';
 
 import { Breadcrumbs } from '@/components/pagers/breadcrumbs';
 import { Rating } from '@/components/rating';
@@ -58,7 +58,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
         notFound();
     }
 
-    const store = await findStoryById({ storeId: product.storeId });
+    const store = await findStoreById({ storeId: product.storeId });
     const otherProducts = store
         ? await findRelatedProductsByProductId({
               productId,

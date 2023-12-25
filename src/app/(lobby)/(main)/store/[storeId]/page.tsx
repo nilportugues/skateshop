@@ -11,7 +11,7 @@ import { Shell } from '@/components/shells/shell';
 import { Separator } from '@/components/ui/separator';
 import { env } from '@/env.mjs';
 import { products, stores } from '@/libs/server/db/schema';
-import { findStoryById } from '@/features/stores/server/db';
+import { findStoreById } from '@/features/stores/server/db';
 
 interface StorePageProps {
     params: {
@@ -24,7 +24,7 @@ interface StorePageProps {
 
 async function getStoreFromParams(params: StorePageProps['params']) {
     const storeId = Number(params.storeId);
-    return await findStoryById({ storeId });
+    return await findStoreById({ storeId });
 }
 
 export async function generateMetadata({

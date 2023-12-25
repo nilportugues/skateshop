@@ -16,7 +16,7 @@ import { formatNumber, formatPrice } from '@/libs/client/utils';
 import { db } from '@/libs/server/db';
 import { orders, stores } from '@/libs/server/db/schema';
 import { searchParamsSchema } from '@/libs/server/params.validations';
-import { findStoryById } from '@/features/stores/server/db';
+import { findStoreById } from '@/features/stores/server/db';
 
 export const metadata: Metadata = {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -53,7 +53,7 @@ export default async function AnalyticsPage({
             : undefined;
 
             
-    const store = await findStoryById({ storeId });
+    const store = await findStoreById({ storeId });
     if (!store) {
         notFound();
     }

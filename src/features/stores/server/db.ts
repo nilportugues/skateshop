@@ -3,12 +3,12 @@ import { products, stores } from 'drizzle/schema';
 
 import { db } from '@/libs/server/db';
 
-export async function findStoryById({ storeId }: { storeId: number }) {
+export async function findStoreById({ storeId }: { storeId: number }) {
     return db.query.stores.findFirst({
         where: eq(stores.id, storeId),
     });
 }
-export async function findStoryByIdAndProductId({
+export async function findStoreByIdAndProductId({
     productId,
     storeId,
 }: {

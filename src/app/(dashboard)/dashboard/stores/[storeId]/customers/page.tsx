@@ -11,7 +11,7 @@ import { env } from '@/env.mjs';
 import { db } from '@/libs/server/db';
 import { orders } from '@/libs/server/db/schema';
 import { customersSearchParamsSchema } from '@/libs/server/params.validations';
-import { findStoryById } from '@/features/stores/server/db';
+import { findStoreById } from '@/features/stores/server/db';
 
 export const metadata: Metadata = {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -37,7 +37,7 @@ export default async function CustomersPage({
     const { page, per_page, sort, email, from, to } =
         customersSearchParamsSchema.parse(searchParams);
 
-    const store = await findStoryById({ storeId });
+    const store = await findStoreById({ storeId });
     if (!store) {
         notFound();
     }
