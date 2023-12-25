@@ -11,8 +11,9 @@ import { DataTableSkeleton } from '@/components/data-table/data-table-skeleton';
 import { DateRangePicker } from '@/components/date-range-picker';
 import { env } from '@/env.mjs';
 import { db } from '@/libs/server/db';
-import { type Product, products, stores } from '@/libs/server/db/schema';
+import { type Product, products } from '@/libs/server/db/schema';
 import { dashboardProductsSearchParamsSchema } from '@/libs/server/params.validations';
+import { findStoryById } from '@/features/stores/server/db';
 
 export const metadata: Metadata = {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -39,14 +40,7 @@ export default async function ProductsPage({
     const { page, per_page, sort, name, category, from, to } =
         dashboardProductsSearchParamsSchema.parse(searchParams);
 
-    const store = await db.query.stores.findFirst({
-        where: eq(stores.id, storeId),
-        columns: {
-            id: true,
-            name: true,
-        },
-    });
-
+    const store = await findStoryById({ storeId });
     if (!store) {
         notFound();
     }

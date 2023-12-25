@@ -1,4 +1,3 @@
-import { eq } from 'drizzle-orm';
 import { type Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -26,8 +25,7 @@ import { Label } from '@/components/ui/label';
 import { Textarea } from '@/components/ui/textarea';
 import { env } from '@/env.mjs';
 import { cn, formatDate } from '@/libs/client/utils';
-import { db } from '@/libs/server/db';
-import { stores } from '@/libs/server/db/schema';
+import { findStoryById } from '@/features/stores/server/db';
 
 export const metadata: Metadata = {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -46,15 +44,7 @@ export default async function UpdateStorePage({
 }: UpdateStorePageProps) {
     const storeId = Number(params.storeId);
 
-    const store = await db.query.stores.findFirst({
-        where: eq(stores.id, storeId),
-        columns: {
-            id: true,
-            name: true,
-            description: true,
-        },
-    });
-
+    const store = await findStoryById({ storeId });
     if (!store) {
         notFound();
     }

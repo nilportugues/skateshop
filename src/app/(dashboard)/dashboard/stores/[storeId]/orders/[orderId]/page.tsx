@@ -3,7 +3,7 @@ import { type Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 
-import { getOrderLineItems } from '@/features/stripe/server/order.services';
+import { getOrderCartLineItems } from '@/features/stripe/server/order.services';
 
 import {
     Card,
@@ -42,7 +42,7 @@ export default async function OrderPage({ params }: OrderPageProps) {
         notFound();
     }
 
-    const orderLineItems = await getOrderLineItems({
+    const orderLineItems = await getOrderCartLineItems({
         items: String(order.items),
         storeId: order.storeId,
     });

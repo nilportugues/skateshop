@@ -1,4 +1,3 @@
-import { eq } from 'drizzle-orm';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 
@@ -16,8 +15,7 @@ import {
 import { buttonVariants } from '@/components/ui/button';
 import { env } from '@/env.mjs';
 import { cn, formatPrice } from '@/libs/client/utils';
-import { db } from '@/libs/server/db';
-import { stores } from '@/libs/server/db/schema';
+import { findStoryById } from '@/features/stores/server/db';
 
 export const metadata: Metadata = {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -46,12 +44,8 @@ export default async function OrderSuccessPage({
         delivery_postal_code,
     } = searchParams ?? {};
 
-    const store = await db.query.stores.findFirst({
-        columns: {
-            name: true,
-        },
-        where: eq(stores.id, storeId),
-    });
+    
+    const store = await findStoryById({ storeId });
 
     const { isVerified, paymentIntent } = await getPaymentIntent({
         storeId,

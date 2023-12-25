@@ -1,5 +1,4 @@
 import { currentUser } from '@clerk/nextjs';
-import { eq } from 'drizzle-orm';
 import { notFound, redirect } from 'next/navigation';
 
 import { StoreTabs } from '@/features/stores/client/components/dashboard.tabs.store-tabs';
@@ -10,8 +9,7 @@ import { getSubscriptionPlan } from '@/features/stripe/server/stripe.services';
 import { PageHeaderBlock } from '@/components/page-header.block';
 import { StoreSwitcher } from '@/components/pagers/store-switcher';
 import { Shell } from '@/components/shells/shell';
-import { db } from '@/libs/server/db';
-import { stores } from '@/libs/server/db/schema';
+import { getStoresByUserId } from '@/features/stores/server/db';
 
 interface StoreLayoutProps extends React.PropsWithChildren {
     params: {
@@ -30,17 +28,9 @@ export default async function StoreLayout({
     if (!user) {
         redirect('/signin');
     }
-
-    const allStores = await db
-        .select({
-            id: stores.id,
-            name: stores.name,
-        })
-        .from(stores)
-        .where(eq(stores.userId, user.id));
-
+    
+    const allStores = await getStoresByUserId({ userId: user.id });
     const store = allStores.find((store) => store.id === storeId);
-
     if (!store) {
         notFound();
     }

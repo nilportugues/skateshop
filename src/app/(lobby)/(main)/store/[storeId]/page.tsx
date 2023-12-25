@@ -1,4 +1,3 @@
-import { eq } from 'drizzle-orm';
 import type { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 
@@ -11,8 +10,8 @@ import { Breadcrumbs } from '@/components/pagers/breadcrumbs';
 import { Shell } from '@/components/shells/shell';
 import { Separator } from '@/components/ui/separator';
 import { env } from '@/env.mjs';
-import { db } from '@/libs/server/db';
 import { products, stores } from '@/libs/server/db/schema';
+import { findStoryById } from '@/features/stores/server/db';
 
 interface StorePageProps {
     params: {
@@ -25,10 +24,7 @@ interface StorePageProps {
 
 async function getStoreFromParams(params: StorePageProps['params']) {
     const storeId = Number(params.storeId);
-
-    return await db.query.stores.findFirst({
-        where: eq(stores.id, storeId),
-    });
+    return await findStoryById({ storeId });
 }
 
 export async function generateMetadata({

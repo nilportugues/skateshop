@@ -1,5 +1,4 @@
 import { ArrowLeftIcon } from '@radix-ui/react-icons';
-import { eq } from 'drizzle-orm';
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
@@ -19,8 +18,7 @@ import { ScrollArea } from '@/components/ui/scroll-area';
 import { Separator } from '@/components/ui/separator';
 import { env } from '@/env.mjs';
 import { cn, formatPrice } from '@/libs/client/utils';
-import { db } from '@/libs/server/db';
-import { stores } from '@/libs/server/db/schema';
+import { findStoryById } from '@/features/stores/server/db';
 
 export const metadata: Metadata = {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -37,17 +35,7 @@ interface CheckoutPageProps {
 export default async function CheckoutPage({ params }: CheckoutPageProps) {
     const storeId = Number(params.storeId);
 
-    const store = await db
-        .select({
-            id: stores.id,
-            name: stores.name,
-            stripeAccountId: stores.stripeAccountId,
-        })
-        .from(stores)
-        .where(eq(stores.id, storeId))
-        .execute()
-        .then((rows) => rows[0]);
-
+    const store = await findStoryById({ storeId });
     if (!store) {
         notFound();
     }
