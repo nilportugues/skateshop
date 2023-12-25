@@ -3,11 +3,7 @@ import { type Metadata } from 'next';
 import { Stores } from '@/features/stores/client/components/searchable.stores';
 import { getStores } from '@/features/stores/store';
 
-import {
-    PageHeader,
-    PageHeaderDescription,
-    PageHeaderHeading,
-} from '@/components/page-header';
+import { PageHeaderBlock } from '@/components/page-header.block';
 import { Shell } from '@/components/shells/shell';
 import { env } from '@/env.mjs';
 import { storesSearchParamsSchema } from '@/libs/server/params.validations';
@@ -47,12 +43,11 @@ export default async function StoresPage({ searchParams }: StoresPageProps) {
 
     return (
         <Shell>
-            <PageHeader>
-                <PageHeaderHeading size="sm">Stores</PageHeaderHeading>
-                <PageHeaderDescription size="sm">
-                    Buy products from our stores
-                </PageHeaderDescription>
-            </PageHeader>
+            <PageHeaderBlock
+                size="sm"
+                title="Stores"
+                description="Buy products from our stores"
+            />
             <Stores stores={storesTransaction.items} pageCount={pageCount} />
         </Shell>
     );

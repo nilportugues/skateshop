@@ -5,11 +5,7 @@ import { getProducts } from '@/features/product/server/product';
 
 import { getStores } from '@/features/stores/store';
 
-import {
-    PageHeader,
-    PageHeaderDescription,
-    PageHeaderHeading,
-} from '@/components/page-header';
+import { PageHeaderBlock } from '@/components/page-header.block';
 import { Shell } from '@/components/shells/shell';
 import { env } from '@/env.mjs';
 import { toTitleCase, unslugify } from '@/libs/client/utils';
@@ -78,14 +74,12 @@ export default async function SubcategoryPage({
 
     return (
         <Shell>
-            <PageHeader>
-                <PageHeaderHeading size="sm">
-                    {toTitleCase(unslugify(subcategory))}
-                </PageHeaderHeading>
-                <PageHeaderDescription size="sm">
-                    {`Buy the best ${unslugify(subcategory)}`}
-                </PageHeaderDescription>
-            </PageHeader>
+            <PageHeaderBlock
+                size="sm"
+                title={toTitleCase(unslugify(subcategory))}
+                description={`Buy the best ${unslugify(subcategory)}`}
+            />
+
             <Products
                 products={productsTransaction.items}
                 pageCount={pageCount}

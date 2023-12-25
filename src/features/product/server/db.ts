@@ -70,11 +70,14 @@ export async function getAllProductsFromStoresWithStripeAccounts() {
         );
 }
 
-
-export async function getProductCategoryCount({name}: {name: Category['title']}) {
+export async function getProductCategoryCount({
+    name,
+}: {
+    name: Category['title'];
+}) {
     return await db
         .select({
-            count: sql<number> `count(*)`.mapWith(Number),
+            count: sql<number>`count(*)`.mapWith(Number),
         })
         .from(products)
         .where(eq(products.category, name))

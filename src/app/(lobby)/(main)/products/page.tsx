@@ -6,11 +6,11 @@ import { getProducts } from '@/features/product/server/product';
 
 import { getStores } from '@/features/stores/store';
 
+import { PageHeaderBlock } from '@/components/page-header.block';
 import { Shell } from '@/components/shells/shell';
 import { env } from '@/env.mjs';
 import { products } from '@/libs/server/db/schema';
 import { productsSearchParamsSchema } from '@/libs/server/params.validations';
-import { PageHeaderBlock } from '@/components/page-header.block';
 
 export const metadata: Metadata = {
     metadataBase: new URL(env.NEXT_PUBLIC_APP_URL),
@@ -84,9 +84,11 @@ export default async function ProductsPage({
 
     return (
         <Shell>
-      
-
-            <PageHeaderBlock size='sm' title='Products' description='Buy products from our stores' />
+            <PageHeaderBlock
+                size="sm"
+                title="Products"
+                description="Buy products from our stores"
+            />
 
             <Products
                 products={productsTransaction.items}

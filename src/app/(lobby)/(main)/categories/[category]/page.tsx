@@ -5,11 +5,7 @@ import { getProducts } from '@/features/product/server/product';
 
 import { getStores } from '@/features/stores/store';
 
-import {
-    PageHeader,
-    PageHeaderDescription,
-    PageHeaderHeading,
-} from '@/components/page-header';
+import { PageHeaderBlock } from '@/components/page-header.block';
 import { Shell } from '@/components/shells/shell';
 import { env } from '@/env.mjs';
 import { toTitleCase } from '@/libs/client/utils';
@@ -83,14 +79,12 @@ export default async function CategoryPage({
 
     return (
         <Shell>
-            <PageHeader>
-                <PageHeaderHeading size="sm">
-                    {toTitleCase(category)}
-                </PageHeaderHeading>
-                <PageHeaderDescription size="sm">
-                    {`Buy ${category} from the best stores`}
-                </PageHeaderDescription>
-            </PageHeader>
+            <PageHeaderBlock
+                size="sm"
+                title={toTitleCase(category)}
+                description={`Buy ${category} from the best stores`}
+            />
+
             <Products
                 products={productsTransaction.items}
                 pageCount={pageCount}

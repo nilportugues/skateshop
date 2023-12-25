@@ -2,6 +2,8 @@ import { unstable_noStore as noStore } from 'next/cache';
 import Link from 'next/link';
 import * as React from 'react';
 
+import { getProductCategoryCount } from '@/features/product/server/db';
+
 import {
     Card,
     CardContent,
@@ -11,7 +13,6 @@ import {
 } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 import type { Category } from '@/types';
-import { getProductCategoryCount } from '@/features/product/server/db';
 
 interface CategoryCardProps {
     category: Category;
@@ -20,7 +21,9 @@ interface CategoryCardProps {
 export async function CategoryCard({ category }: CategoryCardProps) {
     noStore();
 
-    const productCount = await getProductCategoryCount({name: category.title});
+    const productCount = await getProductCategoryCount({
+        name: category.title,
+    });
 
     return (
         <Link key={category.title} href={`/categories/${category.title}`}>

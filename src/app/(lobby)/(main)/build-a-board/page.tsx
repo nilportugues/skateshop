@@ -9,11 +9,7 @@ import { productCategories } from '@/features/product/config/products';
 import { getProducts } from '@/features/product/server/product';
 
 import { BoardBuilder } from '@/components/board-builder';
-import {
-    PageHeader,
-    PageHeaderDescription,
-    PageHeaderHeading,
-} from '@/components/page-header';
+import { PageHeaderBlock } from '@/components/page-header.block';
 import { Shell } from '@/components/shells/shell';
 import { env } from '@/env.mjs';
 import { cn } from '@/libs/client/utils';
@@ -60,15 +56,12 @@ export default async function BuildABoardPage({
 
     return (
         <Shell className="gap-4">
-            <PageHeader
-                id="build-a-board-header"
-                aria-labelledby="build-a-board-header-heading"
-            >
-                <PageHeaderHeading size="sm">Build a Board</PageHeaderHeading>
-                <PageHeaderDescription size="sm">
-                    Select the components for your board
-                </PageHeaderDescription>
-            </PageHeader>
+            <PageHeaderBlock
+                size="sm"
+                title="Build a Board"
+                description="Select the components for your board"
+            />
+
             <section
                 id="build-a-board-categories"
                 aria-labelledby="build-a-board-categories-heading"
